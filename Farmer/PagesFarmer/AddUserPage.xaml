@@ -1,0 +1,74 @@
+﻿<Page x:Class="Farmer.PagesFarmer.AddUserPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Farmer.PagesFarmer"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      DataContext="{Binding RelativeSource={RelativeSource Self}}"
+      Title="AddUserPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="115*"/>
+            <ColumnDefinition Width="79*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="14*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Пользователи" FontSize="16" FontWeight="Bold"/>
+
+        </StackPanel>
+        
+        <ListView x:Name="UserList" Grid.Column="0" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="5" Height="300" VerticalAlignment="Top">
+           <ListView.ItemTemplate>
+              <DataTemplate>
+                    <Border BorderBrush="#FF51708C" BorderThickness="3">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="FullNameTb" Text="{Binding FullName}" Margin="5" Grid.Column="0"/>
+                            <StackPanel Orientation="Vertical" Grid.Column="1" Margin="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock  Text="Логин  "  />
+                                    <TextBlock x:Name="LoginInfTb" Text="{Binding Login}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock  Text="Пароль  " />
+                                    <TextBlock x:Name="PassInfTb" Text="{Binding Password}"  />
+                                </StackPanel>
+
+                            </StackPanel>
+                            <Button Grid.Column="2" x:Name="DeleteBt" Content="Удалить" Margin="5" Height="30" Click="DeleteBt_Click"/>
+                        </Grid>
+                    </Border>
+                    
+              </DataTemplate>
+           </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <TextBlock Text="Добавить пользователя" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <StackPanel Margin="10" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="ФИО" Margin="5"/>
+                    <TextBox x:Name="AddNameTb" Margin="5" Width="110"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Логин" Margin="5"/>
+                    <TextBox x:Name="AddLoginTb" Margin="5" Width="110"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Пароль" Margin="5"/>
+                    <TextBox x:Name="AddPasswordTb" Margin="5" Width="110"/>
+                </StackPanel>
+                <Button x:Name="AddUser" Content="Добавить" Margin="5" Click="AddUser_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

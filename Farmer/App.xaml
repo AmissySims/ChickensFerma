@@ -1,0 +1,18 @@
+﻿<Application x:Class="Farmer.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Farmer"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style TargetType="Button" >
+            <Setter Property="BorderBrush" Value="#FFBC1F4C"/>
+            <Setter Property="Background" Value="White"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="BorderBrush" Value="#FFBC1F4C"/>
+        </Style>
+        <Style TargetType="PasswordBox">
+            <Setter Property="BorderBrush" Value="#FFBC1F4C"/>
+        </Style>
+    </Application.Resources>
+</Application>
