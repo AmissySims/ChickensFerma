@@ -26,7 +26,7 @@
         <ListView x:Name="CageList" Grid.Column="0" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="5" Height="300" VerticalAlignment="Top">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="#FF51708C" BorderThickness="3">
+                    <Border BorderBrush="Black" BorderThickness="2">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>

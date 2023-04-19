@@ -27,11 +27,9 @@ namespace Farmer.PagesFarmer
             InitializeComponent();
         }
 
-        private void ClearBt_Click(object sender, RoutedEventArgs e)
+        private void EnterBt_Click(object sender, RoutedEventArgs e)
         {
-            NameTb.Text = "";
-            LoginTb.Text = "";
-            PasswordTb.Password = "";
+           NavigationService.Navigate(new AuthPage());
         }
 
         private void RegBt_Click(object sender, RoutedEventArgs e)
@@ -39,12 +37,13 @@ namespace Farmer.PagesFarmer
 
             try
             {
+                if((LoginTb.Text != "") && (PasswordTb.Text != "")) { }
                 User NewUser = new User()
                 {
                     FullName = NameTb.Text,
                     RoleId = 2,
                     Login = LoginTb.Text.Trim(),
-                    Password = PasswordTb.Password.Trim()
+                    Password = PasswordTb.Text.Trim()
                 };
                 App.db.User.Add(NewUser); 
                 App.db.SaveChanges();

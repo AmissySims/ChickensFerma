@@ -9,6 +9,46 @@
       Title="AllOrdersPage">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="31*"/>
+            <RowDefinition Height="419*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Добавить заказ" FontSize="16" FontWeight="Bold"/>
+
+        </StackPanel>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Выбрать заказчика " />
+                <ComboBox x:Name="ChoiceCustCb" Height="20" Width="200" Margin="5">
+                    <ComboBoxItem>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Description}"/>
+                        </DataTemplate>
+                    </ComboBoxItem>
+                </ComboBox>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Выбрать тип продукта " />
+                <ComboBox x:Name="ChoiceComponentCb" Height="20" Width="180" Margin="5">
+                    <ComboBoxItem>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Title}"/>
+                        </DataTemplate>
+                    </ComboBoxItem>
+                </ComboBox> 
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Ввести количество  " />
+                <TextBox x:Name="CountaddTb" Width="100" PreviewTextInput="CountaddTb_PreviewTextInput"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Ввести сумму  " />
+                <TextBox x:Name="PriceTb" Width="150" PreviewTextInput="PriceTb_PreviewTextInput"/>
+            </StackPanel>
+            <Button x:Name="AddOrderBt" Content="Создать заказ" Margin="10" Click="AddOrderBt_Click"/>
+        </StackPanel>
         
     </Grid>
 </Page>

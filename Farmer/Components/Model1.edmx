@@ -21,7 +21,6 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SizeId" Type="int" />
           <Property Name="DepartmentId" Type="int" />
-          <Property Name="MaxCageId" Type="int" />
         </EntityType>
         <EntityType Name="Chicken">
           <Key>
@@ -35,6 +34,7 @@
           <Property Name="CageId" Type="int" />
           <Property Name="HealthId" Type="int" />
           <Property Name="BreedId" Type="int" />
+          <Property Name="PhotoChic" Type="image" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -76,14 +76,7 @@
           <Property Name="TypeId" Type="int" />
           <Property Name="Count" Type="int" />
           <Property Name="Photo" Type="image" />
-        </EntityType>
-        <EntityType Name="MaxCage">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="50" />
-          <Property Name="Count" Type="int" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -179,18 +172,6 @@
             </Principal>
             <Dependent Role="Cage">
               <PropertyRef Name="DepartmentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Cage_MaxCage">
-          <End Role="MaxCage" Type="Self.MaxCage" Multiplicity="0..1" />
-          <End Role="Cage" Type="Self.Cage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MaxCage">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Cage">
-              <PropertyRef Name="MaxCageId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -359,7 +340,6 @@
           <EntitySet Name="Eggs" EntityType="Self.Eggs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Health" EntityType="Self.Health" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MaxCage" EntityType="Self.MaxCage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderChicken" EntityType="Self.OrderChicken" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderEggs" EntityType="Self.OrderEggs" Schema="dbo" store:Type="Tables" />
@@ -372,10 +352,6 @@
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Cage_Department" Association="Self.FK_Cage_Department">
             <End Role="Department" EntitySet="Department" />
-            <End Role="Cage" EntitySet="Cage" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Cage_MaxCage" Association="Self.FK_Cage_MaxCage">
-            <End Role="MaxCage" EntitySet="MaxCage" />
             <End Role="Cage" EntitySet="Cage" />
           </AssociationSet>
           <AssociationSet Name="FK_Cage_Size" Association="Self.FK_Cage_Size">
@@ -444,7 +420,6 @@
           <EntitySet Name="Eggs" EntityType="ChickensModel.Eggs" />
           <EntitySet Name="Health" EntityType="ChickensModel.Health" />
           <EntitySet Name="Inventory" EntityType="ChickensModel.Inventory" />
-          <EntitySet Name="MaxCage" EntityType="ChickensModel.MaxCage" />
           <EntitySet Name="Order" EntityType="ChickensModel.Order" />
           <EntitySet Name="OrderChicken" EntityType="ChickensModel.OrderChicken" />
           <EntitySet Name="OrderEggs" EntityType="ChickensModel.OrderEggs" />
@@ -461,10 +436,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_Cage_Department" Association="ChickensModel.FK_Cage_Department">
             <End Role="Department" EntitySet="Department" />
-            <End Role="Cage" EntitySet="Cage" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Cage_MaxCage" Association="ChickensModel.FK_Cage_MaxCage">
-            <End Role="MaxCage" EntitySet="MaxCage" />
             <End Role="Cage" EntitySet="Cage" />
           </AssociationSet>
           <AssociationSet Name="FK_Cage_Size" Association="ChickensModel.FK_Cage_Size">
@@ -533,9 +504,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SizeId" Type="Int32" />
           <Property Name="DepartmentId" Type="Int32" />
-          <Property Name="MaxCageId" Type="Int32" />
           <NavigationProperty Name="Department" Relationship="ChickensModel.FK_Cage_Department" FromRole="Cage" ToRole="Department" />
-          <NavigationProperty Name="MaxCage" Relationship="ChickensModel.FK_Cage_MaxCage" FromRole="Cage" ToRole="MaxCage" />
           <NavigationProperty Name="Size" Relationship="ChickensModel.FK_Cage_Size" FromRole="Cage" ToRole="Size" />
           <NavigationProperty Name="Chicken" Relationship="ChickensModel.FK_Chicken_Cage" FromRole="Cage" ToRole="Chicken" />
         </EntityType>
@@ -551,6 +520,7 @@
           <Property Name="CageId" Type="Int32" />
           <Property Name="HealthId" Type="Int32" />
           <Property Name="BreedId" Type="Int32" />
+          <Property Name="PhotoChic" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Breed" Relationship="ChickensModel.FK_Chicken_Breed" FromRole="Chicken" ToRole="Breed" />
           <NavigationProperty Name="Cage" Relationship="ChickensModel.FK_Chicken_Cage" FromRole="Chicken" ToRole="Cage" />
           <NavigationProperty Name="Health" Relationship="ChickensModel.FK_Chicken_Health" FromRole="Chicken" ToRole="Health" />
@@ -600,16 +570,8 @@
           <Property Name="TypeId" Type="Int32" />
           <Property Name="Count" Type="Int32" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
           <NavigationProperty Name="Type" Relationship="ChickensModel.FK_Inventory_Type" FromRole="Inventory" ToRole="Type" />
-        </EntityType>
-        <EntityType Name="MaxCage">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Count" Type="Int32" />
-          <NavigationProperty Name="Cage" Relationship="ChickensModel.FK_Cage_MaxCage" FromRole="MaxCage" ToRole="Cage" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -732,18 +694,6 @@
             </Principal>
             <Dependent Role="Cage">
               <PropertyRef Name="DepartmentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Cage_MaxCage">
-          <End Type="ChickensModel.MaxCage" Role="MaxCage" Multiplicity="0..1" />
-          <End Type="ChickensModel.Cage" Role="Cage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MaxCage">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Cage">
-              <PropertyRef Name="MaxCageId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -891,7 +841,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -910,7 +860,6 @@
           <EntitySetMapping Name="Cage">
             <EntityTypeMapping TypeName="ChickensModel.Cage">
               <MappingFragment StoreEntitySet="Cage">
-                <ScalarProperty Name="MaxCageId" ColumnName="MaxCageId" />
                 <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
                 <ScalarProperty Name="SizeId" ColumnName="SizeId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -920,6 +869,7 @@
           <EntitySetMapping Name="Chicken">
             <EntityTypeMapping TypeName="ChickensModel.Chicken">
               <MappingFragment StoreEntitySet="Chicken">
+                <ScalarProperty Name="PhotoChic" ColumnName="PhotoChic" />
                 <ScalarProperty Name="BreedId" ColumnName="BreedId" />
                 <ScalarProperty Name="HealthId" ColumnName="HealthId" />
                 <ScalarProperty Name="CageId" ColumnName="CageId" />
@@ -969,18 +919,10 @@
           <EntitySetMapping Name="Inventory">
             <EntityTypeMapping TypeName="ChickensModel.Inventory">
               <MappingFragment StoreEntitySet="Inventory">
+                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Count" ColumnName="Count" />
                 <ScalarProperty Name="TypeId" ColumnName="TypeId" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MaxCage">
-            <EntityTypeMapping TypeName="ChickensModel.MaxCage">
-              <MappingFragment StoreEntitySet="MaxCage">
-                <ScalarProperty Name="Count" ColumnName="Count" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

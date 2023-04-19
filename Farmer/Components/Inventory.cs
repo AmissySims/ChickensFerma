@@ -19,6 +19,7 @@ namespace Farmer.Components
         public Nullable<int> TypeId { get; set; }
         public Nullable<int> Count { get; set; }
         public byte[] Photo { get; set; }
+        public Nullable<decimal> Price { get; set; }
     
         public virtual Type Type { get; set; }
     }

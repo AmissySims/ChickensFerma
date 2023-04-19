@@ -4,6 +4,15 @@
              xmlns:local="clr-namespace:Admin"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="Button" >
+            <Setter Property="BorderBrush" Value="#FFBC1F4C"/>
+            <Setter Property="Background" Value="White"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="BorderBrush" Value="#FFBC1F4C"/>
+        </Style>
+        <Style TargetType="PasswordBox">
+            <Setter Property="BorderBrush" Value="#FFBC1F4C"/>
+        </Style>
     </Application.Resources>
 </Application>

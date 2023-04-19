@@ -32,16 +32,21 @@ namespace Farmer.PagesFarmer
         {
             try
             {
-                User NewUser = new User()
+                if(AddNameTb.Text != "" && AddLoginTb.Text != "" && AddPasswordTb.Text != "")
                 {
-                    FullName = AddNameTb.Text,
-                    RoleId = 2,
-                    Login = AddLoginTb.Text.Trim(),
-                    Password = AddPasswordTb.Text.Trim()
-                };
-                App.db.User.Add(NewUser);
-                App.db.SaveChanges();
-                MessageBox.Show("Добавлено", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    User NewUser = new User()
+                    {
+                        FullName = AddNameTb.Text,
+                        RoleId = 2,
+                        Login = AddLoginTb.Text.Trim(),
+                        Password = AddPasswordTb.Text.Trim()
+                    };
+                    App.db.User.Add(NewUser);
+                    App.db.SaveChanges();
+                    MessageBox.Show("Добавлено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                    MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 UserList.ItemsSource = App.db.User.ToList();
                 AddNameTb.Text = "";
                 AddLoginTb.Text = "";
@@ -55,16 +60,15 @@ namespace Farmer.PagesFarmer
 
         }
 
-        private void DeleteBt_Click(object sender, RoutedEventArgs e)
+       
+
+       
+        private void AddNameTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            var seluser = (sender as Button).DataContext as User;
-            if( MessageBox.Show("Хотите удалить?", "Уведомление", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (!Char.IsLetter(e.Text, 0))
             {
-                MessageBox.Show("Удалено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                App.db.User.Remove(seluser);
+                e.Handled = true;
             }
-            App.db.SaveChanges();
-            UserList.ItemsSource = App.db.User.ToList();
         }
     }
 }

@@ -40,20 +40,25 @@ namespace Farmer.PagesFarmer
         {
             try
             {
-                Cage NewCage = new Cage()
+                if ((AddSizeCb.SelectedIndex != null) && (AddDepCb.SelectedIndex != null))
                 {
-                    
-                    SizeId = (AddSizeCb.SelectedItem as Size).Id,
-                    DepartmentId = (AddDepCb.SelectedItem as Department).Id,
-                };
-                App.db.Cage.Add(NewCage);
-                App.db.SaveChanges();
-                MessageBox.Show("Добавлено", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Cage NewCage = new Cage()
+                    {
+
+                        SizeId = (AddSizeCb.SelectedItem as Size).Id,
+                        DepartmentId = (AddDepCb.SelectedItem as Department).Id,
+                    };
+                    App.db.Cage.Add(NewCage);
+                    App.db.SaveChanges();
+                    MessageBox.Show("Добавлено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                    MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 CageList.ItemsSource = App.db.Cage.ToList();
                 AddSizeCb.Items.Clear();
                 AddSizeCb.Items.Clear();
                 
-
+                
             }
             catch (Exception ex)
             {

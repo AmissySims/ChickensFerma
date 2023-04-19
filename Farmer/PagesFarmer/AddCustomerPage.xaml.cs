@@ -32,15 +32,20 @@ namespace Farmer.PagesFarmer
         private void AddCustBt_Click(object sender, RoutedEventArgs e)
         {
             try
-            {
-                Customer NewCust = new Customer()
+            { 
+                if(AddDescriptionTb.Text != "")
                 {
-                    Description = AddDescriptionTb.Text,
-                    
-                };
-                App.db.Customer.Add(NewCust);
-                App.db.SaveChanges();
-                MessageBox.Show("Добавлено", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Customer NewCust = new Customer()
+                    {
+                        Description = AddDescriptionTb.Text,
+
+                    };
+                    App.db.Customer.Add(NewCust);
+                    App.db.SaveChanges();
+                    MessageBox.Show("Добавлено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+               else
+                    MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 CustomerList.ItemsSource = App.db.Customer.ToList();
                 AddDescriptionTb.Text = "";
 

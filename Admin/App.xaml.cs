@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Admin.AdminPages;
+using Admin.ComponentsAdmin;
 
 namespace Admin
 {
@@ -13,5 +15,6 @@ namespace Admin
     /// </summary>
     public partial class App : Application
     {
+        public static ChickensEntities db = new ChickensEntities();
     }
 }

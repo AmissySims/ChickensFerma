@@ -5,12 +5,16 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Farmer.PagesFarmer"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="700"
       Title="Farmer">
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="\Resources\Куры.jpg" Stretch="Fill" TileMode="None" Opacity="0.6"/>
+        </Grid.Background>
+        <Rectangle Fill="White" HorizontalAlignment="Center" VerticalAlignment="Center" Height="200" Width="200"/>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="РЕГИСТРАЦИЯ" HorizontalAlignment="Center" Margin="10" />
+            <TextBlock Text="РЕГИСТРАЦИЯ" HorizontalAlignment="Center" Margin="10" FontWeight="Bold" />
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock Text="ФИО" Margin="10"/>
                 <TextBox x:Name="NameTb" Width="100" Height="30"/>
@@ -21,10 +25,10 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Пароль" Margin="10"/>
-                <PasswordBox x:Name="PasswordTb" Width="100" Height="30"/>
+                <TextBox x:Name="PasswordTb" Width="100" Height="30"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="ClearBt" Content="Очистить" Margin="5" Click="ClearBt_Click" />
+                <Button x:Name="EnterBt" Content="Вход" Margin="5" Click="EnterBt_Click" />
                 <Button x:Name="RegBt" Content="Регистрация" Margin="5" Click="RegBt_Click"/>
             </StackPanel>
 

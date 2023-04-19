@@ -31,16 +31,22 @@ namespace Farmer.PagesFarmer
         private void AddDepartmentBt_Click(object sender, RoutedEventArgs e)
         {
             try
-            {
-                Department NewDep = new Department()
+            { 
+                if(AddTitleTb.Text != "" && AddCountCageTb.Text != "" && AddAdressTb.Text != "")
                 {
-                    Title = AddTitleTb.Text,
-                    CountCage = Convert.ToInt32(AddCountCageTb.Text),
-                    Adress = AddAdressTb.Text
-                };
-                App.db.Department.Add(NewDep);
-                App.db.SaveChanges();
-                MessageBox.Show("Добавлено", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    Department NewDep = new Department()
+                    {
+                        Title = AddTitleTb.Text,
+                        CountCage = Convert.ToInt32(AddCountCageTb.Text),
+                        Adress = AddAdressTb.Text
+                    };
+                    App.db.Department.Add(NewDep);
+                    App.db.SaveChanges();
+                    MessageBox.Show("Добавлено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                    MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 DepartmentList.ItemsSource = App.db.Department.ToList();
                 AddTitleTb.Text = "";
                 AddCountCageTb.Text = "";
@@ -49,6 +55,14 @@ namespace Farmer.PagesFarmer
             catch (Exception ex)
             {
                 MessageBox.Show($"{ex}", "", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void AddCountCageTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
             }
         }
     }

@@ -28,6 +28,7 @@ namespace Farmer.Components
         public Nullable<int> CageId { get; set; }
         public Nullable<int> HealthId { get; set; }
         public Nullable<int> BreedId { get; set; }
+        public byte[] PhotoChic { get; set; }
     
         public virtual Breed Breed { get; set; }
         public virtual Cage Cage { get; set; }

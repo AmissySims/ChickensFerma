@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Admin.AdminPages;
+using Admin.ComponentsAdmin;
 
 namespace Admin
 {
@@ -23,6 +25,7 @@ namespace Admin
         public MainWindow()
         {
             InitializeComponent();
+            MainFrameAdmin.NavigationService.Navigate(new AuthPage());
         }
     }
 }

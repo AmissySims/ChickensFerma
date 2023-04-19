@@ -12,17 +12,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Admin.ComponentsAdmin;
+using Admin.AdminPages;
 
-namespace Farmer.PagesFarmer.OrdersPages
+namespace Admin.AdminPages
 {
     /// <summary>
-    /// Логика взаимодействия для AddOrderPage.xaml
+    /// Логика взаимодействия для InfoPage.xaml
     /// </summary>
-    public partial class AddOrderPage : Page
+    public partial class InfoPage : Page
     {
-        public AddOrderPage()
+        public static List<User> UserList { get; set; }
+        public InfoPage()
         {
             InitializeComponent();
+            UserList = new List<User>(App.db.User.Where(z=> z.Id == PartialClasses.ClassCorrUser.CorrUser.Id).ToList());
+            ListDataFoView.ItemsSource = UserList;
+            
+            
         }
     }
 }

@@ -29,24 +29,32 @@ namespace Farmer.PagesFarmer
 
         private void EnterBt_Click(object sender, RoutedEventArgs e)
         {
-            if( (LoginTb.Text != "") && (PasswordTb.Password != ""))
+            try
             {
-
-                var datalogin = App.db.User.Where(x => x.Login == LoginTb.Text && x.Password == PasswordTb.Password).FirstOrDefault();
-                if(datalogin != null)
+                if ((LoginTb.Text != "") && (PasswordTb.Password != ""))
                 {
-                    if (datalogin.RoleId == 1)
+
+                    var datalogin = App.db.User.Where(x => x.Login == LoginTb.Text && x.Password == PasswordTb.Password).FirstOrDefault();
+                    if (datalogin != null)
                     {
-                        NavigationService.Navigate(new MenuPage());
+                        if (datalogin.RoleId == 1)
+                        {
+                            NavigationService.Navigate(new MenuPage());
+                        }
+                        else
+                            MessageBox.Show("Недостаточно прав для входа", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     else
-                        MessageBox.Show("Недостаточно прав для входа");
+                        MessageBox.Show("Неверные данные", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
-                    MessageBox.Show("Неверные данные");
+                    MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            else
-                MessageBox.Show("Заполните поля");
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex}", "", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
 
         private void RegBt_Click(object sender, RoutedEventArgs e)

@@ -33,7 +33,6 @@ namespace Farmer.Components
         public virtual DbSet<Eggs> Eggs { get; set; }
         public virtual DbSet<Health> Health { get; set; }
         public virtual DbSet<Inventory> Inventory { get; set; }
-        public virtual DbSet<MaxCage> MaxCage { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<OrderChicken> OrderChicken { get; set; }
         public virtual DbSet<OrderEggs> OrderEggs { get; set; }

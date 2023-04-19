@@ -7,24 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Farmer.Components
+namespace Admin.ComponentsAdmin
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class MaxCage
+    public partial class OrderChicken
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MaxCage()
-        {
-            this.Cage = new HashSet<Cage>();
-        }
-    
         public int Id { get; set; }
-        public string Title { get; set; }
-        public Nullable<int> Count { get; set; }
+        public Nullable<int> OrderId { get; set; }
+        public Nullable<int> ChickenId { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cage> Cage { get; set; }
+        public virtual Chicken Chicken { get; set; }
+        public virtual Order Order { get; set; }
     }
 }

@@ -23,10 +23,8 @@ namespace Farmer.Components
         public int Id { get; set; }
         public Nullable<int> SizeId { get; set; }
         public Nullable<int> DepartmentId { get; set; }
-        public Nullable<int> MaxCageId { get; set; }
     
         public virtual Department Department { get; set; }
-        public virtual MaxCage MaxCage { get; set; }
         public virtual Size Size { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Chicken> Chicken { get; set; }

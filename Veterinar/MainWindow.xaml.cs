@@ -24,7 +24,7 @@ namespace Veterinar
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.NavigationService.Navigate(new P)
+          
         }
     }
 }

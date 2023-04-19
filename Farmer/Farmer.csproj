@@ -96,9 +96,6 @@
     <Compile Include="Components\Inventory.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Components\MaxCage.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Components\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -172,10 +169,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PagesFarmer\OrdersPages\AddOrderPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="PagesFarmer\OrdersPages\AllOrdersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -203,9 +196,6 @@
     </Compile>
     <Compile Include="PagesFarmer\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PagesFarmer\OrdersPages\AddOrderPage.xaml.cs">
-      <DependentUpon>AddOrderPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PagesFarmer\OrdersPages\AllOrdersPage.xaml.cs">
       <DependentUpon>AllOrdersPage.xaml</DependentUpon>
@@ -263,6 +253,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\ChickensBack.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
