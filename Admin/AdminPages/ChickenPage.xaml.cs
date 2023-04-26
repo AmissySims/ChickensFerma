@@ -37,7 +37,7 @@ namespace Admin.AdminPages
             HealthCb.ItemsSource = App.db.Health.ToList();
             HealthCb.DisplayMemberPath = "Title";
             CageCb.Items.Clear();
-            CageCb.ItemsSource = App.db.Cage.ToList();
+            CageCb.ItemsSource = App.db.Cage.Where(x => x.IsPaus == null).ToList();
             CageCb.DisplayMemberPath = "Id";
         }
 
@@ -81,6 +81,14 @@ namespace Admin.AdminPages
 
                     };
                     App.db.Chicken.Add(chicken);
+                    App.db.SaveChanges();
+                    //MessageBox.Show("Добавлено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    var SelCell = (CageCb.SelectedItem as Cage);
+                    var ListChick = App.db.Chicken.ToList().Where(z => z.Cage == SelCell).ToList();
+                    if (((CageCb.SelectedItem as Cage).Size.Count) >= ListChick.Count)
+                    {
+                        SelCell.IsPaus = true;
+                    }
                     App.db.SaveChanges();
                     MessageBox.Show("Добавлено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 }

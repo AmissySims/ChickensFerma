@@ -7,27 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Admin.ComponentsAdmin
+namespace Veterinar.Componentsvet
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Cage
+    public partial class Type
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Cage()
+        public Type()
         {
-            this.Chicken = new HashSet<Chicken>();
+            this.Inventory = new HashSet<Inventory>();
         }
     
         public int Id { get; set; }
-        public Nullable<int> SizeId { get; set; }
-        public Nullable<int> DepartmentId { get; set; }
-        public Nullable<bool> IsPaus { get; set; }
+        public string Title { get; set; }
     
-        public virtual Department Department { get; set; }
-        public virtual Size Size { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Chicken> Chicken { get; set; }
+        public virtual ICollection<Inventory> Inventory { get; set; }
     }
 }

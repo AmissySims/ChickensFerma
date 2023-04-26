@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище ChickensModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище ChickensModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Breed">
           <Key>
             <PropertyRef Name="Id" />
@@ -408,86 +408,11 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ChickensModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="ChickensEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Breed" EntityType="ChickensModel.Breed" />
-          <EntitySet Name="Cage" EntityType="ChickensModel.Cage" />
-          <EntitySet Name="Chicken" EntityType="ChickensModel.Chicken" />
-          <EntitySet Name="Customer" EntityType="ChickensModel.Customer" />
-          <EntitySet Name="Department" EntityType="ChickensModel.Department" />
-          <EntitySet Name="Eggs" EntityType="ChickensModel.Eggs" />
-          <EntitySet Name="Health" EntityType="ChickensModel.Health" />
-          <EntitySet Name="Inventory" EntityType="ChickensModel.Inventory" />
-          <EntitySet Name="Order" EntityType="ChickensModel.Order" />
-          <EntitySet Name="OrderChicken" EntityType="ChickensModel.OrderChicken" />
-          <EntitySet Name="OrderEggs" EntityType="ChickensModel.OrderEggs" />
-          <EntitySet Name="Role" EntityType="ChickensModel.Role" />
-          <EntitySet Name="Size" EntityType="ChickensModel.Size" />
-          <EntitySet Name="sysdiagrams" EntityType="ChickensModel.sysdiagrams" />
-          <EntitySet Name="Type" EntityType="ChickensModel.Type" />
-          <EntitySet Name="TypeProd" EntityType="ChickensModel.TypeProd" />
-          <EntitySet Name="TypeStandart" EntityType="ChickensModel.TypeStandart" />
-          <EntitySet Name="User" EntityType="ChickensModel.User" />
-          <AssociationSet Name="FK_Chicken_Breed" Association="ChickensModel.FK_Chicken_Breed">
-            <End Role="Breed" EntitySet="Breed" />
-            <End Role="Chicken" EntitySet="Chicken" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Cage_Department" Association="ChickensModel.FK_Cage_Department">
-            <End Role="Department" EntitySet="Department" />
-            <End Role="Cage" EntitySet="Cage" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Cage_Size" Association="ChickensModel.FK_Cage_Size">
-            <End Role="Size" EntitySet="Size" />
-            <End Role="Cage" EntitySet="Cage" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Chicken_Cage" Association="ChickensModel.FK_Chicken_Cage">
-            <End Role="Cage" EntitySet="Cage" />
-            <End Role="Chicken" EntitySet="Chicken" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Chicken_Health" Association="ChickensModel.FK_Chicken_Health">
-            <End Role="Health" EntitySet="Health" />
-            <End Role="Chicken" EntitySet="Chicken" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderChicken_Chicken" Association="ChickensModel.FK_OrderChicken_Chicken">
-            <End Role="Chicken" EntitySet="Chicken" />
-            <End Role="OrderChicken" EntitySet="OrderChicken" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Order_Counter" Association="ChickensModel.FK_Order_Counter">
-            <End Role="Customer" EntitySet="Customer" />
-            <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Eggs_TypeStandart" Association="ChickensModel.FK_Eggs_TypeStandart">
-            <End Role="TypeStandart" EntitySet="TypeStandart" />
-            <End Role="Eggs" EntitySet="Eggs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Inventory_Type" Association="ChickensModel.FK_Inventory_Type">
-            <End Role="Type" EntitySet="Type" />
-            <End Role="Inventory" EntitySet="Inventory" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Order_TypeProd" Association="ChickensModel.FK_Order_TypeProd">
-            <End Role="TypeProd" EntitySet="TypeProd" />
-            <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderChicken_Order" Association="ChickensModel.FK_OrderChicken_Order">
-            <End Role="Order" EntitySet="Order" />
-            <End Role="OrderChicken" EntitySet="OrderChicken" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderEggs_Order" Association="ChickensModel.FK_OrderEggs_Order">
-            <End Role="Order" EntitySet="Order" />
-            <End Role="OrderEggs" EntitySet="OrderEggs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderEggs_TypeStandart" Association="ChickensModel.FK_OrderEggs_TypeStandart">
-            <End Role="TypeStandart" EntitySet="TypeStandart" />
-            <End Role="OrderEggs" EntitySet="OrderEggs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_User_Role" Association="ChickensModel.FK_User_Role">
-            <End Role="Role" EntitySet="Role" />
-            <End Role="User" EntitySet="User" />
-          </AssociationSet>
-        </EntityContainer>
         <EntityType Name="Breed">
           <Key>
             <PropertyRef Name="Id" />
@@ -496,7 +421,7 @@
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="AverageWeight" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="AveragePerformance" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Chicken" Relationship="ChickensModel.FK_Chicken_Breed" FromRole="Breed" ToRole="Chicken" />
+          <NavigationProperty Name="Chicken" Relationship="Self.FK_Chicken_Breed" FromRole="Breed" ToRole="Chicken" />
         </EntityType>
         <EntityType Name="Cage">
           <Key>
@@ -506,9 +431,9 @@
           <Property Name="SizeId" Type="Int32" />
           <Property Name="DepartmentId" Type="Int32" />
           <Property Name="IsPaus" Type="Boolean" />
-          <NavigationProperty Name="Department" Relationship="ChickensModel.FK_Cage_Department" FromRole="Cage" ToRole="Department" />
-          <NavigationProperty Name="Size" Relationship="ChickensModel.FK_Cage_Size" FromRole="Cage" ToRole="Size" />
-          <NavigationProperty Name="Chicken" Relationship="ChickensModel.FK_Chicken_Cage" FromRole="Cage" ToRole="Chicken" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_Cage_Department" FromRole="Cage" ToRole="Department" />
+          <NavigationProperty Name="Size" Relationship="Self.FK_Cage_Size" FromRole="Cage" ToRole="Size" />
+          <NavigationProperty Name="Chicken" Relationship="Self.FK_Chicken_Cage" FromRole="Cage" ToRole="Chicken" />
         </EntityType>
         <EntityType Name="Chicken">
           <Key>
@@ -523,10 +448,10 @@
           <Property Name="HealthId" Type="Int32" />
           <Property Name="BreedId" Type="Int32" />
           <Property Name="PhotoChic" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="Breed" Relationship="ChickensModel.FK_Chicken_Breed" FromRole="Chicken" ToRole="Breed" />
-          <NavigationProperty Name="Cage" Relationship="ChickensModel.FK_Chicken_Cage" FromRole="Chicken" ToRole="Cage" />
-          <NavigationProperty Name="Health" Relationship="ChickensModel.FK_Chicken_Health" FromRole="Chicken" ToRole="Health" />
-          <NavigationProperty Name="OrderChicken" Relationship="ChickensModel.FK_OrderChicken_Chicken" FromRole="Chicken" ToRole="OrderChicken" />
+          <NavigationProperty Name="Breed" Relationship="Self.FK_Chicken_Breed" FromRole="Chicken" ToRole="Breed" />
+          <NavigationProperty Name="Cage" Relationship="Self.FK_Chicken_Cage" FromRole="Chicken" ToRole="Cage" />
+          <NavigationProperty Name="Health" Relationship="Self.FK_Chicken_Health" FromRole="Chicken" ToRole="Health" />
+          <NavigationProperty Name="OrderChicken" Relationship="Self.FK_OrderChicken_Chicken" FromRole="Chicken" ToRole="OrderChicken" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -534,7 +459,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Order" Relationship="ChickensModel.FK_Order_Counter" FromRole="Customer" ToRole="Order" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Counter" FromRole="Customer" ToRole="Order" />
         </EntityType>
         <EntityType Name="Department">
           <Key>
@@ -544,7 +469,7 @@
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CountCage" Type="Int32" />
           <Property Name="Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Cage" Relationship="ChickensModel.FK_Cage_Department" FromRole="Department" ToRole="Cage" />
+          <NavigationProperty Name="Cage" Relationship="Self.FK_Cage_Department" FromRole="Department" ToRole="Cage" />
         </EntityType>
         <EntityType Name="Eggs">
           <Key>
@@ -553,7 +478,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TypeStandartId" Type="Int32" />
           <Property Name="Count" Type="Int32" />
-          <NavigationProperty Name="TypeStandart" Relationship="ChickensModel.FK_Eggs_TypeStandart" FromRole="Eggs" ToRole="TypeStandart" />
+          <NavigationProperty Name="TypeStandart" Relationship="Self.FK_Eggs_TypeStandart" FromRole="Eggs" ToRole="TypeStandart" />
         </EntityType>
         <EntityType Name="Health">
           <Key>
@@ -561,7 +486,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Chicken" Relationship="ChickensModel.FK_Chicken_Health" FromRole="Health" ToRole="Chicken" />
+          <NavigationProperty Name="Chicken" Relationship="Self.FK_Chicken_Health" FromRole="Health" ToRole="Chicken" />
         </EntityType>
         <EntityType Name="Inventory">
           <Key>
@@ -573,7 +498,7 @@
           <Property Name="Count" Type="Int32" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
-          <NavigationProperty Name="Type" Relationship="ChickensModel.FK_Inventory_Type" FromRole="Inventory" ToRole="Type" />
+          <NavigationProperty Name="Type" Relationship="Self.FK_Inventory_Type" FromRole="Inventory" ToRole="Type" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -585,10 +510,10 @@
           <Property Name="TypeProdId" Type="Int32" />
           <Property Name="Count" Type="Int32" />
           <Property Name="CustomerId" Type="Int32" />
-          <NavigationProperty Name="Customer" Relationship="ChickensModel.FK_Order_Counter" FromRole="Order" ToRole="Customer" />
-          <NavigationProperty Name="TypeProd" Relationship="ChickensModel.FK_Order_TypeProd" FromRole="Order" ToRole="TypeProd" />
-          <NavigationProperty Name="OrderChicken" Relationship="ChickensModel.FK_OrderChicken_Order" FromRole="Order" ToRole="OrderChicken" />
-          <NavigationProperty Name="OrderEggs" Relationship="ChickensModel.FK_OrderEggs_Order" FromRole="Order" ToRole="OrderEggs" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Order_Counter" FromRole="Order" ToRole="Customer" />
+          <NavigationProperty Name="TypeProd" Relationship="Self.FK_Order_TypeProd" FromRole="Order" ToRole="TypeProd" />
+          <NavigationProperty Name="OrderChicken" Relationship="Self.FK_OrderChicken_Order" FromRole="Order" ToRole="OrderChicken" />
+          <NavigationProperty Name="OrderEggs" Relationship="Self.FK_OrderEggs_Order" FromRole="Order" ToRole="OrderEggs" />
         </EntityType>
         <EntityType Name="OrderChicken">
           <Key>
@@ -598,8 +523,8 @@
           <Property Name="OrderId" Type="Int32" />
           <Property Name="ChickenId" Type="Int32" />
           <Property Name="Date" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Chicken" Relationship="ChickensModel.FK_OrderChicken_Chicken" FromRole="OrderChicken" ToRole="Chicken" />
-          <NavigationProperty Name="Order" Relationship="ChickensModel.FK_OrderChicken_Order" FromRole="OrderChicken" ToRole="Order" />
+          <NavigationProperty Name="Chicken" Relationship="Self.FK_OrderChicken_Chicken" FromRole="OrderChicken" ToRole="Chicken" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_OrderChicken_Order" FromRole="OrderChicken" ToRole="Order" />
         </EntityType>
         <EntityType Name="OrderEggs">
           <Key>
@@ -609,8 +534,8 @@
           <Property Name="OrderId" Type="Int32" />
           <Property Name="Count" Type="Int32" />
           <Property Name="TypeStandartId" Type="Int32" />
-          <NavigationProperty Name="Order" Relationship="ChickensModel.FK_OrderEggs_Order" FromRole="OrderEggs" ToRole="Order" />
-          <NavigationProperty Name="TypeStandart" Relationship="ChickensModel.FK_OrderEggs_TypeStandart" FromRole="OrderEggs" ToRole="TypeStandart" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_OrderEggs_Order" FromRole="OrderEggs" ToRole="Order" />
+          <NavigationProperty Name="TypeStandart" Relationship="Self.FK_OrderEggs_TypeStandart" FromRole="OrderEggs" ToRole="TypeStandart" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -618,7 +543,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="User" Relationship="ChickensModel.FK_User_Role" FromRole="Role" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
         </EntityType>
         <EntityType Name="Size">
           <Key>
@@ -627,13 +552,13 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Count" Type="Int32" />
-          <NavigationProperty Name="Cage" Relationship="ChickensModel.FK_Cage_Size" FromRole="Size" ToRole="Cage" />
+          <NavigationProperty Name="Cage" Relationship="Self.FK_Cage_Size" FromRole="Size" ToRole="Cage" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
@@ -645,7 +570,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Inventory" Relationship="ChickensModel.FK_Inventory_Type" FromRole="Type" ToRole="Inventory" />
+          <NavigationProperty Name="Inventory" Relationship="Self.FK_Inventory_Type" FromRole="Type" ToRole="Inventory" />
         </EntityType>
         <EntityType Name="TypeProd">
           <Key>
@@ -653,7 +578,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Order" Relationship="ChickensModel.FK_Order_TypeProd" FromRole="TypeProd" ToRole="Order" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Order_TypeProd" FromRole="TypeProd" ToRole="Order" />
         </EntityType>
         <EntityType Name="TypeStandart">
           <Key>
@@ -661,8 +586,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Eggs" Relationship="ChickensModel.FK_Eggs_TypeStandart" FromRole="TypeStandart" ToRole="Eggs" />
-          <NavigationProperty Name="OrderEggs" Relationship="ChickensModel.FK_OrderEggs_TypeStandart" FromRole="TypeStandart" ToRole="OrderEggs" />
+          <NavigationProperty Name="Eggs" Relationship="Self.FK_Eggs_TypeStandart" FromRole="TypeStandart" ToRole="Eggs" />
+          <NavigationProperty Name="OrderEggs" Relationship="Self.FK_OrderEggs_TypeStandart" FromRole="TypeStandart" ToRole="OrderEggs" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -673,11 +598,11 @@
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="RoleId" Type="Int32" />
-          <NavigationProperty Name="Role" Relationship="ChickensModel.FK_User_Role" FromRole="User" ToRole="Role" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
         </EntityType>
         <Association Name="FK_Chicken_Breed">
-          <End Type="ChickensModel.Breed" Role="Breed" Multiplicity="0..1" />
-          <End Type="ChickensModel.Chicken" Role="Chicken" Multiplicity="*" />
+          <End Role="Breed" Type="Self.Breed" Multiplicity="0..1" />
+          <End Role="Chicken" Type="Self.Chicken" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Breed">
               <PropertyRef Name="Id" />
@@ -688,8 +613,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Cage_Department">
-          <End Type="ChickensModel.Department" Role="Department" Multiplicity="0..1" />
-          <End Type="ChickensModel.Cage" Role="Cage" Multiplicity="*" />
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Cage" Type="Self.Cage" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Department">
               <PropertyRef Name="Id" />
@@ -700,8 +625,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Cage_Size">
-          <End Type="ChickensModel.Size" Role="Size" Multiplicity="0..1" />
-          <End Type="ChickensModel.Cage" Role="Cage" Multiplicity="*" />
+          <End Role="Size" Type="Self.Size" Multiplicity="0..1" />
+          <End Role="Cage" Type="Self.Cage" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Size">
               <PropertyRef Name="Id" />
@@ -712,8 +637,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Chicken_Cage">
-          <End Type="ChickensModel.Cage" Role="Cage" Multiplicity="0..1" />
-          <End Type="ChickensModel.Chicken" Role="Chicken" Multiplicity="*" />
+          <End Role="Cage" Type="Self.Cage" Multiplicity="0..1" />
+          <End Role="Chicken" Type="Self.Chicken" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cage">
               <PropertyRef Name="Id" />
@@ -724,8 +649,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Chicken_Health">
-          <End Type="ChickensModel.Health" Role="Health" Multiplicity="0..1" />
-          <End Type="ChickensModel.Chicken" Role="Chicken" Multiplicity="*" />
+          <End Role="Health" Type="Self.Health" Multiplicity="0..1" />
+          <End Role="Chicken" Type="Self.Chicken" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Health">
               <PropertyRef Name="Id" />
@@ -736,8 +661,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OrderChicken_Chicken">
-          <End Type="ChickensModel.Chicken" Role="Chicken" Multiplicity="0..1" />
-          <End Type="ChickensModel.OrderChicken" Role="OrderChicken" Multiplicity="*" />
+          <End Role="Chicken" Type="Self.Chicken" Multiplicity="0..1" />
+          <End Role="OrderChicken" Type="Self.OrderChicken" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Chicken">
               <PropertyRef Name="id" />
@@ -748,8 +673,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Order_Counter">
-          <End Type="ChickensModel.Customer" Role="Customer" Multiplicity="0..1" />
-          <End Type="ChickensModel.Order" Role="Order" Multiplicity="*" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
               <PropertyRef Name="Id" />
@@ -760,8 +685,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Eggs_TypeStandart">
-          <End Type="ChickensModel.TypeStandart" Role="TypeStandart" Multiplicity="0..1" />
-          <End Type="ChickensModel.Eggs" Role="Eggs" Multiplicity="*" />
+          <End Role="TypeStandart" Type="Self.TypeStandart" Multiplicity="0..1" />
+          <End Role="Eggs" Type="Self.Eggs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TypeStandart">
               <PropertyRef Name="Id" />
@@ -772,8 +697,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Inventory_Type">
-          <End Type="ChickensModel.Type" Role="Type" Multiplicity="0..1" />
-          <End Type="ChickensModel.Inventory" Role="Inventory" Multiplicity="*" />
+          <End Role="Type" Type="Self.Type" Multiplicity="0..1" />
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Type">
               <PropertyRef Name="Id" />
@@ -784,8 +709,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Order_TypeProd">
-          <End Type="ChickensModel.TypeProd" Role="TypeProd" Multiplicity="0..1" />
-          <End Type="ChickensModel.Order" Role="Order" Multiplicity="*" />
+          <End Role="TypeProd" Type="Self.TypeProd" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TypeProd">
               <PropertyRef Name="Id" />
@@ -796,8 +721,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OrderChicken_Order">
-          <End Type="ChickensModel.Order" Role="Order" Multiplicity="0..1" />
-          <End Type="ChickensModel.OrderChicken" Role="OrderChicken" Multiplicity="*" />
+          <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+          <End Role="OrderChicken" Type="Self.OrderChicken" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Order">
               <PropertyRef Name="Id" />
@@ -808,8 +733,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OrderEggs_Order">
-          <End Type="ChickensModel.Order" Role="Order" Multiplicity="0..1" />
-          <End Type="ChickensModel.OrderEggs" Role="OrderEggs" Multiplicity="*" />
+          <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+          <End Role="OrderEggs" Type="Self.OrderEggs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Order">
               <PropertyRef Name="Id" />
@@ -820,8 +745,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OrderEggs_TypeStandart">
-          <End Type="ChickensModel.TypeStandart" Role="TypeStandart" Multiplicity="0..1" />
-          <End Type="ChickensModel.OrderEggs" Role="OrderEggs" Multiplicity="*" />
+          <End Role="TypeStandart" Type="Self.TypeStandart" Multiplicity="0..1" />
+          <End Role="OrderEggs" Type="Self.OrderEggs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TypeStandart">
               <PropertyRef Name="Id" />
@@ -832,8 +757,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_User_Role">
-          <End Type="ChickensModel.Role" Role="Role" Multiplicity="0..1" />
-          <End Type="ChickensModel.User" Role="User" Multiplicity="*" />
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
               <PropertyRef Name="Id" />
@@ -843,7 +768,83 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        </Schema>
+        <EntityContainer Name="ChickensEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Breed" EntityType="Self.Breed" />
+          <EntitySet Name="Cage" EntityType="Self.Cage" />
+          <EntitySet Name="Chicken" EntityType="Self.Chicken" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" />
+          <EntitySet Name="Department" EntityType="Self.Department" />
+          <EntitySet Name="Eggs" EntityType="Self.Eggs" />
+          <EntitySet Name="Health" EntityType="Self.Health" />
+          <EntitySet Name="Inventory" EntityType="Self.Inventory" />
+          <EntitySet Name="Order" EntityType="Self.Order" />
+          <EntitySet Name="OrderChicken" EntityType="Self.OrderChicken" />
+          <EntitySet Name="OrderEggs" EntityType="Self.OrderEggs" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="Size" EntityType="Self.Size" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Type" EntityType="Self.Type" />
+          <EntitySet Name="TypeProd" EntityType="Self.TypeProd" />
+          <EntitySet Name="TypeStandart" EntityType="Self.TypeStandart" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_Chicken_Breed" Association="Self.FK_Chicken_Breed">
+            <End Role="Breed" EntitySet="Breed" />
+            <End Role="Chicken" EntitySet="Chicken" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cage_Department" Association="Self.FK_Cage_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Cage" EntitySet="Cage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cage_Size" Association="Self.FK_Cage_Size">
+            <End Role="Size" EntitySet="Size" />
+            <End Role="Cage" EntitySet="Cage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chicken_Cage" Association="Self.FK_Chicken_Cage">
+            <End Role="Cage" EntitySet="Cage" />
+            <End Role="Chicken" EntitySet="Chicken" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chicken_Health" Association="Self.FK_Chicken_Health">
+            <End Role="Health" EntitySet="Health" />
+            <End Role="Chicken" EntitySet="Chicken" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderChicken_Chicken" Association="Self.FK_OrderChicken_Chicken">
+            <End Role="Chicken" EntitySet="Chicken" />
+            <End Role="OrderChicken" EntitySet="OrderChicken" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Counter" Association="Self.FK_Order_Counter">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Eggs_TypeStandart" Association="Self.FK_Eggs_TypeStandart">
+            <End Role="TypeStandart" EntitySet="TypeStandart" />
+            <End Role="Eggs" EntitySet="Eggs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_Type" Association="Self.FK_Inventory_Type">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="Inventory" EntitySet="Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_TypeProd" Association="Self.FK_Order_TypeProd">
+            <End Role="TypeProd" EntitySet="TypeProd" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderChicken_Order" Association="Self.FK_OrderChicken_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderChicken" EntitySet="OrderChicken" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderEggs_Order" Association="Self.FK_OrderEggs_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderEggs" EntitySet="OrderEggs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderEggs_TypeStandart" Association="Self.FK_OrderEggs_TypeStandart">
+            <End Role="TypeStandart" EntitySet="TypeStandart" />
+            <End Role="OrderEggs" EntitySet="OrderEggs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -852,177 +853,177 @@
           <EntitySetMapping Name="Breed">
             <EntityTypeMapping TypeName="ChickensModel.Breed">
               <MappingFragment StoreEntitySet="Breed">
-                <ScalarProperty Name="AveragePerformance" ColumnName="AveragePerformance" />
-                <ScalarProperty Name="AverageWeight" ColumnName="AverageWeight" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="AverageWeight" ColumnName="AverageWeight" />
+                <ScalarProperty Name="AveragePerformance" ColumnName="AveragePerformance" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cage">
             <EntityTypeMapping TypeName="ChickensModel.Cage">
               <MappingFragment StoreEntitySet="Cage">
-                <ScalarProperty Name="IsPaus" ColumnName="IsPaus" />
-                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
-                <ScalarProperty Name="SizeId" ColumnName="SizeId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SizeId" ColumnName="SizeId" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="IsPaus" ColumnName="IsPaus" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Chicken">
             <EntityTypeMapping TypeName="ChickensModel.Chicken">
               <MappingFragment StoreEntitySet="Chicken">
-                <ScalarProperty Name="PhotoChic" ColumnName="PhotoChic" />
-                <ScalarProperty Name="BreedId" ColumnName="BreedId" />
-                <ScalarProperty Name="HealthId" ColumnName="HealthId" />
-                <ScalarProperty Name="CageId" ColumnName="CageId" />
-                <ScalarProperty Name="EggsInMonth" ColumnName="EggsInMonth" />
-                <ScalarProperty Name="Age" ColumnName="Age" />
-                <ScalarProperty Name="Weight" ColumnName="Weight" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="EggsInMonth" ColumnName="EggsInMonth" />
+                <ScalarProperty Name="CageId" ColumnName="CageId" />
+                <ScalarProperty Name="HealthId" ColumnName="HealthId" />
+                <ScalarProperty Name="BreedId" ColumnName="BreedId" />
+                <ScalarProperty Name="PhotoChic" ColumnName="PhotoChic" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Customer">
             <EntityTypeMapping TypeName="ChickensModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Department">
             <EntityTypeMapping TypeName="ChickensModel.Department">
               <MappingFragment StoreEntitySet="Department">
-                <ScalarProperty Name="Adress" ColumnName="Adress" />
-                <ScalarProperty Name="CountCage" ColumnName="CountCage" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CountCage" ColumnName="CountCage" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Eggs">
             <EntityTypeMapping TypeName="ChickensModel.Eggs">
               <MappingFragment StoreEntitySet="Eggs">
-                <ScalarProperty Name="Count" ColumnName="Count" />
-                <ScalarProperty Name="TypeStandartId" ColumnName="TypeStandartId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TypeStandartId" ColumnName="TypeStandartId" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Health">
             <EntityTypeMapping TypeName="ChickensModel.Health">
               <MappingFragment StoreEntitySet="Health">
-                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Inventory">
             <EntityTypeMapping TypeName="ChickensModel.Inventory">
               <MappingFragment StoreEntitySet="Inventory">
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
-                <ScalarProperty Name="Count" ColumnName="Count" />
-                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Order">
             <EntityTypeMapping TypeName="ChickensModel.Order">
               <MappingFragment StoreEntitySet="Order">
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-                <ScalarProperty Name="Count" ColumnName="Count" />
-                <ScalarProperty Name="TypeProdId" ColumnName="TypeProdId" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="TypeProdId" ColumnName="TypeProdId" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderChicken">
             <EntityTypeMapping TypeName="ChickensModel.OrderChicken">
               <MappingFragment StoreEntitySet="OrderChicken">
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="ChickenId" ColumnName="ChickenId" />
-                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ChickenId" ColumnName="ChickenId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderEggs">
             <EntityTypeMapping TypeName="ChickensModel.OrderEggs">
               <MappingFragment StoreEntitySet="OrderEggs">
-                <ScalarProperty Name="TypeStandartId" ColumnName="TypeStandartId" />
-                <ScalarProperty Name="Count" ColumnName="Count" />
-                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="TypeStandartId" ColumnName="TypeStandartId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Role">
             <EntityTypeMapping TypeName="ChickensModel.Role">
               <MappingFragment StoreEntitySet="Role">
-                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Size">
             <EntityTypeMapping TypeName="ChickensModel.Size">
               <MappingFragment StoreEntitySet="Size">
-                <ScalarProperty Name="Count" ColumnName="Count" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="ChickensModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Type">
             <EntityTypeMapping TypeName="ChickensModel.Type">
               <MappingFragment StoreEntitySet="Type">
-                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TypeProd">
             <EntityTypeMapping TypeName="ChickensModel.TypeProd">
               <MappingFragment StoreEntitySet="TypeProd">
-                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TypeStandart">
             <EntityTypeMapping TypeName="ChickensModel.TypeStandart">
               <MappingFragment StoreEntitySet="TypeStandart">
-                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="ChickensModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

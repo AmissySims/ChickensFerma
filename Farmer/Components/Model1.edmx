@@ -21,6 +21,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SizeId" Type="int" />
           <Property Name="DepartmentId" Type="int" />
+          <Property Name="IsPaus" Type="bit" />
         </EntityType>
         <EntityType Name="Chicken">
           <Key>
@@ -504,6 +505,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SizeId" Type="Int32" />
           <Property Name="DepartmentId" Type="Int32" />
+          <Property Name="IsPaus" Type="Boolean" />
           <NavigationProperty Name="Department" Relationship="ChickensModel.FK_Cage_Department" FromRole="Cage" ToRole="Department" />
           <NavigationProperty Name="Size" Relationship="ChickensModel.FK_Cage_Size" FromRole="Cage" ToRole="Size" />
           <NavigationProperty Name="Chicken" Relationship="ChickensModel.FK_Chicken_Cage" FromRole="Cage" ToRole="Chicken" />
@@ -860,6 +862,7 @@
           <EntitySetMapping Name="Cage">
             <EntityTypeMapping TypeName="ChickensModel.Cage">
               <MappingFragment StoreEntitySet="Cage">
+                <ScalarProperty Name="IsPaus" ColumnName="IsPaus" />
                 <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
                 <ScalarProperty Name="SizeId" ColumnName="SizeId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

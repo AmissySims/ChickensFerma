@@ -12,11 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Farmer.Components;
-using Farmer.PagesFarmer;
-using System.Windows.Media.Effects;
+using Veterinar.Componentsvet;
+using Veterinar.VetPages;
 
-namespace Farmer.PagesFarmer
+namespace Veterinar.VetPages
 {
     /// <summary>
     /// Логика взаимодействия для AuthPage.xaml
@@ -27,7 +26,6 @@ namespace Farmer.PagesFarmer
         {
             InitializeComponent();
         }
-
         private void EnterBt_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -38,9 +36,11 @@ namespace Farmer.PagesFarmer
                     var datalogin = App.db.User.Where(x => x.Login == LoginTb.Text && x.Password == PasswordTb.Password).FirstOrDefault();
                     if (datalogin != null)
                     {
-                        if (datalogin.RoleId == 1)
+                        if (datalogin.RoleId == 3)
                         {
-                            NavigationService.Navigate(new MenuPage());
+                            //PartialClasses.ClassCorrUser.CorrUser = datalogin;
+                            NavigationService.Navigate(new MenuVetPage());
+
                         }
                         else
                             MessageBox.Show("Недостаточно прав для входа", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -55,14 +55,6 @@ namespace Farmer.PagesFarmer
             {
                 MessageBox.Show($"{ex}", "", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
         }
-
-        private void RegBt_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new RegPage());
-        }
-
-    
     }
 }

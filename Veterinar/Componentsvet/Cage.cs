@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Admin.ComponentsAdmin
+namespace Veterinar.Componentsvet
 {
     using System;
     using System.Collections.Generic;

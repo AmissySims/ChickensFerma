@@ -27,7 +27,7 @@
         <StackPanel  VerticalAlignment="Center">
             <Button  x:Name="AddChickensBt" BorderThickness="4" Content="Добавить куриц" Margin="10 2" Height="30" Click="AddChickensBt_Click"/>
             <Button  x:Name="AddInventoryBt" BorderThickness="4" Content="Инвентарь" Margin="10 2" Height="30" Click="AddInventoryBt_Click" />
-            <Button  x:Name="AddDepartmentBt" BorderThickness="4" Content="Информация о себе" Margin="10 0"  Height="30" Click="AddDepartmentBt_Click"/>
+            <Button  x:Name="AddDepartmentBt" BorderThickness="4" Content="Информация о себе" Margin="10 2"  Height="30" Click="AddDepartmentBt_Click"/>
 
         </StackPanel>
         <StackPanel Grid.Column="0" VerticalAlignment="Bottom">

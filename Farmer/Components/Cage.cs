@@ -23,6 +23,7 @@ namespace Farmer.Components
         public int Id { get; set; }
         public Nullable<int> SizeId { get; set; }
         public Nullable<int> DepartmentId { get; set; }
+        public Nullable<bool> IsPaus { get; set; }
     
         public virtual Department Department { get; set; }
         public virtual Size Size { get; set; }

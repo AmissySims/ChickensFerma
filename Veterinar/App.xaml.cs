@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Veterinar.Componentsvet;
+using Veterinar.VetPages;
 
 namespace Veterinar
 {
@@ -13,5 +15,6 @@ namespace Veterinar
     /// </summary>
     public partial class App : Application
     {
+        public static ChickensEntities db = new ChickensEntities();
     }
 }

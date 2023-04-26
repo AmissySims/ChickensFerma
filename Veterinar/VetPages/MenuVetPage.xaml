@@ -1,0 +1,39 @@
+﻿<Page x:Class="Veterinar.VetPages.MenuVetPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Veterinar.VetPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MenuVetPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="19*"/>
+            <ColumnDefinition Width="61*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="\Resources\ChickensBack.jpg" Stretch="Fill" TileMode="None" Opacity="0.5"/>
+        </Grid.Background>
+        <Rectangle Grid.Column="0"  Fill="#FFFFEFE0" />
+        <StackPanel VerticalAlignment="Top" Grid.Column="0" >
+            <Image Source="\Resources\Куры.jpg"  Height="130" />
+        </StackPanel>
+
+        <StackPanel  VerticalAlignment="Center">
+            <Button  x:Name="CloseChickOrderBt" BorderThickness="4" Content="Закрыть заказ на мясо" Margin="10 2" Height="30" Click="CloseChickOrderBt_Click" />
+            <Button  x:Name="CloseEggsOrderBt" BorderThickness="4" Content="Закрыть заказ на яйца" Margin="10 2" Height="30" Click="CloseEggsOrderBt_Click"/>
+            <Button  x:Name="AddEggsBt" BorderThickness="4" Content="Добавить яйца" Margin="10 2"  Height="30" Click="AddEggsBt_Click"/>
+            <Button  x:Name="UseInventBt" BorderThickness="4" Content="Использовать инвентарь" Margin="10 2"  Height="30" Click="UseInventBt_Click"/>
+            <Button  x:Name="ChickHealBt" BorderThickness="4" Content="Здоровье куриц" Margin="10 2"  Height="30" Click="ChickHealBt_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Column="0" VerticalAlignment="Bottom">
+            <Button  x:Name="ExitBt" Content="Выход из системы" BorderThickness="4" Margin="10" Height="30" Click="ExitBt_Click" />
+        </StackPanel>
+        <Frame  x:Name="MenuVetFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Page>

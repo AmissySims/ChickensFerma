@@ -12,23 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Veterinar.VetPages;
 using Veterinar.Componentsvet;
+using Veterinar.VetPages;
 
-
-
-namespace Veterinar
+namespace Veterinar.VetPages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для ChickensHealth.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ChickensHealthPage : Page
     {
-        public MainWindow()
+        public ChickensHealthPage()
         {
             InitializeComponent();
-            MainFrame.NavigationService.Navigate(new AuthPage());
-          
         }
     }
 }

@@ -43,7 +43,7 @@
                                 <TextBlock x:Name="SizeTb" Text="{Binding Size.Title}" />
                             </StackPanel>
                             <StackPanel Orientation="Vertical" Grid.Column="2" Margin="5">
-                                <TextBlock  Text="Количество куриц в клетке"  />
+                                <TextBlock  Text="Допустимое количество куриц в клетке"  />
                                 <TextBlock x:Name="CountChickTb" Text="{Binding Size.Count}" />
                             </StackPanel>
                            
