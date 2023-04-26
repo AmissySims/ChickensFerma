@@ -81,10 +81,8 @@ namespace Admin.AdminPages
 
                     };
                     App.db.Chicken.Add(chicken);
-                    App.db.SaveChanges();
-                    //MessageBox.Show("Добавлено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     var SelCell = (CageCb.SelectedItem as Cage);
-                    var ListChick = App.db.Chicken.ToList().Where(z => z.Cage == SelCell).ToList();
+                    var ListChick = App.db.Chicken.ToList().Where(x => x.Cage == SelCell).ToList();
                     if (((CageCb.SelectedItem as Cage).Size.Count) >= ListChick.Count)
                     {
                         SelCell.IsPaus = true;

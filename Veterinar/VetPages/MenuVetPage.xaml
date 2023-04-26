@@ -28,7 +28,7 @@
             <Button  x:Name="CloseChickOrderBt" BorderThickness="4" Content="Закрыть заказ на мясо" Margin="10 2" Height="30" Click="CloseChickOrderBt_Click" />
             <Button  x:Name="CloseEggsOrderBt" BorderThickness="4" Content="Закрыть заказ на яйца" Margin="10 2" Height="30" Click="CloseEggsOrderBt_Click"/>
             <Button  x:Name="AddEggsBt" BorderThickness="4" Content="Добавить яйца" Margin="10 2"  Height="30" Click="AddEggsBt_Click"/>
-            <Button  x:Name="UseInventBt" BorderThickness="4" Content="Использовать инвентарь" Margin="10 2"  Height="30" Click="UseInventBt_Click"/>
+            <Button  x:Name="UseInventBt" BorderThickness="4" Content="Инвентарь" Margin="10 2"  Height="30" Click="UseInventBt_Click"/>
             <Button  x:Name="ChickHealBt" BorderThickness="4" Content="Здоровье куриц" Margin="10 2"  Height="30" Click="ChickHealBt_Click"/>
         </StackPanel>
         <StackPanel Grid.Column="0" VerticalAlignment="Bottom">
