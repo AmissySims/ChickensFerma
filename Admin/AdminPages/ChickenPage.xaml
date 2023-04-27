@@ -32,12 +32,12 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Порода  "/>
-                        <ComboBox x:Name="BreedCb" Width="100" Height="20">
-                            <ComboBoxItem>
+                        <ComboBox x:Name="BreedCb" Width="100" Height="20" ToolTip="Порода">
+                            <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Title}"/>
                                 </DataTemplate>
-                            </ComboBoxItem>
+                            </ComboBox.ItemTemplate>
                         </ComboBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
@@ -54,22 +54,22 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Клетка  "/>
-                        <ComboBox x:Name="CageCb" Width="100" Height="20">
-                            <ComboBoxItem>
+                        <ComboBox x:Name="CageCb" Width="100" Height="20" ToolTip="клетка">
+                            <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Id }"/>
                                 </DataTemplate>
-                            </ComboBoxItem>
+                            </ComboBox.ItemTemplate>
                         </ComboBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Здоровье  "/>
-                        <ComboBox x:Name="HealthCb" Width="100" Height="20">
-                            <ComboBoxItem>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Title}"/>
+                        <ComboBox x:Name="HealthCb" Width="100" Height="20" ToolTip="Здоровье">
+                            <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                    <TextBlock Text="{Binding Title}" />
                                 </DataTemplate>
-                            </ComboBoxItem>
+                            </ComboBox.ItemTemplate>
                         </ComboBox>
                     </StackPanel>
                 </StackPanel>

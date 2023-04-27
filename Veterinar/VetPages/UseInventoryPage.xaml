@@ -9,6 +9,18 @@
       Title="UseInventoryPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="17*"/>
+            <RowDefinition Height="121*"/>
+        </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0">
+            <TextBlock Text="Инвентарь" FontSize="16" FontWeight="Bold"/>
+
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <StackPanel></StackPanel>
+        </StackPanel>
+        <ListView Grid.Row="2"></ListView>
     </Grid>
 </Page>

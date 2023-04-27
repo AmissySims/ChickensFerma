@@ -22,7 +22,7 @@
 
         </StackPanel>
 
-        <ListView x:Name="DepartmentList" Grid.Column="0" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="5" Height="300" VerticalAlignment="Top">
+        <ListView x:Name="DepartmentList" Grid.Column="0" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="5"  VerticalAlignment="Top" Width="270">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="Black" BorderThickness="2">

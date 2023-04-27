@@ -14,5 +14,11 @@
         <Style TargetType="PasswordBox">
             <Setter Property="BorderBrush" Value="#FFBC1F4C"/>
         </Style>
+        <Style TargetType="ListView">
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+        <Style TargetType="ListViewItem">
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
     </Application.Resources>
 </Application>

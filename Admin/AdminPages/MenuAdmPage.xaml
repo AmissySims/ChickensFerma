@@ -17,7 +17,7 @@
             <ColumnDefinition Width="61*"/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="\Resources\ChickensBack.jpg" Stretch="Fill" TileMode="None" Opacity="0.5"/>
+            <ImageBrush ImageSource="\Resources\ChickensBack.jpg" Stretch="Fill" TileMode="None" Opacity="0.4"/>
         </Grid.Background>
         <Rectangle Grid.Column="0"  Fill="#FFFFEFE0" />
         <StackPanel VerticalAlignment="Top" Grid.Column="0" >

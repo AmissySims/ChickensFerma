@@ -23,7 +23,7 @@
 
         </StackPanel>
         
-        <ListView x:Name="UserList" Grid.Column="0" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="5" Height="300" VerticalAlignment="Top">
+        <ListView x:Name="UserList" Grid.Column="0" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="5" VerticalAlignment="Top" >
            <ListView.ItemTemplate>
               <DataTemplate>
                     <Border BorderBrush="Black" BorderThickness="2">
@@ -31,22 +31,26 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
+                                
                             </Grid.ColumnDefinitions>
-                            <TextBlock x:Name="FullNameTb" Text="{Binding FullName}" Margin="5" Grid.Column="0"/>
-                            <StackPanel Orientation="Vertical" Grid.Column="1" Margin="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock x:Name="FullNameTb" Text="{Binding FullName}" Margin="5" Grid.Column="0" Grid.Row="0"/>
+                            <StackPanel Orientation="Vertical" Margin="5"  Grid.Row="1">
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock  Text="Логин  "  />
+                                    <TextBlock  Text="Логин: "  />
                                     <TextBlock x:Name="LoginInfTb" Text="{Binding Login}" />
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock  Text="Пароль  " />
+                                    <TextBlock  Text="Пароль: " />
                                     <TextBlock x:Name="PassInfTb" Text="{Binding Password}"  />
                                 </StackPanel>
                                 
                             </StackPanel>
-                            <StackPanel Orientation="Horizontal" Grid.Column="2" Margin="5">
-                                <TextBlock  Text="Роль  " />
+                            <StackPanel Orientation="Horizontal" Grid.Column="1" Margin="5">
+                                <TextBlock  Text="Роль: " />
                                 <TextBlock x:Name="RoleInfTb" Text="{Binding Role.Title}"  />
                             </StackPanel>
 

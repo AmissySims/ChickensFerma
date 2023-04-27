@@ -9,20 +9,18 @@
       Title="AddCustomerPage">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="115*"/>
-            <ColumnDefinition Width="79*"/>
-        </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="14*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="25*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Width="86">
             <TextBlock Text="Заказчики " FontSize="16" FontWeight="Bold"/>
 
         </StackPanel>
 
-        <ListView x:Name="CustomerList" Grid.Column="0" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="5" Height="300" VerticalAlignment="Top">
+        <ListView x:Name="CustomerList"  Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="5"  VerticalAlignment="Center" Height="174">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="Black" BorderThickness="2">
@@ -36,26 +34,26 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            
+
                             <StackPanel Orientation="Horizontal" Grid.Column="1" Margin="5">
                                 <TextBlock  Text="Описание  "  />
                                 <TextBlock x:Name="CountCageTb" Text="{Binding Description}" />
                             </StackPanel>
-                          
+
                         </Grid>
                     </Border>
 
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <StackPanel Grid.Column="1" Grid.Row="1">
-            <TextBlock Text="Добавить закзчика" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center">
+            <TextBlock Text="Добавить заказчика" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <StackPanel Margin="10" Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Описание " Margin="5"/>
-                    <TextBox x:Name="AddDescriptionTb" Margin="5" Width="130" Height="40"/>
+                    <TextBox x:Name="AddDescriptionTb" Margin="5" Width="500" Height="40"/>
                 </StackPanel>
-               
+
                 <Button x:Name="AddCustBt" Content="Добавить" Margin="5" Click="AddCustBt_Click" />
             </StackPanel>
         </StackPanel>

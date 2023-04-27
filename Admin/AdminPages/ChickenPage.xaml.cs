@@ -30,15 +30,20 @@ namespace Admin.AdminPages
         {
 
             InitializeComponent();
-            BreedCb.Items.Clear();
+            Refresh();
+        }
+        public void Refresh()
+        {
+            CageCb.ItemsSource = null;
+            BreedCb.ItemsSource = null;
+            HealthCb.ItemsSource = null;
+           
             BreedCb.ItemsSource = App.db.Breed.ToList();
-            BreedCb.DisplayMemberPath = "Title";
-            HealthCb.Items.Clear();
+           // BreedCb.DisplayMemberPath = "Title";
             HealthCb.ItemsSource = App.db.Health.ToList();
-            HealthCb.DisplayMemberPath = "Title";
-            CageCb.Items.Clear();
+           // HealthCb.DisplayMemberPath = "Title";
             CageCb.ItemsSource = App.db.Cage.Where(x => x.IsPaus == null).ToList();
-            CageCb.DisplayMemberPath = "Id";
+           // CageCb.DisplayMemberPath = "Id";
         }
 
         private void AddWeightTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -67,28 +72,37 @@ namespace Admin.AdminPages
             {
                 if (AddNameTb.Text != "" && BreedCb.SelectedIndex != null && AddWeightTb.Text != "" && AddAgeTb.Text != "" && AddeggsTb.Text != "" && CageCb.SelectedIndex != null && HealthCb.SelectedIndex != null)
                 {
-                    Chicken chicken = new Chicken()
-                    {
-                        Name = AddNameTb.Text,
-                        BreedId = (BreedCb.SelectedItem as Breed).Id,
-                        Weight = AddWeightTb.Text,
-                        Age = AddAgeTb.Text,
-                        EggsInMonth = Convert.ToInt32(AddeggsTb.Text),
-                        CageId = (CageCb.SelectedItem as Cage).Id,
-                        HealthId = (HealthCb.SelectedItem as Health).Id,
-                        PhotoChic = image
-
-
-                    };
-                    App.db.Chicken.Add(chicken);
+                    var DataCount = App.db.Chicken.ToList();
+                   
+                    
                     var SelCell = (CageCb.SelectedItem as Cage);
                     var ListChick = App.db.Chicken.ToList().Where(x => x.Cage == SelCell).ToList();
-                    if (((CageCb.SelectedItem as Cage).Size.Count) >= ListChick.Count)
+                    if ((SelCell.Size.Count) < ListChick.Count)
                     {
                         SelCell.IsPaus = true;
+                        MessageBox.Show("NEe a");
+                    }
+                    else
+                    {
+
+                        Chicken chicken = new Chicken()
+                        {
+                            Name = AddNameTb.Text,
+                            BreedId = (BreedCb.SelectedItem as Breed).Id,
+                            Weight = AddWeightTb.Text,
+                            Age = AddAgeTb.Text,
+                            EggsInMonth = Convert.ToInt32(AddeggsTb.Text),
+                            CageId = (CageCb.SelectedItem as Cage).Id,
+                            HealthId = (HealthCb.SelectedItem as Health).Id,
+                            PhotoChic = image
+
+
+                        };
+                        App.db.Chicken.Add(chicken);
                     }
                     App.db.SaveChanges();
                     MessageBox.Show("Добавлено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Refresh();
                 }
                 else
                     MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
