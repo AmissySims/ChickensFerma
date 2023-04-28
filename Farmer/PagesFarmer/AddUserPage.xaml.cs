@@ -37,7 +37,7 @@ namespace Farmer.PagesFarmer
                     User NewUser = new User()
                     {
                         FullName = AddNameTb.Text,
-                        RoleId = 2,
+                        RoleId = 3,
                         Login = AddLoginTb.Text.Trim(),
                         Password = AddPasswordTb.Text.Trim()
                     };

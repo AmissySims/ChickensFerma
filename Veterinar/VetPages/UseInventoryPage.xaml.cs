@@ -25,6 +25,7 @@ namespace Veterinar.VetPages
         public UseInventoryPage()
         {
             InitializeComponent();
+            Inventlist.ItemsSource = App.db.Inventory.ToList();
         }
     }
 }

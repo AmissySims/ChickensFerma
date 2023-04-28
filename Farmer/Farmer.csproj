@@ -173,10 +173,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PagesFarmer\RegPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PagesFarmer\AddCagePage.xaml.cs">
@@ -199,9 +195,6 @@
     </Compile>
     <Compile Include="PagesFarmer\OrdersPages\AllOrdersPage.xaml.cs">
       <DependentUpon>AllOrdersPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PagesFarmer\RegPage.xaml.cs">
-      <DependentUpon>RegPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

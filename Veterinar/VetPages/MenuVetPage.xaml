@@ -19,7 +19,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="\Resources\ChickensBack.jpg" Stretch="Fill" TileMode="None" Opacity="0.4"/>
         </Grid.Background>
-        <Rectangle Grid.Column="0"  Fill="#FFFFEFE0" />
+        <Rectangle Grid.Column="0" Fill="#FFFFEFE0" />
         <StackPanel VerticalAlignment="Top" Grid.Column="0" >
             <Image Source="\Resources\Куры.jpg"  Height="130" />
         </StackPanel>

@@ -58,10 +58,7 @@ namespace Farmer.PagesFarmer
 
         }
 
-        private void RegBt_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new RegPage());
-        }
+        
 
     
     }

@@ -22,7 +22,7 @@
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Vertical" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Vertical" Margin="10">
-                    <Image x:Name="ImageChick"  Width="180" Height="180" Source="{Binding Chicken.PhotoChic}" Margin="5"/>
+                    <Image x:Name="ImageChick"  Width="180" Height="180" Source="{Binding PhotoChic}" Margin="5"/>
                     <Button x:Name="AddPhotoBt" Content="Добавить фото" Click="AddPhotoBt_Click"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="10">

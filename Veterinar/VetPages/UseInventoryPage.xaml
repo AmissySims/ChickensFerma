@@ -9,18 +9,58 @@
       Title="UseInventoryPage">
 
     <Grid>
+       
         <Grid.RowDefinitions>
             <RowDefinition Height="12*"/>
             <RowDefinition Height="17*"/>
             <RowDefinition Height="121*"/>
         </Grid.RowDefinitions>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Инвентарь" FontSize="16" FontWeight="Bold"/>
 
         </StackPanel>
         <StackPanel Grid.Row="1">
-            <StackPanel></StackPanel>
+            <StackPanel>
+
+            </StackPanel>
         </StackPanel>
-        <ListView Grid.Row="2"></ListView>
+        <ListView Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="Inventlist" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="2">
+                        <Grid>
+                            <Grid.Background>
+                                <SolidColorBrush Color="White" Opacity="0.7" />
+                            </Grid.Background>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Image Margin="5" Source="{Binding Photo}" Grid.Row="0" Width="150" Height="150"/>
+                            <StackPanel Grid.Row="1" Margin="5">
+                                <TextBlock Text="{Binding Title}"  />
+                                <TextBlock Text="{Binding Type.Title}"  />
+                                <TextBlock Text="{Binding Count}" x:Name="CountTb"  />
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Цена  "/>
+                                    <TextBlock Text="{Binding Price}"  />
+                                </StackPanel>
+                                <StackPanel>
+                                    <Button x:Name="Create" Content="Create" />
+                                </StackPanel>
+                            </StackPanel>
+
+
+                        </Grid>
+                    </Border>
+                   
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

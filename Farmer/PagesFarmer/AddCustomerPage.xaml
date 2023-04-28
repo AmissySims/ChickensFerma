@@ -12,15 +12,15 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
-            <RowDefinition Height="11*"/>
-            <RowDefinition Height="25*"/>
+            <RowDefinition Height="21*"/>
+            <RowDefinition Height="15*"/>
         </Grid.RowDefinitions>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Width="86">
             <TextBlock Text="Заказчики " FontSize="16" FontWeight="Bold"/>
 
         </StackPanel>
 
-        <ListView x:Name="CustomerList"  Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="5"  VerticalAlignment="Center" Height="174">
+        <ListView x:Name="CustomerList"  Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="5"  VerticalAlignment="Center" Height="174" HorizontalAlignment="Center">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="Black" BorderThickness="2">
@@ -46,7 +46,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <StackPanel Grid.Row="1" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center">
             <TextBlock Text="Добавить заказчика" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <StackPanel Margin="10" Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">

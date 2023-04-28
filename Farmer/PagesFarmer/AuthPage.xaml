@@ -23,10 +23,8 @@
                 <TextBlock Text="Пароль" Margin="10"/>
                 <PasswordBox x:Name="PasswordTb" Width="100" Height="30"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="EnterBt" Content="Вход" Margin="5" Click="EnterBt_Click"/>
-                <Button x:Name="RegBt" Content="Регистрация" Margin="5" Click="RegBt_Click"/>
-            </StackPanel>
+            <Button x:Name="EnterBt" Content="Вход" Margin="5" Click="EnterBt_Click"/>
+          
            
         </StackPanel>
     </Grid>
