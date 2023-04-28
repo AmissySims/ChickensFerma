@@ -43,7 +43,12 @@ namespace Admin.AdminPages
             HealthCb.ItemsSource = App.db.Health.ToList();
            // HealthCb.DisplayMemberPath = "Title";
             CageCb.ItemsSource = App.db.Cage.Where(x => x.IsPaus == null).ToList();
-           // CageCb.DisplayMemberPath = "Id";
+            // CageCb.DisplayMemberPath = "Id";
+            AddNameTb.Text = "";
+            AddWeightTb.Text = "";
+            AddAgeTb.Text = "";
+            AddeggsTb.Text = "";
+            ImageChick.Source = null;
         }
 
         private void AddWeightTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -72,15 +77,13 @@ namespace Admin.AdminPages
             {
                 if (AddNameTb.Text != "" && BreedCb.SelectedIndex != null && AddWeightTb.Text != "" && AddAgeTb.Text != "" && AddeggsTb.Text != "" && CageCb.SelectedIndex != null && HealthCb.SelectedIndex != null)
                 {
-                    var DataCount = App.db.Chicken.ToList();
-                   
-                    
+                                     
                     var SelCell = (CageCb.SelectedItem as Cage);
                     var ListChick = App.db.Chicken.ToList().Where(x => x.Cage == SelCell).ToList();
                     if ((SelCell.Size.Count) < ListChick.Count)
                     {
                         SelCell.IsPaus = true;
-                        MessageBox.Show("NEe a");
+                        MessageBox.Show("error");
                     }
                     else
                     {

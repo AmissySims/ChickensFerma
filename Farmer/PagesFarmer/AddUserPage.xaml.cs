@@ -26,8 +26,14 @@ namespace Farmer.PagesFarmer
         {
             InitializeComponent();
             UserList.ItemsSource = App.db.User.ToList();
+            Refresh();
         }
-
+        public void Refresh()
+        {
+            AddNameTb.Text = "";
+            AddLoginTb.Text = "";
+            AddPasswordTb.Text = "";
+        }
         private void AddUser_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -44,13 +50,13 @@ namespace Farmer.PagesFarmer
                     App.db.User.Add(NewUser);
                     App.db.SaveChanges();
                     MessageBox.Show("Добавлено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Refresh();
                 }
                 else
                     MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 UserList.ItemsSource = App.db.User.ToList();
-                AddNameTb.Text = "";
-                AddLoginTb.Text = "";
-                AddPasswordTb.Text = "";
+                Refresh();
+               
 
             }
             catch (Exception ex)

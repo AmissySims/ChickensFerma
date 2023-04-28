@@ -27,6 +27,11 @@ namespace Farmer.PagesFarmer
         {
             InitializeComponent();
             CustomerList.ItemsSource = App.db.Customer.ToList();
+            Refresh();
+        }
+        public void Refresh()
+        {
+            AddDescriptionTb.Text = "";
         }
 
         private void AddCustBt_Click(object sender, RoutedEventArgs e)
@@ -43,11 +48,13 @@ namespace Farmer.PagesFarmer
                     App.db.Customer.Add(NewCust);
                     App.db.SaveChanges();
                     MessageBox.Show("Добавлено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Refresh();
                 }
                else
                     MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 CustomerList.ItemsSource = App.db.Customer.ToList();
-                AddDescriptionTb.Text = "";
+                Refresh();
+                
 
             }
             catch (Exception ex)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -28,12 +29,16 @@ namespace Farmer.PagesFarmer
         {
             InitializeComponent();
             CageList.ItemsSource = App.db.Cage.ToList();
-            AddDepCb.Items.Clear();
+            Refresh();
+            
+        }
+        public void Refresh()
+        {
+            
+            AddDepCb.ItemsSource = null;
+            AddSizeCb.ItemsSource = null;
             AddDepCb.ItemsSource = App.db.Department.ToList();
-            AddDepCb.DisplayMemberPath = "Title";
-            AddSizeCb.Items.Clear();
             AddSizeCb.ItemsSource = App.db.Size.ToList();
-            AddSizeCb.DisplayMemberPath = "Title";
         }
 
         private void AddCageBt_Click(object sender, RoutedEventArgs e)
@@ -42,21 +47,34 @@ namespace Farmer.PagesFarmer
             {
                 if ((AddSizeCb.SelectedIndex != null) && (AddDepCb.SelectedIndex != null))
                 {
-                    Cage NewCage = new Cage()
+                   
+                    var SelCell = (AddDepCb.SelectedItem as Department);
+                    var ListCage = App.db.Cage.ToList().Where(x => x.Department == SelCell).ToList();
+                    if ((SelCell.CountCage) < ListCage.Count)
                     {
+                        SelCell.IsPauzz = true;
+                        MessageBox.Show("error");
+                    }
+                    else
+                    {
+                        Cage NewCage = new Cage()
+                        {
 
-                        SizeId = (AddSizeCb.SelectedItem as Size).Id,
-                        DepartmentId = (AddDepCb.SelectedItem as Department).Id,
-                    };
-                    App.db.Cage.Add(NewCage);
+                            SizeId = (AddSizeCb.SelectedItem as Size).Id,
+                            DepartmentId = (AddDepCb.SelectedItem as Department).Id
+                        };
+                        App.db.Cage.Add(NewCage);
+
+                    }
+                   
                     App.db.SaveChanges();
                     MessageBox.Show("Добавлено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Refresh();
                 }
                 else
                     MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 CageList.ItemsSource = App.db.Cage.ToList();
-                AddSizeCb.Items.Clear();
-                AddSizeCb.Items.Clear();
+                Refresh();
                 
                 
             }

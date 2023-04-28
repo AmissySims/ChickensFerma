@@ -24,6 +24,7 @@ namespace Veterinar.Componentsvet
         public string Title { get; set; }
         public Nullable<int> CountCage { get; set; }
         public string Adress { get; set; }
+        public Nullable<bool> IsPauzz { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cage> Cage { get; set; }

@@ -29,24 +29,35 @@ namespace Admin.AdminPages
         public InventoryPage()
         {
             InitializeComponent();
-            AddTypeCb.Items.Clear();
+            Refresh();
+            
+            
+        }
+        public void Refresh()
+        {
+            AddTypeCb.ItemsSource = null;
+            NameCb.ItemsSource = null;
             AddTypeCb.ItemsSource = App.db.Type.ToList();
-            AddTypeCb.DisplayMemberPath = "Title";
-            NameCb.Items.Clear();
+            
             NameCb.ItemsSource = App.db.Inventory.ToList();
-            NameCb.DisplayMemberPath = "Title";
+            AddTitleTb.Text = "";
+            AddCountTb.Text = "";
+            AddPriceTb.Text = "";
+            ImageInvent.Source = null;
         }
 
         private void EventOldInvent_Checked(object sender, RoutedEventArgs e)
         {
             OldStack.Visibility = Visibility.Visible;
             NewStack.Visibility = Visibility.Hidden;
+            PhotoIm.Visibility = Visibility.Hidden;
         }
 
         private void EventNewInvent_Unchecked(object sender, RoutedEventArgs e)
         {
             OldStack.Visibility = Visibility.Hidden;
             NewStack.Visibility = Visibility.Visible;
+            PhotoIm.Visibility = Visibility.Visible;
         }
 
         private void AddPhotoBt_Click(object sender, RoutedEventArgs e)
@@ -81,6 +92,7 @@ namespace Admin.AdminPages
                     App.db.Inventory.Add(inventory);
                     App.db.SaveChanges();
                     MessageBox.Show("Добавлено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Refresh();
                 }
                 else
                     MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -103,6 +115,7 @@ namespace Admin.AdminPages
                     SelInvent.Count += Convert.ToInt32(CountTb.Text);
                     App.db.SaveChanges();
                     MessageBox.Show("Докуплено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Refresh();
                 }
                 else
                     MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
