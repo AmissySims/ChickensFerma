@@ -72,6 +72,7 @@
                                     <TextBlock Text="{Binding Price}"  />
                                 </StackPanel>
                                 <StackPanel>
+                                    <Button x:Name="UseBt" Content="Использовать" Click="UseBt_Click" Margin="5"/>
                                     <Button x:Name="Create" Content="Create" Click="Create_Click" />
                                 </StackPanel>
                             </StackPanel>

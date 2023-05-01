@@ -25,6 +25,7 @@ namespace Veterinar.VetPages
         public CloseEggsOrderPage()
         {
             InitializeComponent();
+            ListEggsOrders.ItemsSource = App.db.OrderEggs.ToList();
         }
     }
 }

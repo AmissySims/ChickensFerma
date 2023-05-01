@@ -9,6 +9,48 @@
       Title="CloseEggsOrderPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="23*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Заказы на яйца" FontSize="16" FontWeight="Bold"/>
+
+        </StackPanel>
+        <ListView x:Name="ListEggsOrders" Grid.Row="1"   d:ItemsSource="{d:SampleData ItemCount=5}" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="90"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"/>
+                                <RowDefinition Height="47"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" Grid.Column="0" Margin="5" >
+                                <TextBlock Text="{Binding Id, StringFormat='{}{0} заказ'}" FontWeight="Bold"/>
+
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" Margin="5">
+                                <StackPanel  Orientation="Horizontal">
+                                    <TextBlock Text="Количество яиц "/>
+                                    <TextBlock Text="{Binding Count}" x:Name="CountTb"/>
+                                </StackPanel>
+                                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+                                    <TextBlock Text="Стандарт "/>
+                                    <TextBlock Text="{Binding TypeStandart.Title}" x:Name="StandartTb"/>
+                                </StackPanel>
+                            </StackPanel>
+                            
+                            <Button x:Name="CloseOrderEggBt" Content="Закрыть" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                    
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

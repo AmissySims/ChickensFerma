@@ -83,6 +83,9 @@
     <Compile Include="VetPages\CloseEggsOrderPage.xaml.cs">
       <DependentUpon>CloseEggsOrderPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VetPages\CreateChickensHealthPage.xaml.cs">
+      <DependentUpon>CreateChickensHealthPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VetPages\MenuVetPage.xaml.cs">
       <DependentUpon>MenuVetPage.xaml</DependentUpon>
     </Compile>
@@ -191,6 +194,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VetPages\CloseEggsOrderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VetPages\CreateChickensHealthPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Veterinar.Componentsvet;
 using Veterinar.VetPages;
-using Veterinar.VetPages.AddPhoto;
+
 
 
 
@@ -84,6 +84,38 @@ namespace Veterinar.VetPages
         {
             var selinvent = (sender as Button).DataContext as Inventory;
             NavigationService.Navigate(new AddInventPage(selinvent));
+        }
+
+        private void UseBt_Click(object sender, RoutedEventArgs e)
+        {
+            if(Inventlist.SelectedItem != null)
+            {
+                var dataInvent = Inventlist.SelectedItem as Inventory;
+                if(dataInvent.TypeId == 1)
+                { 
+                    if((dataInvent.Count -1) <= 1)
+                    {
+                        MessageBox.Show("Инвентарь закончился", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        dataInvent.Count--;
+                        MessageBox.Show("Инвентарь использован", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                        App.db.SaveChanges();
+                        Inventlist.ItemsSource = App.db.Inventory.ToList();
+                        
+                        
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Инвентарь использовaн", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    App.db.SaveChanges();
+                    Inventlist.ItemsSource = App.db.Inventory.ToList();
+                }
+               
+            }
+            
         }
     }
 }
