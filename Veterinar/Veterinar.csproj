@@ -64,8 +64,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Componentsvet\PartialClasses\Inventory.cs" />
     <Compile Include="VetPages\AddEggsPage.xaml.cs">
       <DependentUpon>AddEggsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VetPages\AddInventPage.xaml.cs">
+      <DependentUpon>AddInventPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="VetPages\AuthPage.xaml.cs">
       <DependentUpon>AuthPage.xaml</DependentUpon>
@@ -167,6 +171,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="VetPages\AddEggsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VetPages\AddInventPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

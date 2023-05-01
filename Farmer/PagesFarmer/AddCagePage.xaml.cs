@@ -74,7 +74,7 @@ namespace Farmer.PagesFarmer
                 else
                     MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 CageList.ItemsSource = App.db.Cage.ToList();
-                Refresh();
+                
                 
                 
             }

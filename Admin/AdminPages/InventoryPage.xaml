@@ -22,7 +22,7 @@
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Vertical" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Vertical" Margin="10" x:Name="PhotoIm">
-                    <Image x:Name="ImageInvent"  Width="180" Height="180" Source="{Binding Inventory.Photo}" Margin="5"/>
+                    <Image x:Name="ImageInvent"  Width="180" Height="180" Source="{Binding Photo}" Margin="5"/>
                     <Button x:Name="AddPhotoBt" Content="Добавить фото" Click="AddPhotoBt_Click"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
@@ -32,7 +32,7 @@
                     <StackPanel Orientation="Vertical" Margin="10" x:Name="OldStack" Visibility="Hidden">
                         <StackPanel Orientation="Horizontal" Margin="5">
                             <TextBlock Text="Название  "/>
-                            <ComboBox x:Name="NameCb" Width="100" Height="20">
+                            <ComboBox x:Name="NameCb" Width="100" Height="20" ToolTip="Название">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding Title}"/>
@@ -57,7 +57,7 @@
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="5">
                             <TextBlock Text="Тип  "/>
-                            <ComboBox x:Name="AddTypeCb" Width="100" Height="20">
+                            <ComboBox x:Name="AddTypeCb" Width="100" Height="20"  ToolTip="Тип инвентаря">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding Title}"/>

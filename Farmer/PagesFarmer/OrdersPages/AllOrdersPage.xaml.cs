@@ -24,22 +24,17 @@ namespace Farmer.PagesFarmer.OrdersPages
         public AllOrdersPage()
         {
             InitializeComponent();
-            ChoiceComponentCb.Items.Clear();
-            ChoiceComponentCb.ItemsSource = App.db.TypeProd.ToList();
-            ChoiceComponentCb.DisplayMemberPath = "Title";
-            ChoiceCustCb.Items.Clear();
-            ChoiceCustCb.ItemsSource = App.db.Customer.ToList();
-            ChoiceCustCb.DisplayMemberPath = "Description";
+            Refresf();
+            
         }
-
-        private void CountaddTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        public void Refresf()
         {
-
-            if (!Char.IsDigit(e.Text, 0))
-            {
-                e.Handled = true;
-            }
+            ChoiceComponentCb.ItemsSource = null;
+            ChoiceCustCb.ItemsSource = null;
+            ChoiceComponentCb.ItemsSource = App.db.TypeProd.ToList();
+            ChoiceCustCb.ItemsSource = App.db.Customer.ToList();
         }
+    
 
         private void AddOrderBt_Click(object sender, RoutedEventArgs e)
         {
@@ -61,18 +56,13 @@ namespace Farmer.PagesFarmer.OrdersPages
                     App.db.Order.Add(NewCage);
                     App.db.SaveChanges();
                     MessageBox.Show("Создано", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Refresf();
                     
                 }
                 else
                     MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                
-                ChoiceCustCb.ItemsSource = null;
-                ChoiceCustCb.Text = "";
-                ChoiceCustCb.ItemsSource = App.db.Customer.ToList();
-                ChoiceComponentCb.ItemsSource = null;
-                ChoiceComponentCb.Text = "";
-                ChoiceComponentCb.ItemsSource = App.db.TypeProd.ToList();
-                CountaddTb.Text = "";
+              
 
 
             }
@@ -84,6 +74,14 @@ namespace Farmer.PagesFarmer.OrdersPages
 
         private void PriceTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
+            if (!Char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
+            }
+        }
+        private void CountaddTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
             if (!Char.IsDigit(e.Text, 0))
             {
                 e.Handled = true;

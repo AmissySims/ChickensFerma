@@ -18,8 +18,8 @@
             <TextBlock Text="Информация" FontSize="16" FontWeight="Bold"/>
 
         </StackPanel>
-        <ListView x:Name="ListDataFoView" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"> 
-            <ListView.ItemTemplate>
+        <ListView x:Name="ListDataFoView" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource ListAdm}"> 
+            <ListView.ItemTemplate >
                 <DataTemplate>
                     <StackPanel>
                         <TextBlock Text="{Binding FullName, StringFormat='{}{0} - ФИО пользователя'}"/>

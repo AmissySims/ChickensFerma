@@ -20,5 +20,9 @@
         <Style TargetType="ListViewItem">
             <Setter Property="Background" Value="Transparent"/>
         </Style>
+        <Style TargetType="ListView" x:Key="ListAdm">
+            <Setter Property="Background" Value="White"/>
+        </Style>
+       
     </Application.Resources>
 </Application>

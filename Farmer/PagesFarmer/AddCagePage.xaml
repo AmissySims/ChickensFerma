@@ -60,7 +60,7 @@
             <StackPanel Margin="10" Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Размер клетки" Margin="5"/>
-                    <ComboBox x:Name="AddSizeCb" Height="20" Width="110" Margin="5">
+                    <ComboBox x:Name="AddSizeCb" Height="20" Width="110" Margin="5" ToolTip="Размер">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Title}"/>
@@ -70,7 +70,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Помещение" Margin="5"/>
-                    <ComboBox x:Name="AddDepCb" Height="20" Width="110" Margin="5">
+                    <ComboBox x:Name="AddDepCb" Height="20" Width="110" Margin="5" ToolTip="Помещение">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Title}"/>

@@ -53,7 +53,7 @@ namespace Farmer.PagesFarmer
                else
                     MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 CustomerList.ItemsSource = App.db.Customer.ToList();
-                Refresh();
+             
                 
 
             }

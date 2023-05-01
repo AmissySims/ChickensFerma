@@ -20,5 +20,9 @@
         <Style TargetType="ListViewItem">
             <Setter Property="Background" Value="Transparent"/>
         </Style>
+        <Style TargetType="CheckBox">
+            <Setter Property="BorderBrush" Value="#FFBC1F4C"/>
+           
+        </Style>
     </Application.Resources>
 </Application>

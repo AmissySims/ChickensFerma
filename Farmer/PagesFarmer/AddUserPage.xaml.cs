@@ -55,7 +55,7 @@ namespace Farmer.PagesFarmer
                 else
                     MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 UserList.ItemsSource = App.db.User.ToList();
-                Refresh();
+              
                
 
             }

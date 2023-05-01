@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Veterinar.VetPages"
       mc:Ignorable="d" 
+      DataContext="{Binding RelativeSource={RelativeSource Self}}"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="UseInventoryPage">
 
@@ -19,9 +20,24 @@
             <TextBlock Text="Инвентарь" FontSize="16" FontWeight="Bold"/>
 
         </StackPanel>
-        <StackPanel Grid.Row="1">
-            <StackPanel>
-
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBlock Text="Тип расходника"  Margin="15"/>
+                <ComboBox   Margin="5" x:Name="TypeCb" Height="20" Width="130" SelectionChanged="TypeCb_SelectionChanged" DisplayMemberPath="Title">
+                    <!--<ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="Title"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>-->
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Text="Поиск" Margin="15"/>
+                <TextBox x:Name="FoundTb" Height="20" Width="130" Margin="5" TextChanged="FoundTb_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  >
+                <TextBlock Text="Нет в наличии" Margin="15"/>
+                <CheckBox x:Name="AvialibleTb" Height="20"  Margin="5" Checked="AvialibleTb_Checked" Unchecked="AvialibleTb_Unchecked"/>
             </StackPanel>
         </StackPanel>
         <ListView Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="Inventlist" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
@@ -32,26 +48,31 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="Black" BorderThickness="2">
+                    <Border BorderBrush="{Binding ColorCount}" BorderThickness="2"  >
+                        
                         <Grid>
                             <Grid.Background>
-                                <SolidColorBrush Color="White" Opacity="0.7" />
+                                <SolidColorBrush Color="White" Opacity="0.7"/>
                             </Grid.Background>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
+                            
                             <Image Margin="5" Source="{Binding Photo}" Grid.Row="0" Width="150" Height="150"/>
                             <StackPanel Grid.Row="1" Margin="5">
                                 <TextBlock Text="{Binding Title}"  />
                                 <TextBlock Text="{Binding Type.Title}"  />
-                                <TextBlock Text="{Binding Count}" x:Name="CountTb"  />
                                 <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Количество  "/>
+                                    <TextBlock Text="{Binding Count}" x:Name="CountTb"  />
+                                </StackPanel>
+                               <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Цена  "/>
                                     <TextBlock Text="{Binding Price}"  />
                                 </StackPanel>
                                 <StackPanel>
-                                    <Button x:Name="Create" Content="Create" />
+                                    <Button x:Name="Create" Content="Create" Click="Create_Click" />
                                 </StackPanel>
                             </StackPanel>
 

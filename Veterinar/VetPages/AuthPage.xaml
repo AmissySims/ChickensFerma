@@ -12,6 +12,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="\Resources\Куры.jpg" Stretch="Fill" TileMode="None" Opacity="0.6"/>
         </Grid.Background>
+        <Rectangle Height="190" Width="210" Fill="Black" Opacity="0.2"  />
         <Rectangle Fill="White" HorizontalAlignment="Center" VerticalAlignment="Center" Height="180" Width="200"/>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="ВХОД" HorizontalAlignment="Center" Margin="10" FontWeight="Bold" />
@@ -28,5 +29,6 @@
             </StackPanel>
 
         </StackPanel>
+        
     </Grid>
 </Page>

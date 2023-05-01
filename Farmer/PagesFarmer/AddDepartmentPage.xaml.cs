@@ -26,6 +26,13 @@ namespace Farmer.PagesFarmer
         {
             InitializeComponent();
             DepartmentList.ItemsSource = App.db.Department.ToList();
+            Refresh();
+        }
+        public void Refresh()
+        {
+            AddTitleTb.Text = "";
+            AddCountCageTb.Text = "";
+            AddAdressTb.Text = "";
         }
 
         private void AddDepartmentBt_Click(object sender, RoutedEventArgs e)
@@ -44,13 +51,12 @@ namespace Farmer.PagesFarmer
                     App.db.Department.Add(NewDep);
                     App.db.SaveChanges();
                     MessageBox.Show("Добавлено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Refresh();
                 }
                 else
                     MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 DepartmentList.ItemsSource = App.db.Department.ToList();
-                AddTitleTb.Text = "";
-                AddCountCageTb.Text = "";
-                AddAdressTb.Text = "";
+               
             }
             catch (Exception ex)
             {
