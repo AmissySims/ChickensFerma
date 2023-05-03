@@ -11,24 +11,32 @@
       Title="AddInventPage">
 
     <Grid>
-       
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="23*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Изменить фото инвентаря" FontSize="16" FontWeight="Bold"/>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Vertical" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Vertical" Margin="10">
                     <Image x:Name="ImInvent"  Width="180" Height="180" Source="{Binding Photo}" Margin="5"/>
                     <Button x:Name="PhotoBt" Content="Добавить фото" Click="PhotoBt_Click" />
                 </StackPanel>
-                <StackPanel>
+                <StackPanel Margin="5">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Название:"/>
+                        <TextBlock Text="Название: "/>
                         <TextBlock Text="{Binding Title}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Количество:"/>
+                        <TextBlock Text="Количество: "/>
                         <TextBlock Text="{Binding Count}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Тип:"/>
+                        <TextBlock Text="Тип: "/>
                         <TextBlock Text="{Binding Type.Title}"/>
                     </StackPanel>
                     

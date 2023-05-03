@@ -64,7 +64,7 @@
                                 <TextBlock Text="{Binding Title}"  />
                                 <TextBlock Text="{Binding Type.Title}"  />
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Количество  "/>
+                                    <TextBlock Text="Количество "/>
                                     <TextBlock Text="{Binding Count}" x:Name="CountTb"  />
                                 </StackPanel>
                                <StackPanel Orientation="Horizontal">
@@ -72,7 +72,7 @@
                                     <TextBlock Text="{Binding Price}"  />
                                 </StackPanel>
                                 <StackPanel>
-                                    <Button x:Name="UseBt" Content="Использовать" Click="UseBt_Click" Margin="5"/>
+                                    <Button x:Name="UseBt" Content="Использовать" Click="UseBt_Click" Margin="5" />
                                     <Button x:Name="Create" Content="Редактировать" Click="Create_Click" Margin="5"/>
                                 </StackPanel>
                             </StackPanel>

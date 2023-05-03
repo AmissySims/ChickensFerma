@@ -150,11 +150,14 @@ namespace Veterinar.VetPages
                 {
                     MessageBox.Show("Инвентарь использовaн", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     App.db.SaveChanges();
-                    
+                    Inventlist.ItemsSource = App.db.Inventory.ToList();
+
                 }
 
             }
-            
+            else
+                Inventlist.ItemsSource = App.db.Inventory.ToList();
+
         }
     }
 }
