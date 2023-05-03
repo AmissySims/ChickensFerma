@@ -1,0 +1,68 @@
+﻿<Window x:Class="Veterinar.WindowsVet.AddOrderMeatWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Veterinar.WindowsVet"
+        mc:Ignorable="d"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Title="AddOrderMeatWindow" Height="500" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="397*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5 0">
+                <TextBlock Text="p" FontSize="17"></TextBlock>
+                <TextBlock Text="/" FontSize="17"></TextBlock>
+                <TextBlock Text="{Binding Order.Count}"  FontSize="17"></TextBlock>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <Button x:Name="RemoveBt" Content="Закрыть" Margin="300 0" />
+            </StackPanel>
+        </StackPanel>
+        
+        
+        <ListView x:Name="ListChicks" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListChicks_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="{Binding PhotoChic}" Margin="5"/>
+                            <StackPanel Grid.Column="1" Margin="5">
+                                <StackPanel Margin="5" Orientation="Horizontal">
+                                    <TextBlock Text="Имя "/>
+                                    <TextBlock Text="{Binding Name}"/>
+                                </StackPanel>
+                                <StackPanel Margin="5" Orientation="Horizontal">
+                                    <TextBlock Text="Здоровье "/>
+                                    <TextBlock Text="{Binding Health.Title}"/>
+                                </StackPanel>
+                                <StackPanel Margin="5" Orientation="Horizontal">
+                                    <TextBlock Text="Порода "/>
+                                    <TextBlock Text="{Binding Breed.Title}"/>
+                                </StackPanel>
+                                <StackPanel Margin="5" Orientation="Horizontal">
+                                    <TextBlock Text="Клетка  "/>
+                                    <TextBlock Text="{Binding Cage.Id}"/>
+                                </StackPanel>
+                                <StackPanel Margin="5" Orientation="Horizontal">
+                                    <TextBlock Text="Вес "/>
+                                    <TextBlock Text="{Binding Width}"/>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </Grid>
+                    </Border>
+                   
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>

@@ -10,23 +10,27 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Veterinar.Componentsvet;
 using Veterinar.VetPages;
-using Veterinar.WindowsVet;
 
-namespace Veterinar.VetPages
+namespace Veterinar.WindowsVet
 {
     /// <summary>
-    /// Логика взаимодействия для CloseEggsOrderPage.xaml
+    /// Логика взаимодействия для AddOrderMeatWindow.xaml
     /// </summary>
-    public partial class CloseEggsOrderPage : Page
+    public partial class AddOrderMeatWindow : Window
     {
-        public CloseEggsOrderPage()
+
+        public AddOrderMeatWindow()
         {
             InitializeComponent();
-            ListEggsOrders.ItemsSource = App.db.Order.Where(x => x.TypeProdId == 1).ToList();
+            //ListChicks.ItemSource App.db.Chicken.Where(x => x.HealthId == 3).ToList();
+        }
+
+        private void ListChicks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
