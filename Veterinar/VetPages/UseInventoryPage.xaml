@@ -40,7 +40,7 @@
                 <CheckBox x:Name="AvialibleTb" Height="20"  Margin="5" Checked="AvialibleTb_Checked" Unchecked="AvialibleTb_Unchecked"/>
             </StackPanel>
         </StackPanel>
-        <ListView Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="Inventlist" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+        <ListView Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="Inventlist" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="Inventlist_SelectionChanged" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel></WrapPanel>

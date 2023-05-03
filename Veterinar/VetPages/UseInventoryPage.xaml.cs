@@ -94,12 +94,45 @@ namespace Veterinar.VetPages
 
         private void UseBt_Click(object sender, RoutedEventArgs e)
         {
-            if(Inventlist.SelectedItem != null)
+            //if(Inventlist.SelectedItem != null)
+            //{
+            //    var dataInvent = Inventlist.SelectedItem as Inventory;
+            //    if(dataInvent.TypeId == 1)
+            //    { 
+            //        if((dataInvent.Count -1) <= 1)
+            //        {
+            //            MessageBox.Show("Инвентарь закончился", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
+            //        }
+            //        else
+            //        {
+            //            dataInvent.Count--;
+            //            MessageBox.Show("Инвентарь использован", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+            //            App.db.SaveChanges();
+            //            Inventlist.ItemsSource = App.db.Inventory.ToList();
+                        
+                        
+            //        }
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Инвентарь использовaн", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+            //        App.db.SaveChanges();
+            //        Inventlist.ItemsSource = App.db.Inventory.ToList();
+            //    }
+               
+            //}
+            //else
+            //    MessageBox.Show("Инвентарь использован", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void Inventlist_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Inventlist.SelectedItem != null)
             {
                 var dataInvent = Inventlist.SelectedItem as Inventory;
-                if(dataInvent.TypeId == 1)
-                { 
-                    if((dataInvent.Count -1) <= 1)
+                if (dataInvent.TypeId == 1)
+                {
+                    if ((dataInvent.Count - 1) <= 1)
                     {
                         MessageBox.Show("Инвентарь закончился", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
@@ -109,20 +142,19 @@ namespace Veterinar.VetPages
                         MessageBox.Show("Инвентарь использован", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                         App.db.SaveChanges();
                         Inventlist.ItemsSource = App.db.Inventory.ToList();
-                        
-                        
+
+
                     }
                 }
                 else
                 {
                     MessageBox.Show("Инвентарь использовaн", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     App.db.SaveChanges();
-                    Inventlist.ItemsSource = App.db.Inventory.ToList();
+                    
                 }
-               
+
             }
-            else
-                MessageBox.Show("Инвентарь использован", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+            
         }
     }
 }
