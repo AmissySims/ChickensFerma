@@ -54,7 +54,8 @@ namespace Veterinar.VetPages
         {
             try
             {
-                invent.Photo = image;
+                //invent.Photo = image;
+                App.db.Inventory.Where(z=>z.Id == invent.Id).First().Photo = image;
                 App.db.SaveChanges();
                 MessageBox.Show("jcvnch");
                 NavigationService.Navigate(new UseInventoryPage());

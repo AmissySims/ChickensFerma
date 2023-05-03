@@ -15,7 +15,7 @@ namespace Veterinar.Componentsvet
             {
                 
                 if(Count == 0)
-                    return Brushes.Pink;
+                    return Brushes.Crimson;
                 else
                     return Brushes.Black;
             }

@@ -48,10 +48,10 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Клетка  "/>
-                        <ComboBox x:Name="CageCb" Width="100" Height="20" ToolTip="Клетка">
+                        <ComboBox x:Name="CageCb" Width="100" Height="20" ToolTip="Клетка" SelectionChanged="CageCb_SelectionChanged">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Id }"/>
+                                    <TextBlock Text="{Binding Id}"/>
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
                         </ComboBox>

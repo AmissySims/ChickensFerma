@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -54,14 +55,20 @@ namespace Veterinar.VetPages
                 listInvent = listInvent.Where(x => x.Title.ToLower().Contains(searchString.ToLower())).ToList();
                 Inventlist.ItemsSource = listInvent;
             }
-            
+            if(AvialibleTb.IsChecked == true)
+            {
+                listInvent = listInvent.Where(x => x.Count == 0).ToList();
+                Inventlist.ItemsSource = listInvent;
+            }
+            else if(AvialibleTb.IsChecked == false)
+            {
+                Inventlist.ItemsSource = listInvent;
+            }
             Inventlist.ItemsSource = listInvent;
         }
         private void AvialibleTb_Checked(object sender, RoutedEventArgs e)
         {
-            List<Inventory> listInvent = _context.Inventory.ToList();
-            listInvent = listInvent.Where(x => x.Count == 0).ToList();  
-            Inventlist.ItemsSource = listInvent;
+           Sort();
         }
 
         private void TypeCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -76,8 +83,7 @@ namespace Veterinar.VetPages
 
         private void AvialibleTb_Unchecked(object sender, RoutedEventArgs e)
         {
-            List<Inventory> listInvent = _context.Inventory.ToList();
-            Inventlist.ItemsSource = listInvent;
+            Sort();
         }
 
         private void Create_Click(object sender, RoutedEventArgs e)
@@ -115,7 +121,8 @@ namespace Veterinar.VetPages
                 }
                
             }
-            
+            else
+                MessageBox.Show("Инвентарь использован", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

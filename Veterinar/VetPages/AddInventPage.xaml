@@ -11,14 +11,32 @@
       Title="AddInventPage">
 
     <Grid>
-        <StackPanel Orientation="Horizontal">
-            <StackPanel Orientation="Vertical" Margin="10">
-                <Image x:Name="ImInvent"  Width="180" Height="180" Source="{Binding Inventory.Photo}" Margin="5"/>
-                <Button x:Name="PhotoBt" Content="Добавить фото" Click="PhotoBt_Click" />
+       
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical" Margin="10">
+                    <Image x:Name="ImInvent"  Width="180" Height="180" Source="{Binding Photo}" Margin="5"/>
+                    <Button x:Name="PhotoBt" Content="Добавить фото" Click="PhotoBt_Click" />
+                </StackPanel>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Название:"/>
+                        <TextBlock Text="{Binding Title}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Количество:"/>
+                        <TextBlock Text="{Binding Count}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Тип:"/>
+                        <TextBlock Text="{Binding Type.Title}"/>
+                    </StackPanel>
+                    
+                </StackPanel>
             </StackPanel>
-            <TextBlock Text="title"/>
-            <TextBlock Text="{Binding Inventory.Title}"/>
-            <Button x:Name="add" Content="gghhg" HorizontalAlignment="Center" VerticalAlignment="Center" Click="add_Click"/>
+            
+            
+            <Button x:Name="add" Content="Сохранить"  Click="add_Click"/>
         </StackPanel>
     </Grid>
 </Page>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32.SafeHandles;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,11 +43,11 @@ namespace Veterinar.VetPages
 
             try
             {
-                if (StandartCb.SelectedIndex != null && CountTb.Text != "")
+                if (StandartCb.SelectedItem != null && CountTb.Text != "")
                 {
                   
-
-                    var SelEggs = App.db.Eggs.Where(z => z.TypeStandartId == ((StandartCb.SelectedItem as TypeStandart).Id)).FirstOrDefault();
+                    var SellEg = (StandartCb.SelectedItem as TypeStandart);
+                    var SelEggs = App.db.Eggs.Where(z => z.TypeStandartId == SellEg.Id).FirstOrDefault();
                     SelEggs.Count += Convert.ToInt32(CountTb.Text);
 
                     App.db.SaveChanges();

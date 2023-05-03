@@ -34,7 +34,9 @@
         <ListView Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="Chicklist" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel></WrapPanel>
+                    <WrapPanel>
+                      
+                    </WrapPanel>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
@@ -50,7 +52,7 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
 
-                            <Image Margin="5" Source="{Binding PhotoChick}" Grid.Row="0" Width="150" Height="150" />
+                            <Image Margin="5" Source="{Binding PhotoChic}" Grid.Row="0" Width="150" Height="150" />
                             <StackPanel Grid.Row="1" Margin="5">
                                 <TextBlock Text="{Binding Name}"  />
                                 <StackPanel Orientation="Horizontal">

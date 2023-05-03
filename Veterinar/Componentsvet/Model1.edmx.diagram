@@ -20,7 +20,7 @@
         <EntityTypeShape EntityType="ChickensModel.Size" Width="1.5" PointX="1.5" PointY="20.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ChickensModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="ChickensModel.Type" Width="1.5" PointX="7.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ChickensModel.TypeProd" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChickensModel.TypeProd" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ChickensModel.TypeStandart" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ChickensModel.User" Width="1.5" PointX="8" PointY="7.125" IsExpanded="true" />
         <AssociationConnector Association="ChickensModel.FK_Chicken_Breed" ManuallyRouted="false" />
