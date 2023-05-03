@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,10 +24,19 @@ namespace Veterinar.VetPages
     /// </summary>
     public partial class CloseChickOrderPage : Page
     {
+        public Order Order { get; set; }
+        public ObservableCollection<Chicken> Chicken { get; set; }
+        public IEnumerable<OrderChicken> OrderChicken => Order.OrderChicken;
         public CloseChickOrderPage()
         {
             InitializeComponent();
             ListChickOrders.ItemsSource = App.db.Order.Where(x => x.TypeProdId == 2).ToList();  
+        }
+
+        private void CloseOrderMeatBt_Click(object sender, RoutedEventArgs e)
+        {
+            AddOrderMeatWindow selectChicken = new AddOrderMeatWindow(OrderChicken.Select(c => c.Chicken));
+            selectChicken.ShowDialog();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,16 +22,24 @@ namespace Veterinar.WindowsVet
     /// </summary>
     public partial class AddOrderMeatWindow : Window
     {
-
-        public AddOrderMeatWindow()
+        public IEnumerable<Chicken> Chicken { get; set; }
+        public IEnumerable<Chicken> SelectedChicken => ListChicks.SelectedItems.Cast<Chicken>();
+      
+        public AddOrderMeatWindow(IEnumerable<Chicken> chickens)
         {
+            Chicken = App.db.Chicken.Local.Where(x => x.HealthId == 3).Except(chickens);
             InitializeComponent();
-            //ListChicks.ItemSource App.db.Chicken.Where(x => x.HealthId == 3).ToList();
+            ListChicks.ItemsSource = App.db.Chicken.Where(x => x.HealthId == 3).ToList();
         }
 
         private void ListChicks_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if(ListChicks.ItemsSource != null)
+            {
 
+            }
         }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) =>
+          DialogResult = true;
     }
 }

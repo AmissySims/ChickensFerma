@@ -28,5 +28,10 @@ namespace Veterinar.VetPages
             InitializeComponent();
             ListEggsOrders.ItemsSource = App.db.Order.Where(x => x.TypeProdId == 1).ToList();
         }
+
+        private void CloseOrderEggBt_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
     }
 }

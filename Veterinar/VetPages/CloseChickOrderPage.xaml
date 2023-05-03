@@ -46,7 +46,7 @@
 
                             </StackPanel>
 
-                            <Button x:Name="CloseOrderEggBt" Content="Закрыть" Grid.Column="1" Margin="5" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Button x:Name="CloseOrderMeatBt" Content="Закрыть" Grid.Column="1" Margin="5" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CloseOrderMeatBt_Click"/>
                         </Grid>
                     </Border>
 

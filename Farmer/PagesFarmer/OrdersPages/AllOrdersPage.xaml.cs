@@ -33,6 +33,8 @@ namespace Farmer.PagesFarmer.OrdersPages
             ChoiceCustCb.ItemsSource = null;
             ChoiceComponentCb.ItemsSource = App.db.TypeProd.ToList();
             ChoiceCustCb.ItemsSource = App.db.Customer.ToList();
+            CountaddTb.Text = "";
+            PriceTb.Text = "";
         }
     
 
