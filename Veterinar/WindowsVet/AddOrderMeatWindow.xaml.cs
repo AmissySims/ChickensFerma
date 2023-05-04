@@ -1,19 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Veterinar.Componentsvet;
-using Veterinar.VetPages;
 
 namespace Veterinar.WindowsVet
 {
@@ -25,12 +14,12 @@ namespace Veterinar.WindowsVet
         public IEnumerable<Chicken> Chickens { get; set; }
         public Order Order { get; set; }
         public IEnumerable<Chicken> SelectedChicken => ListChicks.SelectedItems.Cast<Chicken>();
-      
+
         public AddOrderMeatWindow(Order _order)
         {
             Order = _order;
 
-            Chickens = App.db.Chicken.Local.Where(x => x.HealthId == 3).Except(chickens);
+            Chickens = App.db.Chicken.Local.Where(x => x.HealthId == 3).Except(Order.Id);
 
             InitializeComponent();
 
@@ -39,7 +28,7 @@ namespace Veterinar.WindowsVet
 
         private void ListChicks_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(ListChicks.ItemsSource != null)
+            if (ListChicks.ItemsSource != null)
             {
 
             }

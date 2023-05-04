@@ -95,6 +95,9 @@
     <Compile Include="VetPages\UseInventoryPage.xaml.cs">
       <DependentUpon>UseInventoryPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowsVet\AddOrderEggsWindow.xaml.cs">
+      <DependentUpon>AddOrderEggsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowsVet\AddOrderMeatWindow.xaml.cs">
       <DependentUpon>AddOrderMeatWindow.xaml</DependentUpon>
     </Compile>
@@ -212,6 +215,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VetPages\UseInventoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowsVet\AddOrderEggsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
