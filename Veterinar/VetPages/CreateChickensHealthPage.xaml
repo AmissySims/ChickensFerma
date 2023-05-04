@@ -22,43 +22,59 @@
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Vertical" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Vertical" Margin="10">
-                    <Image x:Name="ImageChick"  Width="180" Height="180" Source="{Binding PhotoChic}" Margin="5"/>
+                    <Image x:Name="ImageChick"  Width="180" Height="180" Source="{Binding Chickens.PhotoChic}" Margin="5"/>
                     <Button x:Name="PhotoBt" Content="Добавить фото" Click="PhotoBt_Click"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="10">
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Имя  "/>
-                        <TextBlock x:Name="AddNameTb" Text="{Binding Name}" Width="100"/>
+                        <TextBlock x:Name="AddNameTb" Text="{Binding Chickens.Name}" Width="100"/>
                     </StackPanel>
+
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Порода  "/>
-                        <TextBlock x:Name="BreedTb" Text="{Binding Breed.Title}" Width="100"/>
+                        <TextBlock x:Name="BreedTb" Text="{Binding Chickens.Breed.Title}" Width="100"/>
                     </StackPanel>
+
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Вес в кг  "/>
-                        <TextBox x:Name="WeightTb" Text="{Binding Weight}" Width="50" PreviewTextInput="WeightTb_PreviewTextInput"/>
+                        <TextBox x:Name="WeightTb" Text="{Binding Chickens.Weight}" Width="50" PreviewTextInput="WeightTb_PreviewTextInput"/>
                     </StackPanel>
+
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Возраст  "/>
-                        <TextBox x:Name="AgeTb" Text="{Binding Age}" Width="50" PreviewTextInput="AgeTb_PreviewTextInput"/>
+                        <TextBox x:Name="AgeTb" Text="{Binding Chickens.Age}" Width="50" PreviewTextInput="AgeTb_PreviewTextInput"/>
                     </StackPanel>
+
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Несет яиц за месяц  "/>
-                        <TextBox x:Name="AddeggsTb" Text="{Binding EggsInMonth}" Width="50" PreviewTextInput="AddeggsTb_PreviewTextInput"/>
+                        <TextBox x:Name="AddeggsTb" Text="{Binding Chickens.EggsInMonth}" Width="50" PreviewTextInput="AddeggsTb_PreviewTextInput"/>
                     </StackPanel>
+
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Клетка  "/>
-                        <ComboBox x:Name="CageCb" Width="100" Height="20" ToolTip="Клетка" SelectionChanged="CageCb_SelectionChanged">
+                        <ComboBox x:Name="CageCb" ItemsSource="{Binding Cages}"
+                                  Width="100"
+                                  Height="20"
+                                  ToolTip="Клетка"
+                                  SelectionChanged="CageCb_SelectionChanged"
+                                  SelectedIndex="{Binding IdCageChicken}">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Id}"/>
+                                    <TextBlock Text="{Binding NumberCage}"/>
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
                         </ComboBox>
                     </StackPanel>
+
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Здоровье  "/>
-                        <ComboBox x:Name="HealthCb" Width="100" Height="20" ToolTip="Здоровье">
+                        <ComboBox x:Name="HealthCb"
+                                  ItemsSource="{Binding Healths}"
+                                  Width="100"
+                                  Height="20"
+                                  ToolTip="Здоровье"
+                                  SelectedIndex="{Binding Chickens.HealthId}">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Title}" />
@@ -67,8 +83,8 @@
                         </ComboBox>
                     </StackPanel>
                 </StackPanel>
-                
             </StackPanel>
+            
             <Button x:Name="SaveChickBt" Content="Сохранить" Click="SaveChickBt_Click" />
         </StackPanel>
         

@@ -7,14 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Admin.ComponentsAdmin
+namespace Farmer.Components
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Health
+    public partial class Status
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Status()
+        {
+            this.Order = new HashSet<Order>();
+        }
+    
         public int Id { get; set; }
         public string Title { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Order { get; set; }
     }
 }

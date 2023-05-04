@@ -22,13 +22,18 @@ namespace Veterinar.WindowsVet
     /// </summary>
     public partial class AddOrderMeatWindow : Window
     {
-        public IEnumerable<Chicken> Chicken { get; set; }
+        public IEnumerable<Chicken> Chickens { get; set; }
+        public Order Order { get; set; }
         public IEnumerable<Chicken> SelectedChicken => ListChicks.SelectedItems.Cast<Chicken>();
       
-        public AddOrderMeatWindow(IEnumerable<Chicken> chickens)
+        public AddOrderMeatWindow(Order _order)
         {
-            Chicken = App.db.Chicken.Local.Where(x => x.HealthId == 3).Except(chickens);
+            Order = _order;
+
+            Chickens = App.db.Chicken.Local.Where(x => x.HealthId == 3).Except(chickens);
+
             InitializeComponent();
+
             ListChicks.ItemsSource = App.db.Chicken.Where(x => x.HealthId == 3).ToList();
         }
 

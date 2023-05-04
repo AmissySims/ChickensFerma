@@ -52,7 +52,8 @@ namespace Farmer.PagesFarmer.OrdersPages
                         TypeProdId = (ChoiceComponentCb.SelectedItem as TypeProd).Id,
                         CustomerId = (ChoiceCustCb.SelectedItem as Customer).Id,
                         Count = Convert.ToInt32(CountaddTb.Text),
-                        Price = Convert.ToInt32(PriceTb.Text)
+                        Price = Convert.ToInt32(PriceTb.Text),
+                        StatusId = 1
 
                     };
                     App.db.Order.Add(NewCage);

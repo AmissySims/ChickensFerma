@@ -24,7 +24,10 @@
         </StackPanel>
         
         
-        <ListView x:Name="ListChicks" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListChicks_SelectionChanged">
+        <ListView x:Name="ListChicks" Grid.Row="1"
+                  d:ItemsSource="{d:SampleData ItemCount=5}"
+                  ItemsSource="{Binding Chickens}"
+                  SelectionChanged="ListChicks_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="Black" BorderThickness="2">

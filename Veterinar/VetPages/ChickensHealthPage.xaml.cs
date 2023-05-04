@@ -1,20 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Veterinar.Componentsvet;
-using Veterinar.VetPages;
-using Veterinar.WindowsVet;
 
 namespace Veterinar.VetPages
 {
@@ -27,11 +16,16 @@ namespace Veterinar.VetPages
         public ChickensHealthPage()
         {
             InitializeComponent();
+
             Chicklist.ItemsSource = App.db.Chicken.ToList();
+
             List<Health> listHealth = _context.Health.ToList();
+
             listHealth.Insert(0, new Health { Title = "Все" });
+
             HealthCb.ItemsSource = listHealth;
             HealthCb.SelectedIndex = 0;
+
             Sort();
         }
         public void Sort()
@@ -63,12 +57,12 @@ namespace Veterinar.VetPages
             Sort();
         }
 
-       
+
         private void EditHealthBt_Click(object sender, RoutedEventArgs e)
         {
-                var selchick = (sender as Button).DataContext as Chicken;
-                NavigationService.Navigate(new CreateChickensHealthPage(selchick));
-            
+            var selchick = (sender as Button).DataContext as Chicken;
+            NavigationService.Navigate(new CreateChickensHealthPage(selchick));
+
         }
     }
 }

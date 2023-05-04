@@ -19,6 +19,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumberCage" Type="int" />
           <Property Name="SizeId" Type="int" />
           <Property Name="DepartmentId" Type="int" />
           <Property Name="IsPaus" Type="bit" />
@@ -66,7 +67,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Inventory">
@@ -90,6 +91,7 @@
           <Property Name="TypeProdId" Type="int" />
           <Property Name="Count" Type="int" />
           <Property Name="CustomerId" Type="int" />
+          <Property Name="StatusId" Type="int" />
         </EntityType>
         <EntityType Name="OrderChicken">
           <Key>
@@ -124,6 +126,13 @@
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
           <Property Name="Count" Type="int" />
         </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -152,7 +161,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="User">
@@ -213,18 +222,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Chicken_Health">
-          <End Role="Health" Type="Self.Health" Multiplicity="0..1" />
-          <End Role="Chicken" Type="Self.Chicken" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Health">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Chicken">
-              <PropertyRef Name="HealthId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Eggs_TypeStandart">
           <End Role="TypeStandart" Type="Self.TypeStandart" Multiplicity="0..1" />
           <End Role="Eggs" Type="Self.Eggs" Multiplicity="*" />
@@ -258,6 +255,18 @@
             </Principal>
             <Dependent Role="Order">
               <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="StatusId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -347,6 +356,7 @@
           <EntitySet Name="OrderEggs" EntityType="Self.OrderEggs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Size" EntityType="Self.Size" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Type" EntityType="Self.Type" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeProd" EntityType="Self.TypeProd" Schema="dbo" store:Type="Tables" />
@@ -368,10 +378,6 @@
             <End Role="Cage" EntitySet="Cage" />
             <End Role="Chicken" EntitySet="Chicken" />
           </AssociationSet>
-          <AssociationSet Name="FK_Chicken_Health" Association="Self.FK_Chicken_Health">
-            <End Role="Health" EntitySet="Health" />
-            <End Role="Chicken" EntitySet="Chicken" />
-          </AssociationSet>
           <AssociationSet Name="FK_Eggs_TypeStandart" Association="Self.FK_Eggs_TypeStandart">
             <End Role="TypeStandart" EntitySet="TypeStandart" />
             <End Role="Eggs" EntitySet="Eggs" />
@@ -382,6 +388,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Order_Counter" Association="Self.FK_Order_Counter">
             <End Role="Customer" EntitySet="Customer" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Status" Association="Self.FK_Order_Status">
+            <End Role="Status" EntitySet="Status" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
           <AssociationSet Name="FK_Order_TypeProd" Association="Self.FK_Order_TypeProd">
@@ -427,6 +437,7 @@
           <EntitySet Name="OrderEggs" EntityType="ChickensModel.OrderEggs" />
           <EntitySet Name="Role" EntityType="ChickensModel.Role" />
           <EntitySet Name="Size" EntityType="ChickensModel.Size" />
+          <EntitySet Name="Status" EntityType="ChickensModel.Status" />
           <EntitySet Name="sysdiagrams" EntityType="ChickensModel.sysdiagrams" />
           <EntitySet Name="Type" EntityType="ChickensModel.Type" />
           <EntitySet Name="TypeProd" EntityType="ChickensModel.TypeProd" />
@@ -448,10 +459,6 @@
             <End Role="Cage" EntitySet="Cage" />
             <End Role="Chicken" EntitySet="Chicken" />
           </AssociationSet>
-          <AssociationSet Name="FK_Chicken_Health" Association="ChickensModel.FK_Chicken_Health">
-            <End Role="Health" EntitySet="Health" />
-            <End Role="Chicken" EntitySet="Chicken" />
-          </AssociationSet>
           <AssociationSet Name="FK_OrderChicken_Chicken" Association="ChickensModel.FK_OrderChicken_Chicken">
             <End Role="Chicken" EntitySet="Chicken" />
             <End Role="OrderChicken" EntitySet="OrderChicken" />
@@ -467,6 +474,10 @@
           <AssociationSet Name="FK_Inventory_Type" Association="ChickensModel.FK_Inventory_Type">
             <End Role="Type" EntitySet="Type" />
             <End Role="Inventory" EntitySet="Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Status" Association="ChickensModel.FK_Order_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Order" EntitySet="Order" />
           </AssociationSet>
           <AssociationSet Name="FK_Order_TypeProd" Association="ChickensModel.FK_Order_TypeProd">
             <End Role="TypeProd" EntitySet="TypeProd" />
@@ -504,6 +515,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumberCage" Type="Int32" />
           <Property Name="SizeId" Type="Int32" />
           <Property Name="DepartmentId" Type="Int32" />
           <Property Name="IsPaus" Type="Boolean" />
@@ -526,7 +538,6 @@
           <Property Name="PhotoChic" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Breed" Relationship="ChickensModel.FK_Chicken_Breed" FromRole="Chicken" ToRole="Breed" />
           <NavigationProperty Name="Cage" Relationship="ChickensModel.FK_Chicken_Cage" FromRole="Chicken" ToRole="Cage" />
-          <NavigationProperty Name="Health" Relationship="ChickensModel.FK_Chicken_Health" FromRole="Chicken" ToRole="Health" />
           <NavigationProperty Name="OrderChicken" Relationship="ChickensModel.FK_OrderChicken_Chicken" FromRole="Chicken" ToRole="OrderChicken" />
         </EntityType>
         <EntityType Name="Customer">
@@ -545,8 +556,8 @@
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CountCage" Type="Int32" />
           <Property Name="Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Cage" Relationship="ChickensModel.FK_Cage_Department" FromRole="Department" ToRole="Cage" />
           <Property Name="IsPauzz" Type="Boolean" />
+          <NavigationProperty Name="Cage" Relationship="ChickensModel.FK_Cage_Department" FromRole="Department" ToRole="Cage" />
         </EntityType>
         <EntityType Name="Eggs">
           <Key>
@@ -561,9 +572,8 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Chicken" Relationship="ChickensModel.FK_Chicken_Health" FromRole="Health" ToRole="Chicken" />
         </EntityType>
         <EntityType Name="Inventory">
           <Key>
@@ -587,7 +597,9 @@
           <Property Name="TypeProdId" Type="Int32" />
           <Property Name="Count" Type="Int32" />
           <Property Name="CustomerId" Type="Int32" />
+          <Property Name="StatusId" Type="Int32" />
           <NavigationProperty Name="Customer" Relationship="ChickensModel.FK_Order_Counter" FromRole="Order" ToRole="Customer" />
+          <NavigationProperty Name="Status" Relationship="ChickensModel.FK_Order_Status" FromRole="Order" ToRole="Status" />
           <NavigationProperty Name="TypeProd" Relationship="ChickensModel.FK_Order_TypeProd" FromRole="Order" ToRole="TypeProd" />
           <NavigationProperty Name="OrderChicken" Relationship="ChickensModel.FK_OrderChicken_Order" FromRole="Order" ToRole="OrderChicken" />
           <NavigationProperty Name="OrderEggs" Relationship="ChickensModel.FK_OrderEggs_Order" FromRole="Order" ToRole="OrderEggs" />
@@ -631,6 +643,14 @@
           <Property Name="Count" Type="Int32" />
           <NavigationProperty Name="Cage" Relationship="ChickensModel.FK_Cage_Size" FromRole="Size" ToRole="Cage" />
         </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Order" Relationship="ChickensModel.FK_Order_Status" FromRole="Status" ToRole="Order" />
+        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -661,7 +681,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Eggs" Relationship="ChickensModel.FK_Eggs_TypeStandart" FromRole="TypeStandart" ToRole="Eggs" />
           <NavigationProperty Name="OrderEggs" Relationship="ChickensModel.FK_OrderEggs_TypeStandart" FromRole="TypeStandart" ToRole="OrderEggs" />
@@ -725,18 +745,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Chicken_Health">
-          <End Type="ChickensModel.Health" Role="Health" Multiplicity="0..1" />
-          <End Type="ChickensModel.Chicken" Role="Chicken" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Health">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Chicken">
-              <PropertyRef Name="HealthId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_OrderChicken_Chicken">
           <End Type="ChickensModel.Chicken" Role="Chicken" Multiplicity="0..1" />
           <End Type="ChickensModel.OrderChicken" Role="OrderChicken" Multiplicity="*" />
@@ -782,6 +790,18 @@
             </Principal>
             <Dependent Role="Inventory">
               <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Status">
+          <End Type="ChickensModel.Status" Role="Status" Multiplicity="0..1" />
+          <End Type="ChickensModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="StatusId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -867,6 +887,7 @@
                 <ScalarProperty Name="IsPaus" ColumnName="IsPaus" />
                 <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
                 <ScalarProperty Name="SizeId" ColumnName="SizeId" />
+                <ScalarProperty Name="NumberCage" ColumnName="NumberCage" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -937,6 +958,7 @@
           <EntitySetMapping Name="Order">
             <EntityTypeMapping TypeName="ChickensModel.Order">
               <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="Count" ColumnName="Count" />
                 <ScalarProperty Name="TypeProdId" ColumnName="TypeProdId" />
@@ -978,6 +1000,14 @@
             <EntityTypeMapping TypeName="ChickensModel.Size">
               <MappingFragment StoreEntitySet="Size">
                 <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="ChickensModel.Status">
+              <MappingFragment StoreEntitySet="Status">
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

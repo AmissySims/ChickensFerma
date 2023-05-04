@@ -27,8 +27,10 @@ namespace Farmer.Components
         public Nullable<int> TypeProdId { get; set; }
         public Nullable<int> Count { get; set; }
         public Nullable<int> CustomerId { get; set; }
+        public Nullable<int> StatusId { get; set; }
     
         public virtual Customer Customer { get; set; }
+        public virtual Status Status { get; set; }
         public virtual TypeProd TypeProd { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderChicken> OrderChicken { get; set; }

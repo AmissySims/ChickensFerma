@@ -31,7 +31,8 @@
             </StackPanel>
            
         </StackPanel>
-        <ListView Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="Chicklist" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  >
+        <ListView Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="Chicklist"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel>
@@ -73,7 +74,7 @@
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Клетка "/>
-                                    <TextBlock Text="{Binding Cage.Id}"  />
+                                    <TextBlock Text="{Binding Cage.NumberCage}"  />
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Здоровье  "/>

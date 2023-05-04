@@ -32,7 +32,6 @@ namespace Admin.ComponentsAdmin
     
         public virtual Breed Breed { get; set; }
         public virtual Cage Cage { get; set; }
-        public virtual Health Health { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderChicken> OrderChicken { get; set; }
     }

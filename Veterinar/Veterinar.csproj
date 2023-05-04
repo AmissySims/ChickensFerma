@@ -65,6 +65,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Componentsvet\PartialClasses\Inventory.cs" />
+    <Compile Include="Componentsvet\Status.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="VetPages\AddEggsPage.xaml.cs">
       <DependentUpon>AddEggsPage.xaml</DependentUpon>
     </Compile>

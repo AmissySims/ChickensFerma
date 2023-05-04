@@ -24,9 +24,7 @@ namespace Veterinar.VetPages
     /// </summary>
     public partial class CloseChickOrderPage : Page
     {
-        public Order Order { get; set; }
-        public ObservableCollection<Chicken> Chicken { get; set; }
-        public IEnumerable<OrderChicken> OrderChicken => Order.OrderChicken;
+    
         public CloseChickOrderPage()
         {
             InitializeComponent();
@@ -35,7 +33,7 @@ namespace Veterinar.VetPages
 
         private void CloseOrderMeatBt_Click(object sender, RoutedEventArgs e)
         {
-            AddOrderMeatWindow selectChicken = new AddOrderMeatWindow(OrderChicken.Select(c => c.Chicken));
+            AddOrderMeatWindow selectChicken = new AddOrderMeatWindow((sender as Button).DataContext as Order);
             selectChicken.ShowDialog();
         }
     }
