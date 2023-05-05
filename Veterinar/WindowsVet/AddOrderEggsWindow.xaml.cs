@@ -50,21 +50,28 @@ namespace Veterinar.WindowsVet
                     //}
                     var SellEg = (StandartCb.SelectedItem as TypeStandart);
                     var SelEggs = App.db.Eggs.Where(z => z.TypeStandartId == SellEg.Id).FirstOrDefault();
-                    SelEggs.Count -= Convert.ToInt32(CountTb.Text);
-                    OrderEggs NewOrder = new OrderEggs()
+                    if (SelEggs.Count >= Order.Count)
                     {
+                        SelEggs.Count -= Convert.ToInt32(CountTb.Text);
+                        OrderEggs NewOrder = new OrderEggs()
+                        {
 
-                        TypeStandartId = (StandartCb.SelectedItem as TypeStandart).Id,
-                        Count = Convert.ToInt32(CountTb.Text),
-                        OrderId = Order.Id
+                            TypeStandartId = (StandartCb.SelectedItem as TypeStandart).Id,
+                            Count = Convert.ToInt32(CountTb.Text),
+                            OrderId = Order.Id
 
-                    };
-                    App.db.OrderEggs.Add(NewOrder);
+                        };
+                        App.db.OrderEggs.Add(NewOrder);
 
-                    Order.StatusId = 2;
-                    App.db.SaveChanges();
-                    MessageBox.Show("Выполнено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                    DialogResult = true;
+                        Order.StatusId = 2;
+                        App.db.SaveChanges();
+                        MessageBox.Show("Выполнено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                        DialogResult = true;
+                    }
+                    else
+                        MessageBox.Show("Недостаточно яиц", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error); 
+
+
 
 
                 }
