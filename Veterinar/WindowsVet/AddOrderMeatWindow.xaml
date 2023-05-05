@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Veterinar.WindowsVet"
         mc:Ignorable="d"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        Title="AddOrderMeatWindow" Height="500" Width="400">
+        Title="Добавить куриц в заказ" Height="500" Width="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="27*"/>
@@ -14,12 +14,12 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5 0">
-                <TextBlock Text="p" FontSize="17"></TextBlock>
+                <TextBlock Text=" " FontSize="17"></TextBlock>
                 <TextBlock Text="/" FontSize="17"></TextBlock>
                 <TextBlock Text="{Binding Order.Count}"  FontSize="17"></TextBlock>
             </StackPanel>
             <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                <Button x:Name="RemoveBt" Content="Закрыть" Margin="300 0" />
+                <Button x:Name="RemoveBt" Content="Закрыть заказ" Margin="250 0" Click="RemoveBt_Click"/>
             </StackPanel>
         </StackPanel>
         
@@ -52,7 +52,7 @@
                                 </StackPanel>
                                 <StackPanel Margin="5" Orientation="Horizontal">
                                     <TextBlock Text="Клетка  "/>
-                                    <TextBlock Text="{Binding Cage.Id}"/>
+                                    <TextBlock Text="{Binding Cage.NumberCage}"/>
                                 </StackPanel>
                                 <StackPanel Margin="5" Orientation="Horizontal">
                                     <TextBlock Text="Вес "/>

@@ -46,7 +46,7 @@ namespace Farmer.PagesFarmer.OrdersPages
                 MessageBox.Show(DateTime.Now.ToString());
                 if (ChoiceCustCb.SelectedIndex != null && ChoiceComponentCb.SelectedIndex != null && CountaddTb.Text != "" && PriceTb.Text != "")
                 {
-                    Order NewCage = new Order()
+                    Order NewOrder = new Order()
                     {
                         Date = DateTime.Now,
                         TypeProdId = (ChoiceComponentCb.SelectedItem as TypeProd).Id,
@@ -56,7 +56,7 @@ namespace Farmer.PagesFarmer.OrdersPages
                         StatusId = 1
 
                     };
-                    App.db.Order.Add(NewCage);
+                    App.db.Order.Add(NewOrder);
                     App.db.SaveChanges();
                     MessageBox.Show("Создано", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     Refresf();

@@ -6,8 +6,61 @@
         xmlns:local="clr-namespace:Veterinar.WindowsVet"
         mc:Ignorable="d"
           DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        Title="AddOrderEggsWindow" Height="500" Width="400">
+        Title="Добавить яйца в заказ" Height="500" Width="400">
     <Grid>
+        <Grid.RowDefinitions>
+            
+            <RowDefinition Height="151*"/>
+            <RowDefinition Height="249*"/>
+        </Grid.RowDefinitions>
         
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="0">
+
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Стандарт" Margin="5"/>
+                    <ComboBox x:Name="StandartCb" Margin="5" Width="50">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Title}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <TextBlock Text="Количество" Margin="5"/>
+                    <TextBlock x:Name="CountTb" Margin="5" Width="50" Text="{Binding Order.Count}"/>
+                </StackPanel>
+                <Button x:Name="AddOrderEggBt" Content="Закрыть заказ" Click="AddOrderEggBt_Click"/>
+            </StackPanel>
+        </StackPanel>
+        <ListView Grid.Row="1" x:Name="EggsList" d:ItemsSource="{d:SampleData ItemCount=4}" VerticalAlignment="Center" HorizontalAlignment="Center" >
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="2">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Яйца" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
+                            <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5">
+                                <TextBlock Text="Стандарт яиц" />
+                                <TextBlock Text="{Binding TypeStandart.Title}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5">
+                                <TextBlock Text="Количество"/>
+                                <TextBlock Text="{Binding Count}"/>
+                            </StackPanel>
+
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Window>

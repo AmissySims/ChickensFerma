@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Veterinar.Componentsvet;
+using Veterinar.VetPages;
 
 namespace Veterinar.WindowsVet
 {
@@ -19,11 +20,11 @@ namespace Veterinar.WindowsVet
         {
             Order = _order;
 
-            Chickens = App.db.Chicken.Local.Where(x => x.HealthId == 3).Except(Order.Id);
+            Chickens = App.db.Chicken.Local.Where(x => x.HealthId == 3);
 
             InitializeComponent();
 
-            ListChicks.ItemsSource = App.db.Chicken.Where(x => x.HealthId == 3).ToList();
+            ListChicks.ItemsSource = Chickens.Where(x => x.HealthId == 3).ToList();
         }
 
         private void ListChicks_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -35,5 +36,14 @@ namespace Veterinar.WindowsVet
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) =>
           DialogResult = true;
+
+        private void RemoveBt_Click(object sender, RoutedEventArgs e)
+        {
+            Order.StatusId = 2;
+            App.db.SaveChanges();
+            MessageBox.Show("Закрыто", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+            DialogResult = true;
+
+        }
     }
 }

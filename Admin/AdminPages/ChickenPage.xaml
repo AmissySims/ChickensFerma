@@ -32,7 +32,8 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Порода  "/>
-                        <ComboBox x:Name="BreedCb" Width="100" Height="20" ToolTip="Порода">
+                        <ComboBox x:Name="BreedCb" Width="100" Height="20" 
+                                 ItemsSource="{Binding Breeds}" ToolTip="Порода">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Title}"/>
@@ -57,14 +58,15 @@
                         <ComboBox x:Name="CageCb" Width="100" Height="20" ToolTip="клетка">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Id }"/>
+                                    <TextBlock Text="{Binding NumberCage}"/>
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
                         </ComboBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Здоровье  "/>
-                        <ComboBox x:Name="HealthCb" Width="100" Height="20" ToolTip="Здоровье">
+                        <ComboBox x:Name="HealthCb" Width="100" Height="20" 
+                                 ItemsSource="{Binding Healths}" ToolTip="Здоровье">
                             <ComboBox.ItemTemplate>
                             <DataTemplate>
                                     <TextBlock Text="{Binding Title}" />

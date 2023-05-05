@@ -32,9 +32,6 @@ namespace Veterinar.VetPages
             IdCageChicken = Chickens.Cage.IsPaus == null ? 0 : Cages.Select(x => x.Id).ToList().IndexOf(Chickens.Cage.Id);
 
             InitializeComponent();
-
-            //CageCb.Text = _chick.Cage.Id.ToString();
-            //HealthCb.Text = _chick.Health.Title.ToString();
         }
 
         private void PhotoBt_Click(object sender, RoutedEventArgs e)
@@ -44,7 +41,6 @@ namespace Veterinar.VetPages
             {
                 image = File.ReadAllBytes(dialog.FileName);
                 ImageChick.Source = new BitmapImage(new Uri(dialog.FileName));
-                //                App.db.Chicken.Where(z => z.id == Chickens.id).First().PhotoChic = new BitmapImage(new Uri(dialog.FileName));
                 App.db.SaveChanges();
                 MessageBox.Show("Добавление фото успешно", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
 

@@ -23,15 +23,23 @@ namespace Veterinar.VetPages
     /// </summary>
     public partial class CloseEggsOrderPage : Page
     {
+        public static Order order {  get; set; }
         public CloseEggsOrderPage()
         {
             InitializeComponent();
             ListEggsOrders.ItemsSource = App.db.Order.Where(x => x.TypeProdId == 1).ToList();
+            //var Orders = App.db.Order.Where(x => x.TypeProdId == 1);
+            //if (Orders.Status.Id = 2)
+            //{
+            //    CloseOrderEggBt.Visibility = Visibility.Collapsed;
+            //}
         }
 
         private void CloseOrderEggBt_Click(object sender, RoutedEventArgs e)
         {
-           
+            
+            AddOrderEggsWindow selectEggs = new AddOrderEggsWindow((sender as Button).DataContext as Order);
+            selectEggs.ShowDialog();
         }
     }
 }

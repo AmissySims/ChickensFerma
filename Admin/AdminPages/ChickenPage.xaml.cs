@@ -26,24 +26,31 @@ namespace Admin.AdminPages
     public partial class ChickenPage : Page
     {
         public static byte[] image { get; set; }
+        public List<Cage> Cages { get; set; }
+        public List<Health> Healths { get; set; }
+        public List<Breed> Breeds { get; set; }
         public ChickenPage()
         {
-
+           
             InitializeComponent();
             Refresh();
+
         }
         public void Refresh()
         {
             CageCb.ItemsSource = null;
             BreedCb.ItemsSource = null;
             HealthCb.ItemsSource = null;
-           
-            BreedCb.ItemsSource = App.db.Breed.ToList();
-           // BreedCb.DisplayMemberPath = "Title";
-            HealthCb.ItemsSource = App.db.Health.ToList();
-           // HealthCb.DisplayMemberPath = "Title";
-            CageCb.ItemsSource = App.db.Cage.Where(x => x.IsPaus == null).ToList();
-            // CageCb.DisplayMemberPath = "Id";
+
+
+            Breeds = App.db.Breed.ToList();
+
+            Healths = App.db.Health.ToList();
+
+            Cages = App.db.Cage.Where(x => x.IsPaus == false).ToList();
+            CageCb.ItemsSource = Cages;
+            BreedCb.ItemsSource = Breeds;
+            HealthCb.ItemsSource = Healths;
             AddNameTb.Text = "";
             AddWeightTb.Text = "";
             AddAgeTb.Text = "";
@@ -80,7 +87,8 @@ namespace Admin.AdminPages
                                      
                     var SelCell = (CageCb.SelectedItem as Cage);
                     var ListChick = App.db.Chicken.ToList().Where(x => x.Cage == SelCell).ToList();
-                    if ((SelCell.Size.Count) < ListChick.Count)
+
+                    if (SelCell.Size.Count <= ListChick.Count)
                     {
                         SelCell.IsPaus = true;
                         MessageBox.Show("error");
