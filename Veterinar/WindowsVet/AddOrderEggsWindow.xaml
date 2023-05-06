@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Veterinar.WindowsVet"
         mc:Ignorable="d"
           DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        Title="Добавить яйца в заказ" Height="500" Width="400">
+        Title="Добавить яйца в заказ" Height="500" Width="410">
     <Grid>
         <Grid.RowDefinitions>
             

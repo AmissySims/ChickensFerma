@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Veterinar.WindowsVet"
         mc:Ignorable="d"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        Title="Добавить куриц в заказ" Height="500" Width="400">
+        Title="Добавить куриц в заказ" Height="500" Width="410">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="27*"/>
@@ -25,9 +25,7 @@
         
         
         <ListView x:Name="ListChicks" Grid.Row="1"
-                  d:ItemsSource="{d:SampleData ItemCount=5}"
-                  ItemsSource="{Binding Chickens}"
-                  SelectionChanged="ListChicks_SelectionChanged">
+                  d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="Black" BorderThickness="2">
@@ -36,7 +34,7 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0" Source="{Binding PhotoChic}" Margin="5"/>
+                            <!--<Image Grid.Column="0" Source="{Binding PhotoChic}" Margin="5"/>-->
                             <StackPanel Grid.Column="1" Margin="5">
                                 <StackPanel Margin="5" Orientation="Horizontal">
                                     <TextBlock Text="Имя "/>

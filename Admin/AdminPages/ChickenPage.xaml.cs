@@ -26,12 +26,13 @@ namespace Admin.AdminPages
     public partial class ChickenPage : Page
     {
         public static byte[] image { get; set; }
+        public static Chicken Chickens { get; set; }
         public List<Cage> Cages { get; set; }
         public List<Health> Healths { get; set; }
         public List<Breed> Breeds { get; set; }
         public ChickenPage()
         {
-           
+            
             InitializeComponent();
             Refresh();
 
@@ -84,7 +85,8 @@ namespace Admin.AdminPages
             {
                 if (AddNameTb.Text != "" && BreedCb.SelectedIndex != null && AddWeightTb.Text != "" && AddAgeTb.Text != "" && AddeggsTb.Text != "" && CageCb.SelectedIndex != null && HealthCb.SelectedIndex != null)
                 {
-                                     
+                   
+
                     var SelCell = (CageCb.SelectedItem as Cage);
                     var ListChick = App.db.Chicken.ToList().Where(x => x.Cage == SelCell).ToList();
 

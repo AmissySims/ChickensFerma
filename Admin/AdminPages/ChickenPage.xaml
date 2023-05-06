@@ -32,7 +32,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Порода  "/>
-                        <ComboBox x:Name="BreedCb" Width="100" Height="20" 
+                        <ComboBox x:Name="BreedCb" Width="150" Height="20" 
                                  ItemsSource="{Binding Breeds}" ToolTip="Порода">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
@@ -65,7 +65,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Здоровье  "/>
-                        <ComboBox x:Name="HealthCb" Width="100" Height="20" 
+                        <ComboBox x:Name="HealthCb" Width="100" Height="23" 
                                  ItemsSource="{Binding Healths}" ToolTip="Здоровье">
                             <ComboBox.ItemTemplate>
                             <DataTemplate>

@@ -21,6 +21,7 @@ namespace Farmer.Components
         }
     
         public int Id { get; set; }
+        public Nullable<int> NumberCage { get; set; }
         public Nullable<int> SizeId { get; set; }
         public Nullable<int> DepartmentId { get; set; }
         public Nullable<bool> IsPaus { get; set; }

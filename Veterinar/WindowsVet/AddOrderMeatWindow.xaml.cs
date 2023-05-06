@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,34 +16,41 @@ namespace Veterinar.WindowsVet
         public IEnumerable<Chicken> Chickens { get; set; }
         public Order Order { get; set; }
         
-
+        int countChick { get; set; }
         public AddOrderMeatWindow(Order _order)
         {
             Order = _order;
 
-            Chickens = App.db.Chicken.Local.Where(x => x.HealthId == 3).ToList();
+            Chickens = App.db.Chicken.Local;
 
             InitializeComponent();
 
-            //ListChicks.ItemsSource = Chickens.Where(x => x.HealthId == 3).ToList();
+            ListChicks.ItemsSource = App.db.Chicken.Local.Where(x => x.HealthId == 3).ToList();
         }
 
-        private void ListChicks_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (ListChicks.ItemsSource != null)
-            {
+        //private void ListChicks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    if (ListChicks.ItemsSource != null)
+        //    {
 
-            }
-        }
+        //    }
+        //}
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) =>
           DialogResult = true;
 
         private void RemoveBt_Click(object sender, RoutedEventArgs e)
         {
-            Order.StatusId = 2;
-            App.db.SaveChanges();
-            MessageBox.Show("Закрыто", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-            DialogResult = true;
+            try
+            {
+                Order.StatusId = 2;
+                App.db.SaveChanges();
+                MessageBox.Show("Закрыто", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                DialogResult = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex}", "", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
         }
     }

@@ -38,7 +38,7 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <TextBlock x:Name="IdTb" Text="{Binding Id}" Margin="5" Grid.Column="0" Grid.Row="0"/>
+                            <TextBlock x:Name="IdTb" Text="{Binding NumberCage}" Margin="5" Grid.Column="0" Grid.Row="0"/>
                             <StackPanel Orientation="Vertical" Grid.Column="1" Margin="5">
                                 <TextBlock  Text="Размер клетки"  />
                                 <TextBlock x:Name="SizeTb" Text="{Binding Size.Title}" />
@@ -78,7 +78,10 @@
                         </ComboBox.ItemTemplate>
                     </ComboBox>
                 </StackPanel>
-               
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Номер клетки" Margin="5"/>
+                    <TextBox x:Name="NumberTb" Height="20" Width="50" PreviewTextInput="NumberTb_PreviewTextInput"/>
+                </StackPanel>
                 <Button x:Name="AddCageBt" Content="Добавить" Margin="5" Click="AddCageBt_Click"/>
             </StackPanel>
         </StackPanel>

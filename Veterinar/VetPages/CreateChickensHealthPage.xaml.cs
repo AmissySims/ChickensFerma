@@ -21,7 +21,6 @@ namespace Veterinar.VetPages
         public Chicken Chickens { get; set; }
         public List<Cage> Cages { get; set; }
         public List<Health> Healths { get; set; }
-        public byte Chang { get; set; } = 0;
         public int? IdCageChicken { get; set; }
 
         public CreateChickensHealthPage(Chicken _chick)

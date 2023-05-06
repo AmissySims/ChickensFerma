@@ -46,7 +46,8 @@ namespace Farmer.PagesFarmer
                     {
                         Title = AddTitleTb.Text,
                         CountCage = Convert.ToInt32(AddCountCageTb.Text),
-                        Adress = AddAdressTb.Text
+                        Adress = AddAdressTb.Text,
+                        IsPauzz = false
                     };
                     App.db.Department.Add(NewDep);
                     App.db.SaveChanges();

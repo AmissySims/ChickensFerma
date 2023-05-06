@@ -1,21 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data.Entity;
+﻿using Farmer.Components;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Farmer.Components;
-using Farmer.PagesFarmer;
 using Size = Farmer.Components.Size;
 
 namespace Farmer.PagesFarmer
@@ -30,15 +18,16 @@ namespace Farmer.PagesFarmer
             InitializeComponent();
             CageList.ItemsSource = App.db.Cage.ToList();
             Refresh();
-            
+
         }
         public void Refresh()
         {
-            
+
             AddDepCb.ItemsSource = null;
             AddSizeCb.ItemsSource = null;
-            AddDepCb.ItemsSource = App.db.Department.ToList();
+            AddDepCb.ItemsSource = App.db.Department.Where(x => x.IsPauzz == false).ToList();
             AddSizeCb.ItemsSource = App.db.Size.ToList();
+            NumberTb.Text = "";
         }
 
         private void AddCageBt_Click(object sender, RoutedEventArgs e)
@@ -47,7 +36,7 @@ namespace Farmer.PagesFarmer
             {
                 if ((AddSizeCb.SelectedIndex != null) && (AddDepCb.SelectedIndex != null))
                 {
-                   
+
                     var SelCell = (AddDepCb.SelectedItem as Department);
                     var ListCage = App.db.Cage.ToList().Where(x => x.Department == SelCell).ToList();
                     if ((SelCell.CountCage) < ListCage.Count)
@@ -61,12 +50,14 @@ namespace Farmer.PagesFarmer
                         {
 
                             SizeId = (AddSizeCb.SelectedItem as Size).Id,
-                            DepartmentId = (AddDepCb.SelectedItem as Department).Id
+                            DepartmentId = (AddDepCb.SelectedItem as Department).Id,
+                            NumberCage = Convert.ToInt32(NumberTb.Text),
+                            IsPaus = false
                         };
                         App.db.Cage.Add(NewCage);
 
                     }
-                   
+
                     App.db.SaveChanges();
                     MessageBox.Show("Добавлено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     Refresh();
@@ -74,13 +65,21 @@ namespace Farmer.PagesFarmer
                 else
                     MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 CageList.ItemsSource = App.db.Cage.ToList();
-                
-                
-                
+
+
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"{ex}", "", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void NumberTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
             }
         }
     }

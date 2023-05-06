@@ -19,6 +19,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumberCage" Type="int" />
           <Property Name="SizeId" Type="int" />
           <Property Name="DepartmentId" Type="int" />
           <Property Name="IsPaus" Type="bit" />
@@ -534,6 +535,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumberCage" Type="Int32" />
           <Property Name="SizeId" Type="Int32" />
           <Property Name="DepartmentId" Type="Int32" />
           <Property Name="IsPaus" Type="Boolean" />
@@ -919,6 +921,7 @@
                 <ScalarProperty Name="IsPaus" ColumnName="IsPaus" />
                 <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
                 <ScalarProperty Name="SizeId" ColumnName="SizeId" />
+                <ScalarProperty Name="NumberCage" ColumnName="NumberCage" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
