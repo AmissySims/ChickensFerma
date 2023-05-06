@@ -39,6 +39,15 @@ namespace Veterinar.WindowsVet
         {
             try
             {
+                OrderChicken NewOrder = new OrderChicken()
+                {
+
+                    //ChickenId = Chicken.Id,
+                    //Count = Convert.ToInt32(CountTb.Text),
+                    OrderId = Order.Id
+
+                };
+                App.db.OrderChicken.Add(NewOrder);
                 Order.StatusId = 2;
                 App.db.SaveChanges();
                 MessageBox.Show("Закрыто", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
