@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 
 namespace Veterinar.Componentsvet
@@ -20,6 +21,16 @@ namespace Veterinar.Componentsvet
                     return Brushes.Green;
             }
 
+        }
+        public Visibility BtnVisible
+        {
+            get
+            {
+                if (StatusId == 1)
+                    return Visibility.Visible;
+                else
+                    return Visibility.Collapsed;
+            }
         }
     }
 }
