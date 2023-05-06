@@ -61,7 +61,7 @@ namespace Admin.AdminPages
 
         private void AddWeightTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if(!Char.IsDigit(e.Text, 0) || (e.Text == ","))
+            if(!Char.IsDigit(e.Text.Trim(), 0) || (AddWeightTb.Text.Length >= 3) )
             {
                 e.Handled = true;
             }
@@ -86,36 +86,40 @@ namespace Admin.AdminPages
                 if (AddNameTb.Text != "" && BreedCb.SelectedIndex != null && AddWeightTb.Text != "" && AddAgeTb.Text != "" && AddeggsTb.Text != "" && CageCb.SelectedIndex != null && HealthCb.SelectedIndex != null)
                 {
                    
-
-                    var SelCell = (CageCb.SelectedItem as Cage);
-                    var ListChick = App.db.Chicken.ToList().Where(x => x.Cage == SelCell).ToList();
-
-                    if (SelCell.Size.Count <= ListChick.Count)
+                    if(Convert.ToDouble(AddWeightTb.Text) <= 7 && Convert.ToDouble(AddAgeTb.Text) <= 8 && Convert.ToInt32(AddeggsTb.Text) <= 400)
                     {
-                        SelCell.IsPaus = true;
-                        MessageBox.Show("error");
+                        var SelCell = (CageCb.SelectedItem as Cage);
+                        var ListChick = App.db.Chicken.ToList().Where(x => x.Cage == SelCell).ToList();
+
+                        if (SelCell.Size.Count <= ListChick.Count)
+                        {
+                            SelCell.IsPaus = true;
+                            MessageBox.Show("error");
+                        }
+                        else
+                        {
+
+                            Chicken chicken = new Chicken()
+                            {
+                                Name = AddNameTb.Text,
+                                BreedId = (BreedCb.SelectedItem as Breed).Id,
+                                Weight = AddWeightTb.Text.Trim(),
+                                Age = AddAgeTb.Text.Trim(),
+                                EggsInMonth = Convert.ToInt32(AddeggsTb.Text.Trim()),
+                                CageId = (CageCb.SelectedItem as Cage).Id,
+                                HealthId = (HealthCb.SelectedItem as Health).Id,
+                                PhotoChic = image
+
+
+                            };
+                            App.db.Chicken.Add(chicken);
+                        }
+                        App.db.SaveChanges();
+                        MessageBox.Show("Добавлено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Refresh();
                     }
                     else
-                    {
-
-                        Chicken chicken = new Chicken()
-                        {
-                            Name = AddNameTb.Text,
-                            BreedId = (BreedCb.SelectedItem as Breed).Id,
-                            Weight = AddWeightTb.Text,
-                            Age = AddAgeTb.Text,
-                            EggsInMonth = Convert.ToInt32(AddeggsTb.Text),
-                            CageId = (CageCb.SelectedItem as Cage).Id,
-                            HealthId = (HealthCb.SelectedItem as Health).Id,
-                            PhotoChic = image
-
-
-                        };
-                        App.db.Chicken.Add(chicken);
-                    }
-                    App.db.SaveChanges();
-                    MessageBox.Show("Добавлено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                    Refresh();
+                        MessageBox.Show("Слишком высокие показатели", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                     MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -129,7 +133,7 @@ namespace Admin.AdminPages
 
         private void AddAgeTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text, 0) || (e.Text == ","))
+            if (!Char.IsDigit(e.Text.Trim(), 0)  || AddAgeTb.Text.Length >= 3 )
             {
                 e.Handled = true;
             }
@@ -137,7 +141,7 @@ namespace Admin.AdminPages
 
         private void AddeggsTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text, 0))
+            if (!Char.IsDigit(e.Text.Trim(), 0) || AddeggsTb.Text.Length >= 3  )
             {
                 e.Handled = true;
             }

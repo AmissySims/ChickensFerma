@@ -80,11 +80,11 @@ namespace Admin.AdminPages
                 {
                     Inventory inventory = new Inventory()
                     {
-                        Title = AddTitleTb.Text,
+                        Title = AddTitleTb.Text.Trim(),
                         TypeId = (AddTypeCb.SelectedItem as Type).Id,
-                        Count = Convert.ToInt32(AddCountTb.Text),
+                        Count = Convert.ToInt32(AddCountTb.Text.Trim()),
                         Photo = image,
-                        Price = Convert.ToInt32(AddPriceTb.Text)
+                        Price = Convert.ToInt32(AddPriceTb.Text.Trim())
                         
 
 
@@ -112,7 +112,7 @@ namespace Admin.AdminPages
                 if (NameCb.SelectedIndex != null && CountTb.Text != "")
                 {
                     var SelInvent = (NameCb.SelectedItem as Inventory);
-                    SelInvent.Count += Convert.ToInt32(CountTb.Text);
+                    SelInvent.Count += Convert.ToInt32(CountTb.Text.Trim());
                     App.db.SaveChanges();
                     MessageBox.Show("Докуплено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     Refresh();
@@ -129,7 +129,7 @@ namespace Admin.AdminPages
 
         private void CountTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text, 0))
+            if (!Char.IsDigit(e.Text.Trim(), 0))
             {
                 e.Handled = true;
             }
@@ -137,7 +137,7 @@ namespace Admin.AdminPages
 
         private void AddCountTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text, 0))
+            if (!Char.IsDigit(e.Text.Trim(), 0))
             {
                 e.Handled = true;
             }
@@ -145,7 +145,7 @@ namespace Admin.AdminPages
 
         private void AddPriceTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text, 0))
+            if (!Char.IsDigit(e.Text.Trim(), 0))
             {
                 e.Handled = true;
             }
