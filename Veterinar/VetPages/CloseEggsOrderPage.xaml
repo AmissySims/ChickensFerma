@@ -45,7 +45,7 @@
                                 </StackPanel>
                                 <StackPanel  Orientation="Horizontal" Margin="5">
                                     <TextBlock Text="Статус " />
-                                    <TextBlock Text="{Binding Status.Title}" x:Name="StatusTb"/>
+                                    <TextBlock Text="{Binding Status.Title}" Foreground="{Binding ColorStatus}" x:Name="StatusTb"/>
                                 </StackPanel>
                             </StackPanel>
                             

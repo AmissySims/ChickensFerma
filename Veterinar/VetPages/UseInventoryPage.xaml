@@ -54,7 +54,7 @@
                 <DataTemplate>
                     <Border BorderBrush="{Binding ColorCount}" BorderThickness="2"  >
                         
-                        <Grid>
+                        <Grid ToolTip="Для использования нажать на элемент">
                             <Grid.Background>
                                 <SolidColorBrush Color="White" Opacity="0.7"/>
                             </Grid.Background>
@@ -77,8 +77,7 @@
                                     <TextBlock Text="{Binding Price}"  />
                                 </StackPanel>
                                 <StackPanel>
-                                    <Button x:Name="UseBt" Content="Использовать" 
-                                            Click="UseBt_Click" Margin="5" />
+                                    
                                     <Button x:Name="Create" Content="Редактировать" 
                                             Click="Create_Click" Margin="5"/>
                                 </StackPanel>

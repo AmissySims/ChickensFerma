@@ -21,7 +21,7 @@
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <TextBlock Text="Здоровье"  Margin="15"/>
-                <ComboBox   Margin="5" x:Name="HealthCb" Height="20" Width="130"  DisplayMemberPath="Title" SelectionChanged="HealthCb_SelectionChanged"/>
+                <ComboBox   Margin="5" x:Name="HealthCb" Height="23" Width="130"  DisplayMemberPath="Title" SelectionChanged="HealthCb_SelectionChanged"/>
 
 
             </StackPanel>
@@ -62,15 +62,15 @@
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Вес  "/>
-                                    <TextBlock Text="{Binding Weight}" x:Name="CountTb"  />
+                                    <TextBlock Text="{Binding Weight, StringFormat='{}{0} кг.'}" x:Name="CountTb"  />
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Возраст  "/>
-                                    <TextBlock Text="{Binding Age}"  />
+                                    <TextBlock Text="{Binding Age, StringFormat='{}{0} г.'}"  />
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Яйца в месяц "/>
-                                    <TextBlock Text="{Binding EggsInMonth}"  />
+                                    <TextBlock Text="{Binding EggsInMonth, StringFormat='{}{0} шт.'}"  />
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Клетка "/>

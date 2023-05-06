@@ -28,7 +28,7 @@
                 <StackPanel Orientation="Vertical" Margin="10">
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Имя  "/>
-                        <TextBox x:Name="AddNameTb" Text="{Binding Name}" Width="100"/>
+                        <TextBox x:Name="AddNameTb" Text="{Binding Name}" Width="100" PreviewTextInput="AddNameTb_PreviewTextInput"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Порода  "/>
@@ -47,11 +47,11 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Возраст  "/>
-                        <TextBox x:Name="AddAgeTb" Text="{Binding Age}" Width="50"/>
+                        <TextBox x:Name="AddAgeTb" Text="{Binding Age}" Width="50" PreviewTextInput="AddAgeTb_PreviewTextInput"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Несет яиц за месяц  "/>
-                        <TextBox x:Name="AddeggsTb" Text="{Binding EggsInMonth}" Width="50"/>
+                        <TextBox x:Name="AddeggsTb" Text="{Binding EggsInMonth}" Width="50" PreviewTextInput="AddeggsTb_PreviewTextInput"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Клетка  "/>

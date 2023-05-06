@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Veterinar.Componentsvet;
+using Veterinar.VetPages;
+using Veterinar.WindowsVet;
 
 namespace Veterinar.VetPages
 {
@@ -23,6 +26,7 @@ namespace Veterinar.VetPages
         public BreedInfoPage()
         {
             InitializeComponent();
+            ListBreed.ItemsSource = App.db.Breed.ToList();
         }
     }
 }

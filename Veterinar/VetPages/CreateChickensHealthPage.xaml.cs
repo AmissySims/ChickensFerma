@@ -88,7 +88,7 @@ namespace Veterinar.VetPages
 
         private void WeightTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text, 0))
+            if (!Char.IsDigit(e.Text, 0) || (e.Text == ","))
             {
                 e.Handled = true;
             }
@@ -104,7 +104,7 @@ namespace Veterinar.VetPages
 
         private void AgeTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text, 0))
+            if (!Char.IsDigit(e.Text, 0) || (e.Text == ","))
             {
                 e.Handled = true;
             }

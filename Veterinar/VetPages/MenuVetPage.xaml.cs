@@ -59,5 +59,10 @@ namespace Veterinar.VetPages
         {
             MenuVetFrame.NavigationService.Navigate(new ChickensHealthPage());
         }
+
+        private void ChickBreedBt_Click(object sender, RoutedEventArgs e)
+        {
+            MenuVetFrame.NavigationService.Navigate(new BreedInfoPage());
+        }
     }
 }

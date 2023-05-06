@@ -61,7 +61,7 @@ namespace Admin.AdminPages
 
         private void AddWeightTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if(!Char.IsDigit(e.Text, 0))
+            if(!Char.IsDigit(e.Text, 0) || (e.Text == ","))
             {
                 e.Handled = true;
             }
@@ -124,6 +124,30 @@ namespace Admin.AdminPages
             catch (Exception ex)
             {
                 MessageBox.Show($"{ex}", "", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void AddAgeTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsDigit(e.Text, 0) || (e.Text == ","))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void AddeggsTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void AddNameTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsLetter(e.Text, 0))
+            {
+                e.Handled = true;
             }
         }
     }
