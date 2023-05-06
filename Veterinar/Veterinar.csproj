@@ -77,6 +77,9 @@
     <Compile Include="VetPages\AuthPage.xaml.cs">
       <DependentUpon>AuthPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VetPages\BreedInfoPage.xaml.cs">
+      <DependentUpon>BreedInfoPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VetPages\ChickensHealthPage.xaml.cs">
       <DependentUpon>ChickensHealthPage.xaml</DependentUpon>
     </Compile>
@@ -191,6 +194,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VetPages\AuthPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VetPages\BreedInfoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -28,13 +28,10 @@ namespace Veterinar.WindowsVet
             ListChicks.ItemsSource = App.db.Chicken.Local.Where(x => x.HealthId == 3).ToList();
         }
 
-        //private void ListChicks_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    if (ListChicks.ItemsSource != null)
-        //    {
-
-        //    }
-        //}
+        private void ListChicks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           
+        }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) =>
           DialogResult = true;
 

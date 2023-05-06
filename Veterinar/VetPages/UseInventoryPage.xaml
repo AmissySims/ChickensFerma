@@ -33,14 +33,18 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" >
                 <TextBlock Text="Поиск" Margin="15"/>
-                <TextBox x:Name="FoundTb" Height="20" Width="130" Margin="5" TextChanged="FoundTb_TextChanged"/>
+                <TextBox x:Name="FoundTb" Height="20" Width="130"
+                         Margin="5" TextChanged="FoundTb_TextChanged"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal"  >
                 <TextBlock Text="Нет в наличии" Margin="15"/>
-                <CheckBox x:Name="AvialibleTb" Height="20"  Margin="5" Checked="AvialibleTb_Checked" Unchecked="AvialibleTb_Unchecked"/>
+                <CheckBox x:Name="AvialibleTb" Height="20"  Margin="5" 
+                          Checked="AvialibleTb_Checked" Unchecked="AvialibleTb_Unchecked"/>
             </StackPanel>
         </StackPanel>
-        <ListView Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="Inventlist" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="Inventlist_SelectionChanged" >
+        <ListView Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}"
+                  x:Name="Inventlist" ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                  SelectionChanged="Inventlist_SelectionChanged" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel></WrapPanel>
@@ -59,7 +63,8 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             
-                            <Image Margin="5" Source="{Binding Photo}" Grid.Row="0" Width="150" Height="150"/>
+                            <Image Margin="5" Source="{Binding Photo}" Grid.Row="0" Width="150"
+                                   Height="150"/>
                             <StackPanel Grid.Row="1" Margin="5">
                                 <TextBlock Text="{Binding Title}"  />
                                 <TextBlock Text="{Binding Type.Title}"  />
@@ -72,8 +77,10 @@
                                     <TextBlock Text="{Binding Price}"  />
                                 </StackPanel>
                                 <StackPanel>
-                                    <Button x:Name="UseBt" Content="Использовать" Click="UseBt_Click" Margin="5" />
-                                    <Button x:Name="Create" Content="Редактировать" Click="Create_Click" Margin="5"/>
+                                    <Button x:Name="UseBt" Content="Использовать" 
+                                            Click="UseBt_Click" Margin="5" />
+                                    <Button x:Name="Create" Content="Редактировать" 
+                                            Click="Create_Click" Margin="5"/>
                                 </StackPanel>
                             </StackPanel>
 
