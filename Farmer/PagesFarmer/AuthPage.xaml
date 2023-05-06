@@ -12,7 +12,11 @@
         <Grid.Background>
             <ImageBrush ImageSource="\Resources\Куры.jpg" Stretch="Fill" TileMode="None" Opacity="0.6"/>
         </Grid.Background>
-        <Rectangle Fill="White" HorizontalAlignment="Center" VerticalAlignment="Center" Height="180" Width="200"/>
+        <Rectangle Fill="White" HorizontalAlignment="Center" VerticalAlignment="Center" Height="180" Width="200">
+            <Rectangle.Effect>
+                <DropShadowEffect BlurRadius="8" Opacity="0.7" ShadowDepth="5" />
+            </Rectangle.Effect>
+        </Rectangle>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="ВХОД" HorizontalAlignment="Center" Margin="10" FontWeight="Bold"  />
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">

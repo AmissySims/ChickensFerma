@@ -14,17 +14,17 @@ namespace Veterinar.WindowsVet
     {
         public IEnumerable<Chicken> Chickens { get; set; }
         public Order Order { get; set; }
-        public IEnumerable<Chicken> SelectedChicken => ListChicks.SelectedItems.Cast<Chicken>();
+        
 
         public AddOrderMeatWindow(Order _order)
         {
             Order = _order;
 
-            Chickens = App.db.Chicken.Local.Where(x => x.HealthId == 3);
+            Chickens = App.db.Chicken.Local.Where(x => x.HealthId == 3).ToList();
 
             InitializeComponent();
 
-            ListChicks.ItemsSource = Chickens.Where(x => x.HealthId == 3).ToList();
+            //ListChicks.ItemsSource = Chickens.Where(x => x.HealthId == 3).ToList();
         }
 
         private void ListChicks_SelectionChanged(object sender, SelectionChangedEventArgs e)
