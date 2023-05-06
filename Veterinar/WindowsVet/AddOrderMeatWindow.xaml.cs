@@ -44,7 +44,8 @@ namespace Veterinar.WindowsVet
 
                     //ChickenId = Chicken.Id,
                     //Count = Convert.ToInt32(CountTb.Text),
-                    OrderId = Order.Id
+                    OrderId = Order.Id,
+                    Date = DateTime.Now
 
                 };
                 App.db.OrderChicken.Add(NewOrder);
