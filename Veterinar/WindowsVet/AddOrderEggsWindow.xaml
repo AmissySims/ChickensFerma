@@ -32,7 +32,7 @@
                 <Button x:Name="AddOrderEggBt" Content="Закрыть заказ" Click="AddOrderEggBt_Click"/>
             </StackPanel>
         </StackPanel>
-        <ListView Grid.Row="1" x:Name="EggsList" d:ItemsSource="{d:SampleData ItemCount=4}" VerticalAlignment="Center" HorizontalAlignment="Center" >
+        <ListView Grid.Row="1" x:Name="EggsList" VerticalAlignment="Center" HorizontalAlignment="Center" d:ItemsSource="{d:SampleData ItemCount=5}" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel></WrapPanel>
