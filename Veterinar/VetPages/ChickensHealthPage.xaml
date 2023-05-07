@@ -21,10 +21,12 @@
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <TextBlock Text="Здоровье"  Margin="15"/>
-                <ComboBox   Margin="5" x:Name="HealthCb" Height="23" Width="130"  DisplayMemberPath="Title" SelectionChanged="HealthCb_SelectionChanged"/>
+                <ComboBox   Margin="5" x:Name="HealthCb" Height="23" Width="130" 
+                            DisplayMemberPath="Title" SelectionChanged="HealthCb_SelectionChanged"/>
 
 
             </StackPanel>
+          
             <StackPanel Orientation="Horizontal" >
                 <TextBlock Text="Поиск" Margin="15"/>
                 <TextBox x:Name="FoundTb" Height="20" Width="130" Margin="5" TextChanged="FoundTb_TextChanged" />
@@ -81,7 +83,7 @@
                                     <TextBlock Text="{Binding Health.Title}"  />
                                 </StackPanel>
                                 <StackPanel>
-                                    <Button x:Name="EditHealthBt" Content="Изменить здоровье" Click="EditHealthBt_Click"  />
+                                    <Button x:Name="EditHealthBt" Content="Изменить" Click="EditHealthBt_Click" Margin="5" />
                                 </StackPanel>
                             </StackPanel>
 

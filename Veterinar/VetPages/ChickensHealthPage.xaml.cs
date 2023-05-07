@@ -64,5 +64,10 @@ namespace Veterinar.VetPages
             NavigationService.Navigate(new CreateChickensHealthPage(selchick));
 
         }
+
+        private void BreedCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
