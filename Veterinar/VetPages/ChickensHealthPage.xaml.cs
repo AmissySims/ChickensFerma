@@ -65,9 +65,6 @@ namespace Veterinar.VetPages
 
         }
 
-        private void BreedCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+      
     }
 }

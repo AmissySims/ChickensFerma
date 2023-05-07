@@ -25,7 +25,7 @@ namespace Veterinar.WindowsVet
 
             InitializeComponent();
 
-            ListChicks.ItemsSource = App.db.Chicken.Local.Where(x => x.HealthId == 3).ToList();
+            ListChicks.ItemsSource = App.db.Chicken.Where(x => x.HealthId == 3).ToList();
         }
 
         private void ListChicks_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -51,7 +51,7 @@ namespace Veterinar.WindowsVet
                 App.db.OrderChicken.Add(NewOrder);
                 Order.StatusId = 2;
                 App.db.SaveChanges();
-                MessageBox.Show("Закрыто", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Выполнено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 DialogResult = true;
             }
             catch (Exception ex)

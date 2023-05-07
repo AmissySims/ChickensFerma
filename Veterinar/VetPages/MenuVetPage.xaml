@@ -10,7 +10,8 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="14*"/>
+            <RowDefinition Height="32*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="19*"/>
@@ -19,12 +20,12 @@
         <Grid.Background>
             <ImageBrush ImageSource="\Resources\ChickensBack.jpg" Stretch="Fill" TileMode="None" Opacity="0.4"/>
         </Grid.Background>
-        <Rectangle Grid.Column="0" Fill="#FFFFEFE0" />
-        <StackPanel VerticalAlignment="Top" Grid.Column="0" >
+        <Rectangle Grid.Column="0" Fill="#FFFFEFE0" Grid.RowSpan="2" />
+        <StackPanel VerticalAlignment="Center" Grid.Column="0" Height="130" >
             <Image Source="\Resources\Куры.jpg"  Height="130" />
         </StackPanel>
 
-        <StackPanel  VerticalAlignment="Center">
+        <StackPanel  VerticalAlignment="Top" Grid.Column="0" Grid.Row="1">
             <Button  x:Name="CloseChickOrderBt" BorderThickness="4" 
                      Content="Закрыть заказ на мясо" Margin="10 2" 
                      Height="30" Click="CloseChickOrderBt_Click" />
@@ -38,15 +39,15 @@
                      Content="Инвентарь" Margin="10 2" 
                      Height="30" Click="UseInventBt_Click"/>
             <Button  x:Name="ChickHealBt" BorderThickness="4"
-                     Content="Здоровье куриц" Margin="10 2"  
+                     Content="Курицы" Margin="10 2"  
                      Height="30" Click="ChickHealBt_Click"/>
             <Button  x:Name="ChickBreedBt" BorderThickness="4"
                      Content="Породы куриц" Margin="10 2"  
                      Height="30" Click="ChickBreedBt_Click"/>
         </StackPanel>
-        <StackPanel Grid.Column="0" VerticalAlignment="Bottom">
+        <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom"  Height="50" >
             <Button  x:Name="ExitBt" Content="Выход из системы" BorderThickness="4" Margin="10" Height="30" Click="ExitBt_Click" />
         </StackPanel>
-        <Frame  x:Name="MenuVetFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+        <Frame  x:Name="MenuVetFrame" Grid.Column="1" Grid.RowSpan="2" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Page>

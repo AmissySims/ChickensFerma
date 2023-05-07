@@ -35,6 +35,9 @@ namespace Veterinar.VetPages
         {
             AddOrderMeatWindow selectChicken = new AddOrderMeatWindow((sender as Button).DataContext as Order);
             selectChicken.ShowDialog();
+            ListChickOrders.ItemsSource = App.db.Order.Where(x => x.TypeProdId == 2).ToList();
         }
+
+     
     }
 }

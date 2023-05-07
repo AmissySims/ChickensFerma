@@ -28,7 +28,7 @@ namespace Veterinar.VetPages
         {
             InitializeComponent();
             ListEggsOrders.ItemsSource = App.db.Order.Where(x => x.TypeProdId == 1).ToList();
-            //var Orders = App.db.Order.Where(x => x.TypeProdId == 1);
+           
            
         }
 
@@ -37,6 +37,7 @@ namespace Veterinar.VetPages
             
             AddOrderEggsWindow selectEggs = new AddOrderEggsWindow((sender as Button).DataContext as Order);
             selectEggs.ShowDialog();
+            ListEggsOrders.ItemsSource = App.db.Order.Where(x => x.TypeProdId == 1).ToList();
         }
     }
 }

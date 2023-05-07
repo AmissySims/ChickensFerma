@@ -55,27 +55,34 @@ namespace Veterinar.VetPages
                     MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
+                if (Convert.ToDouble(WeightTb.Text) <= 7 && Convert.ToDouble(AgeTb.Text) <= 8 && Convert.ToInt32(AddeggsTb.Text) <= 400)
+                {
+                    var SelCell = CageCb.SelectedItem == null ? throw new Exception("Клетка не выбрана") : (CageCb.SelectedItem as Cage);
 
-                var SelCell = CageCb.SelectedItem == null ? throw new Exception("Клетка не выбрана") : (CageCb.SelectedItem as Cage);
-
-                var ListChick = App.db.Chicken.Where(x => x.Cage.Id == SelCell.Id).ToList();
+                    var ListChick = App.db.Chicken.Where(x => x.Cage.Id == SelCell.Id).ToList();
 
 
-                SelCell.IsPaus = SelCell.Size.Count <= ListChick.Count + 1;
+                    SelCell.IsPaus = SelCell.Size.Count <= ListChick.Count + 1;
 
-                Cage pastChikenCell = App.db.Cage.FirstOrDefault(x => x.Id == Chickens.CageId);
-                pastChikenCell.IsPaus = pastChikenCell.IsPaus == true ? false : pastChikenCell.IsPaus;
+                    Cage pastChikenCell = App.db.Cage.FirstOrDefault(x => x.Id == Chickens.CageId);
+                    pastChikenCell.IsPaus = pastChikenCell.IsPaus == true ? false : pastChikenCell.IsPaus;
 
-                var Ch = App.db.Chicken.First(z => z.id == Chickens.id);
+                    var Ch = App.db.Chicken.First(z => z.id == Chickens.id);
 
-                Ch.PhotoChic = image ?? Ch.PhotoChic;
-                Ch.CageId = (CageCb.SelectedItem as Cage).Id;
-                Ch.HealthId = (HealthCb.SelectedItem as Health).Id;
+                    Ch.PhotoChic = image ?? Ch.PhotoChic;
+                    Ch.CageId = (CageCb.SelectedItem as Cage).Id;
+                    Ch.HealthId = (HealthCb.SelectedItem as Health).Id;
 
-                App.db.SaveChanges();
+                    App.db.SaveChanges();
 
-                MessageBox.Show("Изменено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                NavigationService.Navigate(new ChickensHealthPage());
+                    MessageBox.Show("Изменено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    NavigationService.Navigate(new ChickensHealthPage());
+                }
+                else
+                {
+                    MessageBox.Show("Слишком высокие показатели", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                   
             }
             catch (Exception ex)
             {
@@ -88,7 +95,7 @@ namespace Veterinar.VetPages
 
         private void WeightTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text, 0) || (e.Text == ","))
+            if (!Char.IsDigit(e.Text, 0) || (e.Text == ",") )
             {
                 e.Handled = true;
             }
@@ -96,7 +103,7 @@ namespace Veterinar.VetPages
 
         private void AddeggsTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text, 0))
+            if (!Char.IsDigit(e.Text, 0) || AddeggsTb.Text.Length >= 3)
             {
                 e.Handled = true;
             }
@@ -104,7 +111,7 @@ namespace Veterinar.VetPages
 
         private void AgeTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text, 0) || (e.Text == ","))
+            if (!Char.IsDigit(e.Text, 0) || (e.Text == ",") )
             {
                 e.Handled = true;
             }
