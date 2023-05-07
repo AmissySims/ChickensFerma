@@ -29,10 +29,11 @@
                     <TextBlock Text="Количество" Margin="5"/>
                     <TextBlock x:Name="CountTb" Margin="5" Width="50" Text="{Binding Order.Count}"/>
                 </StackPanel>
-                <Button x:Name="AddOrderEggBt" Content="Закрыть заказ" Click="AddOrderEggBt_Click"/>
+                <Button x:Name="AddOrderEggBt" Content="Закрыть заказ" Margin="5" Click="AddOrderEggBt_Click"/>
             </StackPanel>
         </StackPanel>
-        <ListView Grid.Row="1" x:Name="EggsList" VerticalAlignment="Center" HorizontalAlignment="Center" d:ItemsSource="{d:SampleData ItemCount=5}" >
+        <ListView Grid.Row="1" x:Name="EggsList" VerticalAlignment="Center"
+                  HorizontalAlignment="Center" d:ItemsSource="{d:SampleData ItemCount=4}" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel></WrapPanel>
