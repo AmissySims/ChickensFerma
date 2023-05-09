@@ -28,7 +28,7 @@
                 <StackPanel Orientation="Vertical" Margin="10">
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Имя  "/>
-                        <TextBox x:Name="AddNameTb" Text="{Binding Name}" Width="100" PreviewTextInput="AddNameTb_PreviewTextInput"/>
+                        <TextBox x:Name="AddNameTb" Text="{Binding Name}" Width="100" PreviewTextInput="AddNameTb_PreviewTextInput" MaxLength="50"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Порода  "/>
@@ -43,15 +43,15 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Вес в кг  "/>
-                        <TextBox x:Name="AddWeightTb" ToolTip="до 7 кг" Text="{Binding Weight}" Width="50" PreviewTextInput="AddWeightTb_PreviewTextInput"/>
+                        <TextBox x:Name="AddWeightTb" ToolTip="до 7 кг" Text="{Binding Weight}" Width="50" PreviewTextInput="AddWeightTb_PreviewTextInput" MaxLength="1"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Возраст  "/>
-                        <TextBox x:Name="AddAgeTb" ToolTip="до 8 лет" Text="{Binding Age}" Width="50" PreviewTextInput="AddAgeTb_PreviewTextInput"/>
+                        <TextBox x:Name="AddAgeTb" ToolTip="до 8 лет" Text="{Binding Age}" Width="50" PreviewTextInput="AddAgeTb_PreviewTextInput" MaxLength="1"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Несет яиц за месяц  "/>
-                        <TextBox x:Name="AddeggsTb" ToolTip="до 400 шт" Text="{Binding EggsInMonth}" Width="50" PreviewTextInput="AddeggsTb_PreviewTextInput"/>
+                        <TextBox x:Name="AddeggsTb" ToolTip="до 400 шт" Text="{Binding EggsInMonth}" Width="50" PreviewTextInput="AddeggsTb_PreviewTextInput" MaxLength="3"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Клетка  "/>

@@ -20,7 +20,7 @@
         <StackPanel Grid.Row="1" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="Выбрать заказчика " ToolTip="Заказчик"/>
-                <ComboBox x:Name="ChoiceCustCb" Height="20" Width="200" Margin="5">
+                <ComboBox x:Name="ChoiceCustCb" Height="20" Width="200" Margin="5" SelectionChanged="ChoiceCustCb_SelectionChanged">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Description}"/>
@@ -41,11 +41,11 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="Ввести количество  " />
-                <TextBox x:Name="CountaddTb" Width="100" PreviewTextInput="CountaddTb_PreviewTextInput"/>
+                <TextBox x:Name="CountaddTb" Width="100" PreviewTextInput="CountaddTb_PreviewTextInput" MaxLength="5"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="Ввести сумму  " />
-                <TextBox x:Name="PriceTb" Width="150" PreviewTextInput="PriceTb_PreviewTextInput"/>
+                <TextBox x:Name="PriceTb" Width="150" PreviewTextInput="PriceTb_PreviewTextInput" MaxLength="10"/>
             </StackPanel>
             <Button x:Name="AddOrderBt" Content="Создать заказ" Margin="10" Click="AddOrderBt_Click"/>
         </StackPanel>

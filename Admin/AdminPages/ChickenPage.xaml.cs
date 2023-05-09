@@ -70,20 +70,31 @@ namespace Admin.AdminPages
         private void AddPhotoBt_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
-            if (dialog.ShowDialog() != null)
+            if (dialog.ShowDialog() == true)
             {
-                image = File.ReadAllBytes(dialog.FileName);
-                ImageChick.Source = new BitmapImage(new Uri(dialog.FileName));
-                MessageBox.Show("Добавление фото успешно", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                try
+                {
+                    image = File.ReadAllBytes(dialog.FileName);
+                    ImageChick.Source = new BitmapImage(new Uri(dialog.FileName));
+                    MessageBox.Show("Добавление фото успешно", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка чтения файла: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
+            else
+            {
+                MessageBox.Show("Выберите необходимое фото", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
         }
 
         private void AddSaveChickBt_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (AddNameTb.Text != "" && BreedCb.SelectedIndex != null && AddWeightTb.Text != "" && AddAgeTb.Text != "" && AddeggsTb.Text != "" && CageCb.SelectedIndex != null && HealthCb.SelectedIndex != null)
+                if (AddNameTb.Text != "" && BreedCb.SelectedIndex != -1 && AddWeightTb.Text != "" && AddAgeTb.Text != "" && AddeggsTb.Text != "" && CageCb.SelectedIndex != -1 && HealthCb.SelectedIndex != -1)
                 {
                    
                     if(Convert.ToDouble(AddWeightTb.Text) <= 7 && Convert.ToDouble(AddAgeTb.Text) <= 8 && Convert.ToInt32(AddeggsTb.Text) <= 400)

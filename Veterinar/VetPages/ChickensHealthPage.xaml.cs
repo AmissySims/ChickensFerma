@@ -21,10 +21,10 @@ namespace Veterinar.VetPages
 
             List<Health> listHealth = _context.Health.ToList();
 
-            listHealth.Insert(0, new Health { Title = "Все" });
+            listHealth.Insert(3, new Health { Title = "Все" });
 
             HealthCb.ItemsSource = listHealth;
-            HealthCb.SelectedIndex = 0;
+            HealthCb.SelectedIndex = 3;
 
             Sort();
         }
@@ -32,7 +32,7 @@ namespace Veterinar.VetPages
         {
             List<Chicken> listChick = _context.Chicken.ToList();
 
-            if (HealthCb.SelectedIndex != 0)
+            if (HealthCb.SelectedIndex != 3)
             {
                 Health selHealth = (Health)HealthCb.SelectedItem;
                 listChick = listChick.Where(x => x.HealthId == selHealth.Id).ToList();

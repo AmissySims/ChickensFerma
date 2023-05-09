@@ -42,12 +42,18 @@ namespace Veterinar.VetPages
         private void PhotoBt_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
-            if (dialog.ShowDialog() != null)
+            if (dialog.ShowDialog() == true)
             {
-                image = File.ReadAllBytes(dialog.FileName);
-                ImInvent.Source = new BitmapImage(new Uri(dialog.FileName));
-                MessageBox.Show("Добавление фото успешно", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                try
+                {
+                    image = File.ReadAllBytes(dialog.FileName);
+                    ImInvent.Source = new BitmapImage(new Uri(dialog.FileName));
+                    MessageBox.Show("Добавление фото успешно", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка чтения файла: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 
@@ -55,10 +61,11 @@ namespace Veterinar.VetPages
         {
             try
             {
-                //invent.Photo = image;
+                if (image == null && ImInvent.Source != null) { MessageBox.Show("Фото не может быть пустым" + "\n", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);}
+
                 App.db.Inventory.Where(z=>z.Id == invent.Id).First().Photo = image;
                 App.db.SaveChanges();
-                MessageBox.Show("jcvnch");
+                MessageBox.Show("Изменено");
                 NavigationService.Navigate(new UseInventoryPage());
             }
             catch (Exception ex)
