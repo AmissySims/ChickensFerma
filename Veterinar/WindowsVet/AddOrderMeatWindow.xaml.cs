@@ -14,6 +14,7 @@ namespace Veterinar.WindowsVet
     public partial class AddOrderMeatWindow : Window
     {
         public IEnumerable<Chicken> Chickens { get; set; }
+        public List<Chicken> ChikList { get; set; }
         public Order Order { get; set; }     
         public AddOrderMeatWindow(Order _order)
         {
@@ -22,8 +23,10 @@ namespace Veterinar.WindowsVet
             Chickens = App.db.Chicken.Local;
 
             InitializeComponent();
+            ChikList = App.db.Chicken.Where(x => x.Health.Id == 2).ToList();
 
-            ListChicks.ItemsSource = App.db.Chicken.Where(x => x.Health.Id == 2).ToList();
+
+            ListChicks.ItemsSource = ChikList;
 
         }
 
@@ -39,25 +42,53 @@ namespace Veterinar.WindowsVet
         {
             var selectedItem = ListChicks.SelectedItem as Chicken;
 
+            var count = 0;
             try
             {
-                var newOrder = new OrderChicken
-                {
-                    OrderId = Order.Id,
-                    ChickenId = selectedItem.id,
-                    Date = DateTime.Now
-                };
 
-                App.db.OrderChicken.Add(newOrder);
-                Order.StatusId = 2;
-                App.db.SaveChanges();
-                MessageBox.Show("Выполнено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                DialogResult = true;
+
+                if (count >= Order.Count)
+                {
+                    for (count = 0; count < ChikList.Count; count++)
+                     {
+                   
+                        var newOrder = new OrderChicken
+                        {
+                            OrderId = Order.Id,
+                            ChickenId = ChikList[count].id,
+                            Date = DateTime.Now
+                        };
+
+                        App.db.OrderChicken.Add(newOrder);
+
+                        //var delChik = new Chicken
+                        //{
+                        //    id = ChikList[count].id,
+                        //};
+
+                        //var needDelete = App.db.OrderChicken.Where(oc => oc.ChickenId == delChik.id).FirstOrDefault();
+                        //if (needDelete != null) { App.db.OrderChicken.Remove(needDelete); }
+
+                        //App.db.Chicken.Remove(App.db.Chicken.Where(c => c.id == delChik.id).FirstOrDefault());
+                        Order.StatusId = 2;
+                        App.db.SaveChanges();
+                        MessageBox.Show("Выполнено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                        DialogResult = true;
+                    }
+
+                    
+                }
+                else
+                    MessageBox.Show("Недостаточно куриц", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
+
+
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"{ex}", "", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
 
         }
     }

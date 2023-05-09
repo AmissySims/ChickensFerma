@@ -67,7 +67,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Inventory">
@@ -219,6 +219,18 @@
             </Principal>
             <Dependent Role="Chicken">
               <PropertyRef Name="CageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chicken_Health">
+          <End Role="Health" Type="Self.Health" Multiplicity="0..1" />
+          <End Role="Chicken" Type="Self.Chicken" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Health">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Chicken">
+              <PropertyRef Name="HealthId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -378,6 +390,10 @@
             <End Role="Cage" EntitySet="Cage" />
             <End Role="Chicken" EntitySet="Chicken" />
           </AssociationSet>
+          <AssociationSet Name="FK_Chicken_Health" Association="Self.FK_Chicken_Health">
+            <End Role="Health" EntitySet="Health" />
+            <End Role="Chicken" EntitySet="Chicken" />
+          </AssociationSet>
           <AssociationSet Name="FK_Eggs_TypeStandart" Association="Self.FK_Eggs_TypeStandart">
             <End Role="TypeStandart" EntitySet="TypeStandart" />
             <End Role="Eggs" EntitySet="Eggs" />
@@ -459,6 +475,10 @@
             <End Role="Cage" EntitySet="Cage" />
             <End Role="Chicken" EntitySet="Chicken" />
           </AssociationSet>
+          <AssociationSet Name="FK_Chicken_Health" Association="ChickensModel.FK_Chicken_Health">
+            <End Role="Health" EntitySet="Health" />
+            <End Role="Chicken" EntitySet="Chicken" />
+          </AssociationSet>
           <AssociationSet Name="FK_OrderChicken_Chicken" Association="ChickensModel.FK_OrderChicken_Chicken">
             <End Role="Chicken" EntitySet="Chicken" />
             <End Role="OrderChicken" EntitySet="OrderChicken" />
@@ -538,6 +558,7 @@
           <Property Name="PhotoChic" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Breed" Relationship="ChickensModel.FK_Chicken_Breed" FromRole="Chicken" ToRole="Breed" />
           <NavigationProperty Name="Cage" Relationship="ChickensModel.FK_Chicken_Cage" FromRole="Chicken" ToRole="Cage" />
+          <NavigationProperty Name="Health" Relationship="ChickensModel.FK_Chicken_Health" FromRole="Chicken" ToRole="Health" />
           <NavigationProperty Name="OrderChicken" Relationship="ChickensModel.FK_OrderChicken_Chicken" FromRole="Chicken" ToRole="OrderChicken" />
         </EntityType>
         <EntityType Name="Customer">
@@ -572,8 +593,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Chicken" Relationship="ChickensModel.FK_Chicken_Health" FromRole="Health" ToRole="Chicken" />
         </EntityType>
         <EntityType Name="Inventory">
           <Key>
@@ -742,6 +764,18 @@
             </Principal>
             <Dependent Role="Chicken">
               <PropertyRef Name="CageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chicken_Health">
+          <End Type="ChickensModel.Health" Role="Health" Multiplicity="0..1" />
+          <End Type="ChickensModel.Chicken" Role="Chicken" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Health">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Chicken">
+              <PropertyRef Name="HealthId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

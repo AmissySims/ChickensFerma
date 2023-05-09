@@ -14,7 +14,8 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5 0">
-                <TextBlock Text="Заказ № " FontSize="17"></TextBlock>
+                <TextBlock Text="{Binding ListChicks.SelectedItems.Count}"  FontSize="17"></TextBlock>
+                <TextBlock Text="/" FontSize="17"></TextBlock>
                 <TextBlock Text="{Binding Order.Count}"  FontSize="17"></TextBlock>
             </StackPanel>
             <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
@@ -23,7 +24,7 @@
         </StackPanel>
 
         <ListView x:Name="ListChicks" Grid.Row="1"
-                  d:ItemsSource="{d:SampleData ItemCount=5}" ItemsSource="{Binding Chickens}" SelectionChanged="ListChicks_SelectionChanged">
+                  d:ItemsSource="{d:SampleData ItemCount=5}" ItemsSource="{Binding Chickens}" SelectionChanged="ListChicks_SelectionChanged" SelectionMode="Multiple">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="Black" BorderThickness="2">

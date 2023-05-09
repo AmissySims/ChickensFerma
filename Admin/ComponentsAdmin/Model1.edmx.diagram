@@ -5,21 +5,21 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="036f1d135e65494d9185cc4e48023982" Name="Diagram1">
-        <EntityTypeShape EntityType="ChickensModel.Breed" Width="1.5" PointX="0.75" PointY="22.375" />
-        <EntityTypeShape EntityType="ChickensModel.Cage" Width="1.5" PointX="0.75" PointY="11" />
-        <EntityTypeShape EntityType="ChickensModel.Chicken" Width="1.5" PointX="3" PointY="12" />
-        <EntityTypeShape EntityType="ChickensModel.Customer" Width="1.5" PointX="0.75" PointY="0.875" />
-        <EntityTypeShape EntityType="ChickensModel.Department" Width="1.5" PointX="1.5" PointY="19.5" />
+        <EntityTypeShape EntityType="ChickensModel.Breed" Width="1.5" PointX="0.75" PointY="10.125" />
+        <EntityTypeShape EntityType="ChickensModel.Cage" Width="1.5" PointX="0.75" PointY="16.25" />
+        <EntityTypeShape EntityType="ChickensModel.Chicken" Width="1.5" PointX="3" PointY="13.25" />
+        <EntityTypeShape EntityType="ChickensModel.Customer" Width="1.5" PointX="0.75" PointY="7.25" />
+        <EntityTypeShape EntityType="ChickensModel.Department" Width="1.5" PointX="1.5" PointY="20.125" />
         <EntityTypeShape EntityType="ChickensModel.Eggs" Width="1.5" PointX="5.25" PointY="10.375" />
-        <EntityTypeShape EntityType="ChickensModel.Health" Width="1.5" PointX="7.75" PointY="11" />
+        <EntityTypeShape EntityType="ChickensModel.Health" Width="1.5" PointX="0.75" PointY="12.875" />
         <EntityTypeShape EntityType="ChickensModel.Inventory" Width="1.5" PointX="10" PointY="2.125" />
         <EntityTypeShape EntityType="ChickensModel.Order" Width="1.5" PointX="3" PointY="3.125" />
         <EntityTypeShape EntityType="ChickensModel.OrderChicken" Width="1.5" PointX="5.25" PointY="3.75" />
         <EntityTypeShape EntityType="ChickensModel.OrderEggs" Width="1.5" PointX="5.25" PointY="0.75" />
         <EntityTypeShape EntityType="ChickensModel.Role" Width="1.5" PointX="5.75" PointY="7.375" />
-        <EntityTypeShape EntityType="ChickensModel.Size" Width="1.5" PointX="1.5" PointY="16.875" />
-        <EntityTypeShape EntityType="ChickensModel.Status" Width="1.5" PointX="0.75" PointY="7.25" />
-        <EntityTypeShape EntityType="ChickensModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="11" />
+        <EntityTypeShape EntityType="ChickensModel.Size" Width="1.5" PointX="1.5" PointY="23.125" />
+        <EntityTypeShape EntityType="ChickensModel.Status" Width="1.5" PointX="0.75" PointY="0.875" />
+        <EntityTypeShape EntityType="ChickensModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="11" />
         <EntityTypeShape EntityType="ChickensModel.Type" Width="1.5" PointX="7.75" PointY="2.5" />
         <EntityTypeShape EntityType="ChickensModel.TypeProd" Width="1.5" PointX="0.75" PointY="4" />
         <EntityTypeShape EntityType="ChickensModel.TypeStandart" Width="1.5" PointX="3" PointY="7.375" />
@@ -28,6 +28,7 @@
         <AssociationConnector Association="ChickensModel.FK_Cage_Department" />
         <AssociationConnector Association="ChickensModel.FK_Cage_Size" />
         <AssociationConnector Association="ChickensModel.FK_Chicken_Cage" />
+        <AssociationConnector Association="ChickensModel.FK_Chicken_Health" />
         <AssociationConnector Association="ChickensModel.FK_OrderChicken_Chicken" />
         <AssociationConnector Association="ChickensModel.FK_Order_Counter" />
         <AssociationConnector Association="ChickensModel.FK_Eggs_TypeStandart" />
