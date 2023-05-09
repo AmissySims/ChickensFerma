@@ -45,12 +45,10 @@ namespace Veterinar.WindowsVet
             var count = 0;
             try
             {
-
-
-                if (count >= Order.Count)
-                {
+                //if (count > Order.Count)
+                //{
                     for (count = 0; count < ChikList.Count; count++)
-                     {
+                    {
                    
                         var newOrder = new OrderChicken
                         {
@@ -77,9 +75,9 @@ namespace Veterinar.WindowsVet
                     }
 
                     
-                }
-                else
-                    MessageBox.Show("Недостаточно куриц", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
+                //}
+                //else
+                //    MessageBox.Show("Недостаточно куриц", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
 
 
 
