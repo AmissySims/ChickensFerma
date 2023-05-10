@@ -17,22 +17,22 @@ namespace Veterinar.VetPages
         {
             InitializeComponent();
 
-            Chicklist.ItemsSource = App.db.Chicken.ToList();
+            Chicklist.ItemsSource = App.db.Chicken.Where(x => x.StatusLifeId == 1).ToList();
 
             List<Health> listHealth = _context.Health.ToList();
 
-            listHealth.Insert(0, new Health { Title = "Все" });
+            listHealth.Insert(3, new Health { Title = "Все" });
 
             HealthCb.ItemsSource = listHealth;
-            HealthCb.SelectedIndex = 0;
+            HealthCb.SelectedIndex = 3;
 
             Sort();
         }
         public void Sort()
         {
-            List<Chicken> listChick = _context.Chicken.ToList();
+            List<Chicken> listChick = _context.Chicken.Where(x => x.StatusLifeId == 1).ToList();
 
-            if (HealthCb.SelectedIndex != 0)
+            if (HealthCb.SelectedIndex != 3)
             {
                 Health selHealth = (Health)HealthCb.SelectedItem;
                 listChick = listChick.Where(x => x.HealthId == selHealth.Id).ToList();

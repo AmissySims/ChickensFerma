@@ -41,10 +41,9 @@ namespace Farmer.PagesFarmer.OrdersPages
         private void AddOrderBt_Click(object sender, RoutedEventArgs e)
         {
             try
-            {
-                
+            {  
                 MessageBox.Show(DateTime.Now.ToString());
-                if (ChoiceCustCb.SelectedIndex != null && ChoiceComponentCb.SelectedIndex != null && CountaddTb.Text != "" && PriceTb.Text != "")
+                if (ChoiceCustCb.SelectedIndex != -1 && ChoiceComponentCb.SelectedIndex != -1 && CountaddTb.Text != "" && PriceTb.Text != "")
                 {
                     Order NewOrder = new Order()
                     {
@@ -64,10 +63,6 @@ namespace Farmer.PagesFarmer.OrdersPages
                 }
                 else
                     MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-               
-              
-
-
             }
             catch (Exception ex)
             {

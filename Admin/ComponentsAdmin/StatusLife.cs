@@ -7,35 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Farmer.Components
+namespace Admin.ComponentsAdmin
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Chicken
+    public partial class StatusLife
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Chicken()
+        public StatusLife()
         {
-            this.OrderChicken = new HashSet<OrderChicken>();
+            this.Chicken = new HashSet<Chicken>();
         }
     
-        public int id { get; set; }
-        public string Name { get; set; }
-        public string Weight { get; set; }
-        public string Age { get; set; }
-        public Nullable<int> EggsInMonth { get; set; }
-        public Nullable<int> CageId { get; set; }
-        public Nullable<int> HealthId { get; set; }
-        public Nullable<int> BreedId { get; set; }
-        public byte[] PhotoChic { get; set; }
-        public Nullable<int> StatusLifeId { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
     
-        public virtual Breed Breed { get; set; }
-        public virtual Cage Cage { get; set; }
-        public virtual Health Health { get; set; }
-        public virtual StatusLife StatusLife { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderChicken> OrderChicken { get; set; }
+        public virtual ICollection<Chicken> Chicken { get; set; }
     }
 }

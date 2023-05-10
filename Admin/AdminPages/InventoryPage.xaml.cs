@@ -62,13 +62,20 @@ namespace Admin.AdminPages
 
         private void AddPhotoBt_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog dialog = new OpenFileDialog();
-            if (dialog.ShowDialog() != null)
+            try
             {
-                image = File.ReadAllBytes(dialog.FileName);
-                ImageInvent.Source = new BitmapImage(new Uri(dialog.FileName));
-                MessageBox.Show("Добавление фото успешно", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                OpenFileDialog dialog = new OpenFileDialog();
+                if (dialog.ShowDialog() != null)
+                {
+                    image = File.ReadAllBytes(dialog.FileName);
+                    ImageInvent.Source = new BitmapImage(new Uri(dialog.FileName));
+                    MessageBox.Show("Добавление фото успешно", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
 
+                }
+            }
+            catch (Exception ex)
+            { 
+                MessageBox.Show($"Ошибка при добавлении фото: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -76,7 +83,7 @@ namespace Admin.AdminPages
         {
             try
             {
-                if(AddTitleTb.Text != "" && AddTypeCb.SelectedIndex != null && AddCountTb.Text != "" && AddPriceTb.Text != "")
+                if(AddTitleTb.Text != "" && AddTypeCb.SelectedIndex != -1 && AddCountTb.Text != "" && AddPriceTb.Text != "")
                 {
                     Inventory inventory = new Inventory()
                     {
@@ -109,7 +116,7 @@ namespace Admin.AdminPages
         {
             try
             {
-                if (NameCb.SelectedIndex != null && CountTb.Text != "")
+                if (NameCb.SelectedIndex != -1 && CountTb.Text != "")
                 {
                     var SelInvent = (NameCb.SelectedItem as Inventory);
                     SelInvent.Count += Convert.ToInt32(CountTb.Text.Trim());

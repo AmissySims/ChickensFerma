@@ -34,7 +34,7 @@ namespace Farmer.PagesFarmer
         {
             try
             {
-                if ((AddSizeCb.SelectedIndex != null) && (AddDepCb.SelectedIndex != null))
+                if ((AddSizeCb.SelectedIndex != -1) && (AddDepCb.SelectedIndex != -1))
                 {
 
                     var SelCell = (AddDepCb.SelectedItem as Department);
@@ -42,7 +42,7 @@ namespace Farmer.PagesFarmer
                     if ((SelCell.CountCage) < ListCage.Count)
                     {
                         SelCell.IsPauzz = true;
-                        MessageBox.Show("error");
+                        MessageBox.Show("Теперь клетка заполнена");
                     }
                     else
                     {

@@ -29,10 +29,12 @@ namespace Veterinar.Componentsvet
         public Nullable<int> HealthId { get; set; }
         public Nullable<int> BreedId { get; set; }
         public byte[] PhotoChic { get; set; }
+        public Nullable<int> StatusLifeId { get; set; }
     
         public virtual Breed Breed { get; set; }
         public virtual Cage Cage { get; set; }
         public virtual Health Health { get; set; }
+        public virtual StatusLife StatusLife { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderChicken> OrderChicken { get; set; }
     }
