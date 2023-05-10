@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Veterinar.WindowsVet"
         mc:Ignorable="d"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        Title="Добавить куриц в заказ" Height="500" Width="410">
+        Title="Добавить куриц в заказ" Height="500" Width="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="27*"/>
@@ -20,7 +20,7 @@
                 <TextBlock Text="{Binding Order.Count}"  FontSize="17"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                <Button x:Name="RemoveBt" Content="Закрыть заказ" Margin="290 0" Click="RemoveBt_Click"/>
+                <Button x:Name="RemoveBt" Content="Закрыть заказ" Margin="280 0" Click="RemoveBt_Click"/>
             </StackPanel>
         </StackPanel>
         
@@ -55,7 +55,7 @@
                                 </StackPanel>
                                 <StackPanel Margin="5" Orientation="Horizontal">
                                     <TextBlock Text="Вес "/>
-                                    <TextBlock Text="{Binding Width}"/>
+                                    <TextBlock Text="{Binding Width, StringFormat='{}{0} кг'}"/>
                                 </StackPanel>
                                 
                             </StackPanel>
