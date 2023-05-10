@@ -14,7 +14,16 @@ namespace Admin.ComponentsAdmin
     
     public partial class Health
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Health()
+        {
+            this.Chicken = new HashSet<Chicken>();
+        }
+    
         public int Id { get; set; }
         public string Title { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Chicken> Chicken { get; set; }
     }
 }

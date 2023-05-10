@@ -39,6 +39,7 @@ namespace Admin.ComponentsAdmin
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Size> Size { get; set; }
         public virtual DbSet<Status> Status { get; set; }
+        public virtual DbSet<StatusLife> StatusLife { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Type> Type { get; set; }
         public virtual DbSet<TypeProd> TypeProd { get; set; }

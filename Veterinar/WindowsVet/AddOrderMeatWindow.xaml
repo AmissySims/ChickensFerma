@@ -14,12 +14,13 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5 0">
-                <TextBlock Text=" " FontSize="17"></TextBlock>
-                <TextBlock Text="/" FontSize="17"></TextBlock>
-                <TextBlock Text="{Binding Order.Count}"  FontSize="17"></TextBlock>
+                <TextBlock Text="" x:Name="SelectedTb" FontSize="17"/>
+                <TextBlock Text="/" FontSize="17"/>
+
+                <TextBlock Text="{Binding Order.Count}"  FontSize="17"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                <Button x:Name="RemoveBt" Content="Закрыть заказ" Margin="250 0" Click="RemoveBt_Click"/>
+                <Button x:Name="RemoveBt" Content="Закрыть заказ" Margin="290 0" Click="RemoveBt_Click"/>
             </StackPanel>
         </StackPanel>
         
@@ -34,7 +35,7 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <!--<Image Grid.Column="0" Source="{Binding PhotoChic}" Margin="5"/>-->
+                            <Image Grid.Column="0" Source="{Binding PhotoChic}" Margin="5" Width="150" Height="150"/>
                             <StackPanel Grid.Column="1" Margin="5">
                                 <StackPanel Margin="5" Orientation="Horizontal">
                                     <TextBlock Text="Имя "/>
@@ -56,7 +57,7 @@
                                     <TextBlock Text="Вес "/>
                                     <TextBlock Text="{Binding Width}"/>
                                 </StackPanel>
-
+                                
                             </StackPanel>
 
                         </Grid>

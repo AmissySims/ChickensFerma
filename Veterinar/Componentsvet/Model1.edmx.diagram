@@ -5,30 +5,32 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="790a2ee17f6c4a7183d4b04497757e35" Name="Diagram1">
-        <EntityTypeShape EntityType="ChickensModel.Breed" Width="1.5" PointX="0.75" PointY="10.125" />
-        <EntityTypeShape EntityType="ChickensModel.Cage" Width="1.5" PointX="0.75" PointY="13.875" />
-        <EntityTypeShape EntityType="ChickensModel.Chicken" Width="1.5" PointX="3" PointY="13.25" />
-        <EntityTypeShape EntityType="ChickensModel.Customer" Width="1.5" PointX="0.75" PointY="4" />
-        <EntityTypeShape EntityType="ChickensModel.Department" Width="1.5" PointX="1.5" PointY="20.375" />
-        <EntityTypeShape EntityType="ChickensModel.Eggs" Width="1.5" PointX="5.25" PointY="10" />
-        <EntityTypeShape EntityType="ChickensModel.Health" Width="1.5" PointX="0.75" PointY="23.25" />
+        <EntityTypeShape EntityType="ChickensModel.Breed" Width="1.5" PointX="0.75" PointY="27.625" />
+        <EntityTypeShape EntityType="ChickensModel.Cage" Width="1.5" PointX="0.75" PointY="11.625" />
+        <EntityTypeShape EntityType="ChickensModel.Chicken" Width="1.5" PointX="3" PointY="14.625" />
+        <EntityTypeShape EntityType="ChickensModel.Customer" Width="1.5" PointX="0.75" PointY="0.875" />
+        <EntityTypeShape EntityType="ChickensModel.Department" Width="1.5" PointX="1.5" PointY="22" />
+        <EntityTypeShape EntityType="ChickensModel.Eggs" Width="1.5" PointX="5.25" PointY="10.375" />
+        <EntityTypeShape EntityType="ChickensModel.Health" Width="1.5" PointX="0.75" PointY="25.25" />
         <EntityTypeShape EntityType="ChickensModel.Inventory" Width="1.5" PointX="10" PointY="2.125" />
         <EntityTypeShape EntityType="ChickensModel.Order" Width="1.5" PointX="3" PointY="3.125" />
-        <EntityTypeShape EntityType="ChickensModel.OrderChicken" Width="1.5" PointX="5.25" PointY="0.75" />
-        <EntityTypeShape EntityType="ChickensModel.OrderEggs" Width="1.5" PointX="5.25" PointY="3.75" />
+        <EntityTypeShape EntityType="ChickensModel.OrderChicken" Width="1.5" PointX="5.25" PointY="3.75" />
+        <EntityTypeShape EntityType="ChickensModel.OrderEggs" Width="1.5" PointX="5.25" PointY="0.75" />
         <EntityTypeShape EntityType="ChickensModel.Role" Width="1.5" PointX="5.75" PointY="7.375" />
-        <EntityTypeShape EntityType="ChickensModel.Size" Width="1.5" PointX="1.5" PointY="17.875" />
+        <EntityTypeShape EntityType="ChickensModel.Size" Width="1.5" PointX="1.5" PointY="19.5" />
         <EntityTypeShape EntityType="ChickensModel.Status" Width="1.5" PointX="0.75" PointY="7.25" />
+        <EntityTypeShape EntityType="ChickensModel.StatusLife" Width="1.5" PointX="0.75" PointY="16" />
         <EntityTypeShape EntityType="ChickensModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="11" />
         <EntityTypeShape EntityType="ChickensModel.Type" Width="1.5" PointX="7.75" PointY="2.5" />
-        <EntityTypeShape EntityType="ChickensModel.TypeProd" Width="1.5" PointX="0.75" PointY="0.875" />
-        <EntityTypeShape EntityType="ChickensModel.TypeStandart" Width="1.5" PointX="3" PointY="9" />
+        <EntityTypeShape EntityType="ChickensModel.TypeProd" Width="1.5" PointX="0.75" PointY="4" />
+        <EntityTypeShape EntityType="ChickensModel.TypeStandart" Width="1.5" PointX="3" PointY="7.375" />
         <EntityTypeShape EntityType="ChickensModel.User" Width="1.5" PointX="8" PointY="7.125" />
         <AssociationConnector Association="ChickensModel.FK_Chicken_Breed" />
         <AssociationConnector Association="ChickensModel.FK_Cage_Department" />
         <AssociationConnector Association="ChickensModel.FK_Cage_Size" />
         <AssociationConnector Association="ChickensModel.FK_Chicken_Cage" />
         <AssociationConnector Association="ChickensModel.FK_Chicken_Health" />
+        <AssociationConnector Association="ChickensModel.FK_Chicken_StatusLife" />
         <AssociationConnector Association="ChickensModel.FK_OrderChicken_Chicken" />
         <AssociationConnector Association="ChickensModel.FK_Order_Counter" />
         <AssociationConnector Association="ChickensModel.FK_Eggs_TypeStandart" />
