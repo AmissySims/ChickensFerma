@@ -119,7 +119,8 @@ namespace Admin.AdminPages
                                 EggsInMonth = Convert.ToInt32(AddeggsTb.Text.Trim()),
                                 CageId = (CageCb.SelectedItem as Cage).Id,
                                 HealthId = (HealthCb.SelectedItem as Health).Id,
-                                PhotoChic = image
+                                PhotoChic = image,
+                                StatusLifeId = 1
 
 
                             };

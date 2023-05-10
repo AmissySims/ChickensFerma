@@ -15,15 +15,18 @@ namespace Veterinar.WindowsVet
     {
         public IEnumerable<Chicken> Chickens { get; set; }
         public List<Chicken> ChikList { get; set; }
+        private StatusLife statusLifeDeath { get; set; }
         public Order Order { get; set; }     
         public AddOrderMeatWindow(Order _order)
         {
             Order = _order;
 
             Chickens = App.db.Chicken.Local;
+            statusLifeDeath = App.db.StatusLife.Where(sl => sl.Id == 2).FirstOrDefault();
+
 
             InitializeComponent();
-            ChikList = App.db.Chicken.Where(x => x.Health.Id == 2).ToList();
+            ChikList = App.db.Chicken.Where(x => x.Health.Id == 2 && x.StatusLifeId != statusLifeDeath.Id).ToList();
 
 
             ListChicks.ItemsSource = ChikList;
@@ -32,7 +35,7 @@ namespace Veterinar.WindowsVet
 
         private void ListChicks_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           
+            SelectedTb.Text = ListChicks.SelectedItems.Count.ToString();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) =>
@@ -40,47 +43,50 @@ namespace Veterinar.WindowsVet
 
         private void RemoveBt_Click(object sender, RoutedEventArgs e)
         {
-            var selectedItem = ListChicks.SelectedItem as Chicken;
+            string ending = GetEnding((int)Order.Count);
+            var selectedChick = ListChicks.SelectedItems;
 
-            var count = 0;
+            switch (selectedChick.Count)
+            {
+                case 0:
+                    MessageBox.Show("Нужно выбрать хотя бы одну", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                case var count when count < Order.Count:
+                    MessageBox.Show($"Для заказа необходимо {Order.Count} куриц{ending}", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                case var count when count > Order.Count:
+                    MessageBox.Show("Выберите то количество которое указанно в заказе", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                default:
+                    break;
+            }
+
             try
             {
-                //if (count > Order.Count)
-                //{
-                    for (count = 0; count < ChikList.Count; count++)
+                for (var count = 0; count < selectedChick.Count; count++)
+                {
+                    var newOrder = new OrderChicken
                     {
-                   
-                        var newOrder = new OrderChicken
-                        {
-                            OrderId = Order.Id,
-                            ChickenId = ChikList[count].id,
-                            Date = DateTime.Now
-                        };
+                        OrderId = Order.Id,
+                        ChickenId = ((Chicken)selectedChick[count]).id,
+                        Date = DateTime.Now,
+                    };
 
-                        App.db.OrderChicken.Add(newOrder);
+                    App.db.OrderChicken.Add(newOrder);
 
-                        //var delChik = new Chicken
-                        //{
-                        //    id = ChikList[count].id,
-                        //};
+                    var choiceChik = App.db.Chicken.Where(oc => oc.id == newOrder.ChickenId).FirstOrDefault();
 
-                        //var needDelete = App.db.OrderChicken.Where(oc => oc.ChickenId == delChik.id).FirstOrDefault();
-                        //if (needDelete != null) { App.db.OrderChicken.Remove(needDelete); }
-
-                        //App.db.Chicken.Remove(App.db.Chicken.Where(c => c.id == delChik.id).FirstOrDefault());
-                        Order.StatusId = 2;
-                        App.db.SaveChanges();
-                        MessageBox.Show("Выполнено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                        DialogResult = true;
+                    if (choiceChik != null)
+                    {
+                        choiceChik.StatusLife = statusLifeDeath;
                     }
 
-                    
-                //}
-                //else
-                //    MessageBox.Show("Недостаточно куриц", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
 
-
-
+                Order.StatusId = 2;
+                App.db.SaveChanges();
+                MessageBox.Show("Выполнено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                DialogResult = true;
             }
             catch (Exception ex)
             {
@@ -88,6 +94,20 @@ namespace Veterinar.WindowsVet
             }
 
 
+        }
+        private string GetEnding(int count)
+        {
+            switch (Order.Count % 10)
+            {
+                case 1:
+                    return "а";
+                case 2:
+                case 3:
+                case 4:
+                    return "ы";
+                default:
+                    return "";
+            }
         }
     }
 }

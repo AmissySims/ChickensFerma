@@ -106,6 +106,9 @@
     <Compile Include="ComponentsAdmin\Status.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ComponentsAdmin\StatusLife.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="PartialClasses\ClassCorrUser.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

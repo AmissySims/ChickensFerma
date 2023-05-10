@@ -17,7 +17,7 @@ namespace Veterinar.VetPages
         {
             InitializeComponent();
 
-            Chicklist.ItemsSource = App.db.Chicken.ToList();
+            Chicklist.ItemsSource = App.db.Chicken.Where(x => x.StatusLifeId == 1).ToList();
 
             List<Health> listHealth = _context.Health.ToList();
 
@@ -30,7 +30,7 @@ namespace Veterinar.VetPages
         }
         public void Sort()
         {
-            List<Chicken> listChick = _context.Chicken.ToList();
+            List<Chicken> listChick = _context.Chicken.Where(x => x.StatusLifeId == 1).ToList();
 
             if (HealthCb.SelectedIndex != 3)
             {

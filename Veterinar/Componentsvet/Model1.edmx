@@ -37,6 +37,7 @@
           <Property Name="HealthId" Type="int" />
           <Property Name="BreedId" Type="int" />
           <Property Name="PhotoChic" Type="image" />
+          <Property Name="StatusLifeId" Type="int" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -131,6 +132,13 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="StatusLife">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -231,6 +239,18 @@
             </Principal>
             <Dependent Role="Chicken">
               <PropertyRef Name="HealthId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chicken_StatusLife">
+          <End Role="StatusLife" Type="Self.StatusLife" Multiplicity="0..1" />
+          <End Role="Chicken" Type="Self.Chicken" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusLife">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Chicken">
+              <PropertyRef Name="StatusLifeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -369,6 +389,7 @@
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Size" EntityType="Self.Size" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusLife" EntityType="Self.StatusLife" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Type" EntityType="Self.Type" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeProd" EntityType="Self.TypeProd" Schema="dbo" store:Type="Tables" />
@@ -392,6 +413,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Chicken_Health" Association="Self.FK_Chicken_Health">
             <End Role="Health" EntitySet="Health" />
+            <End Role="Chicken" EntitySet="Chicken" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chicken_StatusLife" Association="Self.FK_Chicken_StatusLife">
+            <End Role="StatusLife" EntitySet="StatusLife" />
             <End Role="Chicken" EntitySet="Chicken" />
           </AssociationSet>
           <AssociationSet Name="FK_Eggs_TypeStandart" Association="Self.FK_Eggs_TypeStandart">
@@ -454,6 +479,7 @@
           <EntitySet Name="Role" EntityType="ChickensModel.Role" />
           <EntitySet Name="Size" EntityType="ChickensModel.Size" />
           <EntitySet Name="Status" EntityType="ChickensModel.Status" />
+          <EntitySet Name="StatusLife" EntityType="ChickensModel.StatusLife" />
           <EntitySet Name="sysdiagrams" EntityType="ChickensModel.sysdiagrams" />
           <EntitySet Name="Type" EntityType="ChickensModel.Type" />
           <EntitySet Name="TypeProd" EntityType="ChickensModel.TypeProd" />
@@ -477,6 +503,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Chicken_Health" Association="ChickensModel.FK_Chicken_Health">
             <End Role="Health" EntitySet="Health" />
+            <End Role="Chicken" EntitySet="Chicken" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chicken_StatusLife" Association="ChickensModel.FK_Chicken_StatusLife">
+            <End Role="StatusLife" EntitySet="StatusLife" />
             <End Role="Chicken" EntitySet="Chicken" />
           </AssociationSet>
           <AssociationSet Name="FK_OrderChicken_Chicken" Association="ChickensModel.FK_OrderChicken_Chicken">
@@ -556,9 +586,11 @@
           <Property Name="HealthId" Type="Int32" />
           <Property Name="BreedId" Type="Int32" />
           <Property Name="PhotoChic" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="StatusLifeId" Type="Int32" />
           <NavigationProperty Name="Breed" Relationship="ChickensModel.FK_Chicken_Breed" FromRole="Chicken" ToRole="Breed" />
           <NavigationProperty Name="Cage" Relationship="ChickensModel.FK_Chicken_Cage" FromRole="Chicken" ToRole="Cage" />
           <NavigationProperty Name="Health" Relationship="ChickensModel.FK_Chicken_Health" FromRole="Chicken" ToRole="Health" />
+          <NavigationProperty Name="StatusLife" Relationship="ChickensModel.FK_Chicken_StatusLife" FromRole="Chicken" ToRole="StatusLife" />
           <NavigationProperty Name="OrderChicken" Relationship="ChickensModel.FK_OrderChicken_Chicken" FromRole="Chicken" ToRole="OrderChicken" />
         </EntityType>
         <EntityType Name="Customer">
@@ -673,6 +705,14 @@
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Order" Relationship="ChickensModel.FK_Order_Status" FromRole="Status" ToRole="Order" />
         </EntityType>
+        <EntityType Name="StatusLife">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Chicken" Relationship="ChickensModel.FK_Chicken_StatusLife" FromRole="StatusLife" ToRole="Chicken" />
+        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -776,6 +816,18 @@
             </Principal>
             <Dependent Role="Chicken">
               <PropertyRef Name="HealthId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chicken_StatusLife">
+          <End Type="ChickensModel.StatusLife" Role="StatusLife" Multiplicity="0..1" />
+          <End Type="ChickensModel.Chicken" Role="Chicken" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusLife">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Chicken">
+              <PropertyRef Name="StatusLifeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -929,6 +981,7 @@
           <EntitySetMapping Name="Chicken">
             <EntityTypeMapping TypeName="ChickensModel.Chicken">
               <MappingFragment StoreEntitySet="Chicken">
+                <ScalarProperty Name="StatusLifeId" ColumnName="StatusLifeId" />
                 <ScalarProperty Name="PhotoChic" ColumnName="PhotoChic" />
                 <ScalarProperty Name="BreedId" ColumnName="BreedId" />
                 <ScalarProperty Name="HealthId" ColumnName="HealthId" />
@@ -1042,6 +1095,14 @@
           <EntitySetMapping Name="Status">
             <EntityTypeMapping TypeName="ChickensModel.Status">
               <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusLife">
+            <EntityTypeMapping TypeName="ChickensModel.StatusLife">
+              <MappingFragment StoreEntitySet="StatusLife">
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
