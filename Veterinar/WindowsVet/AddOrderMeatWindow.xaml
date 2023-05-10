@@ -26,7 +26,7 @@
         
         
         <ListView x:Name="ListChicks" Grid.Row="1"
-                  d:ItemsSource="{d:SampleData ItemCount=5}" ItemsSource="{Binding Chickens}" SelectionChanged="ListChicks_SelectionChanged">
+                  d:ItemsSource="{d:SampleData ItemCount=5}" ItemsSource="{Binding Chickens}" SelectionMode="Multiple" SelectionChanged="ListChicks_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="Black" BorderThickness="2">

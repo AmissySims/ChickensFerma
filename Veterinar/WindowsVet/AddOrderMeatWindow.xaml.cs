@@ -4,7 +4,6 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Veterinar.Componentsvet;
-using Veterinar.VetPages;
 
 namespace Veterinar.WindowsVet
 {
