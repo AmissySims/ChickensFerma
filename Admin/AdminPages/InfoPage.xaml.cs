@@ -28,8 +28,6 @@ namespace Admin.AdminPages
             InitializeComponent();
             UserList = new List<User>(App.db.User.Where(z=> z.Id == PartialClasses.ClassCorrUser.CorrUser.Id).ToList());
             ListDataFoView.ItemsSource = UserList;
-            
-            
         }
     }
 }

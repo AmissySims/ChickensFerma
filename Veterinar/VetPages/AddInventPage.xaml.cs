@@ -41,14 +41,21 @@ namespace Veterinar.VetPages
 
         private void PhotoBt_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog dialog = new OpenFileDialog();
-            if (dialog.ShowDialog() != null)
+            try
             {
-                image = File.ReadAllBytes(dialog.FileName);
-                ImInvent.Source = new BitmapImage(new Uri(dialog.FileName));
-                MessageBox.Show("Добавление фото успешно", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                OpenFileDialog dialog = new OpenFileDialog();
+                if (dialog.ShowDialog() != null)
+                {
+                    image = File.ReadAllBytes(dialog.FileName);
+                    ImInvent.Source = new BitmapImage(new Uri(dialog.FileName));
+                    MessageBox.Show("Добавление фото успешно", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при открытии диалога выбора файла: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
 
         private void add_Click(object sender, RoutedEventArgs e)

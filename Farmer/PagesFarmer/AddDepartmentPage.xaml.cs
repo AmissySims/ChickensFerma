@@ -55,7 +55,9 @@ namespace Farmer.PagesFarmer
                     Refresh();
                 }
                 else
+                {
                     MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
                 DepartmentList.ItemsSource = App.db.Department.ToList();
                
             }

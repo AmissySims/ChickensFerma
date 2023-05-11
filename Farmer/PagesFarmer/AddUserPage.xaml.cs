@@ -53,11 +53,10 @@ namespace Farmer.PagesFarmer
                     Refresh();
                 }
                 else
+                {
                     MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
                 UserList.ItemsSource = App.db.User.ToList();
-              
-               
-
             }
             catch (Exception ex)
             {
@@ -66,9 +65,6 @@ namespace Farmer.PagesFarmer
 
         }
 
-       
-
-       
         private void AddNameTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             if (!Char.IsLetter(e.Text, 0))

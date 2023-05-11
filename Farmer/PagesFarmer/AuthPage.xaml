@@ -21,11 +21,11 @@
             <TextBlock Text="ВХОД" HorizontalAlignment="Center" Margin="10" FontWeight="Bold"  />
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock Text="Логин" Margin="10" />
-                <TextBox x:Name="LoginTb" Width="100" Height="30"/>
+                <TextBox x:Name="LoginTb" Width="100" Height="30" MaxLength="50"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Пароль" Margin="10"/>
-                <PasswordBox x:Name="PasswordTb" Width="100" Height="30"/>
+                <PasswordBox x:Name="PasswordTb" Width="100" Height="30" MaxLength="50"/>
             </StackPanel>
             <Button x:Name="EnterBt" Content="Вход" Margin="5" Click="EnterBt_Click"/>
           

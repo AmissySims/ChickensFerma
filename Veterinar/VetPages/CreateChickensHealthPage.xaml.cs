@@ -35,15 +35,22 @@ namespace Veterinar.VetPages
 
         private void PhotoBt_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog dialog = new OpenFileDialog();
-            if (dialog.ShowDialog() != null)
+            try
             {
-                image = File.ReadAllBytes(dialog.FileName);
-                ImageChick.Source = new BitmapImage(new Uri(dialog.FileName));
-                App.db.SaveChanges();
-                MessageBox.Show("Добавление фото успешно", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                OpenFileDialog dialog = new OpenFileDialog();
+                if (dialog.ShowDialog() != null)
+                {
+                    image = File.ReadAllBytes(dialog.FileName);
+                    ImageChick.Source = new BitmapImage(new Uri(dialog.FileName));
+                    App.db.SaveChanges();
+                    MessageBox.Show("Добавление фото успешно", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при открытии диалога выбора файла: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
 
         private void SaveChickBt_Click(object sender, RoutedEventArgs e)
@@ -61,13 +68,14 @@ namespace Veterinar.VetPages
 
                     var ListChick = App.db.Chicken.Where(x => x.Cage.Id == SelCell.Id).ToList();
 
-
                     SelCell.IsPaus = SelCell.Size.Count <= ListChick.Count + 1;
 
                     Cage pastChikenCell = App.db.Cage.FirstOrDefault(x => x.Id == Chickens.CageId);
                     pastChikenCell.IsPaus = pastChikenCell.IsPaus == true ? false : pastChikenCell.IsPaus;
 
                     var Ch = App.db.Chicken.First(z => z.id == Chickens.id);
+
+                    if (Ch == null) { throw new InvalidOperationException($"Курица с id={Chickens.id} не найдена в базе данных"); }
 
                     Ch.PhotoChic = image ?? Ch.PhotoChic;
                     Ch.CageId = (CageCb.SelectedItem as Cage).Id;
@@ -91,7 +99,7 @@ namespace Veterinar.VetPages
         }
 
         private bool ValidatyData() =>
-            AgeTb.Text != "" && AddeggsTb.Text != "" && WeightTb.Text != "" && CageCb.SelectedIndex != null && HealthCb.SelectedIndex != null;
+            AgeTb.Text != "" && AddeggsTb.Text != "" && WeightTb.Text != "" && CageCb.SelectedIndex != -1 && HealthCb.SelectedIndex != -1;
 
         private void WeightTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {

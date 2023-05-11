@@ -51,7 +51,7 @@
             <StackPanel Margin="10" Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Описание " Margin="5"/>
-                    <TextBox x:Name="AddDescriptionTb" Margin="5" Width="500" Height="40"/>
+                    <TextBox x:Name="AddDescriptionTb" Margin="5" Width="500" Height="40" MaxLength="2000"/>
                 </StackPanel>
 
                 <Button x:Name="AddCustBt" Content="Добавить" Margin="5" Click="AddCustBt_Click" />

@@ -23,7 +23,7 @@
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <TextBlock Text="Тип расходника"  Margin="15"/>
-                <ComboBox   Margin="5" x:Name="TypeCb" Height="20" Width="130" SelectionChanged="TypeCb_SelectionChanged" DisplayMemberPath="Title">
+                <ComboBox   Margin="5" x:Name="TypeCb" Height="20" Width="130" SelectionChanged="TypeCb_SelectionChanged" DisplayMemberPath="Title" SelectedIndex="0">
                     <!--<ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="Title"/>
@@ -34,7 +34,7 @@
             <StackPanel Orientation="Horizontal" >
                 <TextBlock Text="Поиск" Margin="15"/>
                 <TextBox x:Name="FoundTb" Height="20" Width="130"
-                         Margin="5" TextChanged="FoundTb_TextChanged"/>
+                         Margin="5" TextChanged="FoundTb_TextChanged" MaxLength="50"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal"  >
                 <TextBlock Text="Нет в наличии" Margin="15"/>

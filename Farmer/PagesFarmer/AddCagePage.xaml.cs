@@ -34,7 +34,7 @@ namespace Farmer.PagesFarmer
         {
             try
             {
-                if ((AddSizeCb.SelectedIndex != null) && (AddDepCb.SelectedIndex != null))
+                if ((AddSizeCb.SelectedIndex != -1) && (AddDepCb.SelectedIndex != -1))
                 {
 
                     var SelCell = (AddDepCb.SelectedItem as Department);
@@ -63,10 +63,10 @@ namespace Farmer.PagesFarmer
                     Refresh();
                 }
                 else
-                    MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                {
+                    MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);   
+                }
                 CageList.ItemsSource = App.db.Cage.ToList();
-
-
 
             }
             catch (Exception ex)

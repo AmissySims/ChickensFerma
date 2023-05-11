@@ -65,15 +65,15 @@
             <StackPanel Margin="10" Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="ФИО" Margin="5"/>
-                    <TextBox x:Name="AddNameTb" Margin="5" Width="110" PreviewTextInput="AddNameTb_PreviewTextInput"/>
+                    <TextBox x:Name="AddNameTb" Margin="5" Width="110" PreviewTextInput="AddNameTb_PreviewTextInput" MaxLength="50"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Логин" Margin="5"/>
-                    <TextBox x:Name="AddLoginTb" Margin="5" Width="110"/>
+                    <TextBox x:Name="AddLoginTb" Margin="5" Width="110" MaxLength="50"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Пароль" Margin="5"/>
-                    <TextBox x:Name="AddPasswordTb" Margin="5" Width="110" />
+                    <TextBox x:Name="AddPasswordTb" Margin="5" Width="110" MaxLength="50"/>
                 </StackPanel>
                 <Button x:Name="AddUser" Content="Добавить" Margin="5" Click="AddUser_Click"/>
             </StackPanel>

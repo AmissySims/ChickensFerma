@@ -50,12 +50,11 @@ namespace Farmer.PagesFarmer
                     MessageBox.Show("Добавлено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     Refresh();
                 }
-               else
+                else
+                {
                     MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
                 CustomerList.ItemsSource = App.db.Customer.ToList();
-             
-                
-
             }
             catch (Exception ex)
             {

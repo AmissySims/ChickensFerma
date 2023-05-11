@@ -42,12 +42,8 @@ namespace Admin.AdminPages
             CageCb.ItemsSource = null;
             BreedCb.ItemsSource = null;
             HealthCb.ItemsSource = null;
-
-
             Breeds = App.db.Breed.ToList();
-
             Healths = App.db.Health.ToList();
-
             Cages = App.db.Cage.Where(x => x.IsPaus == false).ToList();
             CageCb.ItemsSource = Cages;
             BreedCb.ItemsSource = Breeds;
@@ -69,13 +65,19 @@ namespace Admin.AdminPages
 
         private void AddPhotoBt_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog dialog = new OpenFileDialog();
-            if (dialog.ShowDialog() != null)
+            try
             {
-                image = File.ReadAllBytes(dialog.FileName);
-                ImageChick.Source = new BitmapImage(new Uri(dialog.FileName));
-                MessageBox.Show("Добавление фото успешно", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                OpenFileDialog dialog = new OpenFileDialog();
+                if (dialog.ShowDialog() != null)
+                {
+                    image = File.ReadAllBytes(dialog.FileName);
+                    ImageChick.Source = new BitmapImage(new Uri(dialog.FileName));
+                    MessageBox.Show("Добавление фото успешно", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при открытии диалога выбора файла: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -83,7 +85,7 @@ namespace Admin.AdminPages
         {
             try
             {
-                if (AddNameTb.Text != "" && BreedCb.SelectedIndex != null && AddWeightTb.Text != "" && AddAgeTb.Text != "" && AddeggsTb.Text != "" && CageCb.SelectedIndex != null && HealthCb.SelectedIndex != null)
+                if (AddNameTb.Text != "" && BreedCb.SelectedIndex != -1 && AddWeightTb.Text != "" && AddAgeTb.Text != "" && AddeggsTb.Text != "" && CageCb.SelectedIndex != -1 && HealthCb.SelectedIndex != -1)
                 {
                    
                     if(Convert.ToDouble(AddWeightTb.Text) <= 7 && Convert.ToDouble(AddAgeTb.Text) <= 8 && Convert.ToInt32(AddeggsTb.Text) <= 400)
@@ -98,7 +100,6 @@ namespace Admin.AdminPages
                         }
                         else
                         {
-
                             Chicken chicken = new Chicken()
                             {
                                 Name = AddNameTb.Text,

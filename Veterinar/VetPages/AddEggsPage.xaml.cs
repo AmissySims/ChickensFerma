@@ -56,8 +56,11 @@ namespace Veterinar.VetPages
                     Refresh();
                     
                 }
-                else
+                else 
+                {
                     MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                    
             }
             catch (Exception ex)
             {

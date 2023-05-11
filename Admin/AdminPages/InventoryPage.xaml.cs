@@ -30,15 +30,12 @@ namespace Admin.AdminPages
         {
             InitializeComponent();
             Refresh();
-            
-            
         }
         public void Refresh()
         {
             AddTypeCb.ItemsSource = null;
             NameCb.ItemsSource = null;
             AddTypeCb.ItemsSource = App.db.Type.ToList();
-            
             NameCb.ItemsSource = App.db.Inventory.ToList();
             AddTitleTb.Text = "";
             AddCountTb.Text = "";
@@ -62,21 +59,28 @@ namespace Admin.AdminPages
 
         private void AddPhotoBt_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog dialog = new OpenFileDialog();
-            if (dialog.ShowDialog() != null)
+            try
             {
-                image = File.ReadAllBytes(dialog.FileName);
-                ImageInvent.Source = new BitmapImage(new Uri(dialog.FileName));
-                MessageBox.Show("Добавление фото успешно", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                OpenFileDialog dialog = new OpenFileDialog();
+                if (dialog.ShowDialog() != null)
+                {
+                    image = File.ReadAllBytes(dialog.FileName);
+                    ImageInvent.Source = new BitmapImage(new Uri(dialog.FileName));
+                    MessageBox.Show("Добавление фото успешно", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при открытии диалога выбора файла: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
 
         private void AddNewSaveInventBt_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if(AddTitleTb.Text != "" && AddTypeCb.SelectedIndex != null && AddCountTb.Text != "" && AddPriceTb.Text != "")
+                if(AddTitleTb.Text != "" && AddTypeCb.SelectedIndex != -1 && AddCountTb.Text != "" && AddPriceTb.Text != "")
                 {
                     Inventory inventory = new Inventory()
                     {
@@ -85,9 +89,6 @@ namespace Admin.AdminPages
                         Count = Convert.ToInt32(AddCountTb.Text.Trim()),
                         Photo = image,
                         Price = Convert.ToInt32(AddPriceTb.Text.Trim())
-                        
-
-
                     };
                     App.db.Inventory.Add(inventory);
                     App.db.SaveChanges();
@@ -96,8 +97,6 @@ namespace Admin.AdminPages
                 }
                 else
                     MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-            
-                
             }
             catch (Exception ex)
             {
@@ -109,7 +108,7 @@ namespace Admin.AdminPages
         {
             try
             {
-                if (NameCb.SelectedIndex != null && CountTb.Text != "")
+                if (NameCb.SelectedIndex != -1 && CountTb.Text != "")
                 {
                     var SelInvent = (NameCb.SelectedItem as Inventory);
                     SelInvent.Count += Convert.ToInt32(CountTb.Text.Trim());

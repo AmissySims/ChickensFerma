@@ -57,15 +57,15 @@
             <StackPanel Margin="10" Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Название" Margin="5"/>
-                    <TextBox x:Name="AddTitleTb" Margin="5" Width="110"/>
+                    <TextBox x:Name="AddTitleTb" Margin="5" Width="110" MaxLength="50"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Количество клеток" Margin="5"/>
-                    <TextBox x:Name="AddCountCageTb" Margin="5" Width="80" PreviewTextInput="AddCountCageTb_PreviewTextInput"/>
+                    <TextBox x:Name="AddCountCageTb" Margin="5" Width="80" PreviewTextInput="AddCountCageTb_PreviewTextInput" MaxLength="4"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Адрес" Margin="5"/>
-                    <TextBox x:Name="AddAdressTb" Margin="5" Width="150"/>
+                    <TextBox x:Name="AddAdressTb" Margin="5" Width="150" MaxLength="2000"/>
                 </StackPanel>
                 <Button x:Name="AddDepartmentBt" Content="Добавить" Margin="5" Click="AddDepartmentBt_Click"/>
             </StackPanel>

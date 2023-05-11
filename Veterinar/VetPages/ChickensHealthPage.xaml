@@ -22,14 +22,14 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <TextBlock Text="Здоровье"  Margin="15"/>
                 <ComboBox   Margin="5" x:Name="HealthCb" Height="23" Width="130" 
-                            DisplayMemberPath="Title" SelectionChanged="HealthCb_SelectionChanged"/>
+                            DisplayMemberPath="Title" SelectionChanged="HealthCb_SelectionChanged" SelectedIndex="0"/>
 
 
             </StackPanel>
           
             <StackPanel Orientation="Horizontal" >
                 <TextBlock Text="Поиск" Margin="15"/>
-                <TextBox x:Name="FoundTb" Height="20" Width="130" Margin="5" TextChanged="FoundTb_TextChanged" />
+                <TextBox x:Name="FoundTb" Height="20" Width="130" Margin="5" TextChanged="FoundTb_TextChanged" MaxLength="50"/>
             </StackPanel>
            
         </StackPanel>
