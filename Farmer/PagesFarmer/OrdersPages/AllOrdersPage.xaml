@@ -20,7 +20,7 @@
         <StackPanel Grid.Row="1" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="Выбрать заказчика " ToolTip="Заказчик"/>
-                <ComboBox x:Name="ChoiceCustCb" Height="20" Width="200" Margin="5" SelectedIndex="0">
+                <ComboBox x:Name="ChoiceCustCb" Height="20" Width="200" Margin="5">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Description}"/>
@@ -31,7 +31,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="Выбрать тип продукта " />
-                <ComboBox x:Name="ChoiceComponentCb" Height="20" Width="180" Margin="5" ToolTip="Тип продукта" SelectedIndex="0">
+                <ComboBox x:Name="ChoiceComponentCb" Height="20" Width="180" Margin="5" ToolTip="Тип продукта" >
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Title}"/>

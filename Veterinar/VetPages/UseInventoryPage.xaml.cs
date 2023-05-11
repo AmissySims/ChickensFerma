@@ -1,21 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Veterinar.Componentsvet;
-using Veterinar.VetPages;
-using Veterinar.WindowsVet;
 
 
 
@@ -30,7 +18,7 @@ namespace Veterinar.VetPages
         ChickensEntities _context = new ChickensEntities();
         public UseInventoryPage()
         {
-            
+
             InitializeComponent();
             Inventlist.ItemsSource = App.db.Inventory.ToList();
             List<Componentsvet.Type> listType = _context.Type.ToList();
@@ -38,9 +26,9 @@ namespace Veterinar.VetPages
             TypeCb.ItemsSource = listType;
             TypeCb.SelectedIndex = 0;
             Sort();
-            
+
         }
-       
+
         public void Sort()
         {
             List<Inventory> listInvent = _context.Inventory.ToList();
@@ -56,12 +44,12 @@ namespace Veterinar.VetPages
                 listInvent = listInvent.Where(x => x.Title.ToLower().Contains(searchString.ToLower())).ToList();
                 Inventlist.ItemsSource = listInvent;
             }
-            if(AvialibleTb.IsChecked == true)
+            if (AvialibleTb.IsChecked == true)
             {
                 listInvent = listInvent.Where(x => x.Count == 0).ToList();
                 Inventlist.ItemsSource = listInvent;
             }
-            else if(AvialibleTb.IsChecked == false)
+            else if (AvialibleTb.IsChecked == false)
             {
                 Inventlist.ItemsSource = listInvent;
             }
@@ -69,7 +57,7 @@ namespace Veterinar.VetPages
         }
         private void AvialibleTb_Checked(object sender, RoutedEventArgs e)
         {
-           Sort();
+            Sort();
         }
 
         private void TypeCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -93,38 +81,7 @@ namespace Veterinar.VetPages
             NavigationService.Navigate(new AddInventPage(selinvent));
         }
 
-        private void UseBt_Click(object sender, RoutedEventArgs e)
-        {
-            //if(Inventlist.SelectedItem != null)
-            //{
-            //    var dataInvent = Inventlist.SelectedItem as Inventory;
-            //    if(dataInvent.TypeId == 1)
-            //    { 
-            //        if((dataInvent.Count -1) <= 1)
-            //        {
-            //            MessageBox.Show("Инвентарь закончился", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
-            //        }
-            //        else
-            //        {
-            //            dataInvent.Count--;
-            //            MessageBox.Show("Инвентарь использован", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-            //            App.db.SaveChanges();
-            //            Inventlist.ItemsSource = App.db.Inventory.ToList();
-                        
-                        
-            //        }
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Инвентарь использовaн", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-            //        App.db.SaveChanges();
-            //        Inventlist.ItemsSource = App.db.Inventory.ToList();
-            //    }
-               
-            //}
-            //else
-            //    MessageBox.Show("Инвентарь использован", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
+  
 
         private void Inventlist_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

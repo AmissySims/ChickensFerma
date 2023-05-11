@@ -43,7 +43,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Вес в кг  "/>
-                        <TextBox x:Name="AddWeightTb" ToolTip="до 7 кг" Text="{Binding Weight}" Width="50" PreviewTextInput="AddWeightTb_PreviewTextInput" MaxLength="2"/>
+                        <TextBox x:Name="AddWeightTb" ToolTip="до 7 кг" Text="{Binding Weight}" Width="50" PreviewTextInput="AddWeightTb_PreviewTextInput" MaxLength="3"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Возраст  "/>
@@ -51,7 +51,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Несет яиц за месяц  "/>
-                        <TextBox x:Name="AddeggsTb" ToolTip="до 400 шт" Text="{Binding EggsInMonth}" Width="50" PreviewTextInput="AddeggsTb_PreviewTextInput" MaxLength="4"/>
+                        <TextBox x:Name="AddeggsTb" ToolTip="до 400 шт" Text="{Binding EggsInMonth}" Width="50" PreviewTextInput="AddeggsTb_PreviewTextInput" MaxLength="3"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Клетка  "/>

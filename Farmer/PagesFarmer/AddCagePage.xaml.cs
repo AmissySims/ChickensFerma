@@ -34,7 +34,7 @@ namespace Farmer.PagesFarmer
         {
             try
             {
-                if ((AddSizeCb.SelectedIndex != -1) && (AddDepCb.SelectedIndex != -1))
+                if ((AddSizeCb.SelectedIndex != -1) && (AddDepCb.SelectedIndex != -1) && NumberTb.Text != "")
                 {
 
                     var SelCell = (AddDepCb.SelectedItem as Department);
@@ -42,7 +42,7 @@ namespace Farmer.PagesFarmer
                     if ((SelCell.CountCage) < ListCage.Count)
                     {
                         SelCell.IsPauzz = true;
-                        MessageBox.Show("error");
+                     
                     }
                     else
                     {

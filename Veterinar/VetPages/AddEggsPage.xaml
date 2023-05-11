@@ -20,7 +20,7 @@
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Стандарт" Margin="5"/>
-                    <ComboBox x:Name="StandartCb" Margin="5" Width="50" SelectedIndex="0">
+                    <ComboBox x:Name="StandartCb" Margin="5" Width="50">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Title}"/>

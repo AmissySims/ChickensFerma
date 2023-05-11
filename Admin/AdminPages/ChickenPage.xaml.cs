@@ -57,7 +57,7 @@ namespace Admin.AdminPages
 
         private void AddWeightTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if(!Char.IsDigit(e.Text.Trim(), 0) || (AddWeightTb.Text.Length >= 3) )
+            if(!Char.IsDigit(e.Text.Trim(), 0) && (e.Text != ",") )
             {
                 e.Handled = true;
             }
@@ -96,7 +96,6 @@ namespace Admin.AdminPages
                         if (SelCell.Size.Count <= ListChick.Count)
                         {
                             SelCell.IsPaus = true;
-                            MessageBox.Show("error");
                         }
                         else
                         {
@@ -135,7 +134,7 @@ namespace Admin.AdminPages
 
         private void AddAgeTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text.Trim(), 0)  || AddAgeTb.Text.Length >= 3 )
+            if (!Char.IsDigit(e.Text.Trim(), 0) && (e.Text != ","))
             {
                 e.Handled = true;
             }
@@ -143,7 +142,7 @@ namespace Admin.AdminPages
 
         private void AddeggsTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text.Trim(), 0) || AddeggsTb.Text.Length >= 3  )
+            if (!Char.IsDigit(e.Text.Trim(), 0) )
             {
                 e.Handled = true;
             }

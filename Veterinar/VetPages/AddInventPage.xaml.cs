@@ -1,24 +1,13 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Veterinar.Componentsvet;
-using Veterinar.VetPages;
-using Veterinar.WindowsVet;
 
 namespace Veterinar.VetPages
 {
@@ -34,7 +23,7 @@ namespace Veterinar.VetPages
             App.db.Inventory.Load();
             invent = _inv ?? new Inventory();
             InitializeComponent();
-          
+
             invent = _inv;
             DataContext = _inv;
         }
@@ -48,7 +37,7 @@ namespace Veterinar.VetPages
                 {
                     image = File.ReadAllBytes(dialog.FileName);
                     ImInvent.Source = new BitmapImage(new Uri(dialog.FileName));
-                    MessageBox.Show("Добавление фото успешно", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Добавление фото успешно", "уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             catch (Exception ex)
@@ -63,9 +52,9 @@ namespace Veterinar.VetPages
             try
             {
                 //invent.Photo = image;
-                App.db.Inventory.Where(z=>z.Id == invent.Id).First().Photo = image;
+                App.db.Inventory.Where(z => z.Id == invent.Id).FirstOrDefault().Photo = image;
                 App.db.SaveChanges();
-                MessageBox.Show("jcvnch");
+                MessageBox.Show("Изменено", "уведомление", MessageBoxButton.OK, MessageBoxImage.Information); MessageBox.Show("Измене");
                 NavigationService.Navigate(new UseInventoryPage());
             }
             catch (Exception ex)

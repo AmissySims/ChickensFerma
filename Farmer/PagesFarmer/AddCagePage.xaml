@@ -60,7 +60,8 @@
             <StackPanel Margin="10" Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Размер клетки" Margin="5"/>
-                    <ComboBox x:Name="AddSizeCb" Height="20" Width="110" Margin="5" ToolTip="Размер" SelectedIndex="0">
+                    <ComboBox x:Name="AddSizeCb" Height="20" Width="110" 
+                              Margin="5" ToolTip="Размер" >
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Title}"/>
@@ -70,7 +71,8 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Помещение" Margin="5"/>
-                    <ComboBox x:Name="AddDepCb" Height="20" Width="110" Margin="5" ToolTip="Помещение" SelectedIndex="0">
+                    <ComboBox x:Name="AddDepCb" Height="20" Width="110" 
+                              Margin="5" ToolTip="Помещение" >
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Title}"/>
@@ -80,9 +82,11 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Номер клетки" Margin="5"/>
-                    <TextBox x:Name="NumberTb" Height="20" Width="50" PreviewTextInput="NumberTb_PreviewTextInput" MaxLength="4"/>
+                    <TextBox x:Name="NumberTb" Height="20" Width="50" 
+                             PreviewTextInput="NumberTb_PreviewTextInput" MaxLength="4"/>
                 </StackPanel>
-                <Button x:Name="AddCageBt" Content="Добавить" Margin="5" Click="AddCageBt_Click"/>
+                <Button x:Name="AddCageBt" Content="Добавить" 
+                        Margin="5" Click="AddCageBt_Click"/>
             </StackPanel>
         </StackPanel>
     </Grid>

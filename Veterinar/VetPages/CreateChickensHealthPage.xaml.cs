@@ -80,6 +80,10 @@ namespace Veterinar.VetPages
                     Ch.PhotoChic = image ?? Ch.PhotoChic;
                     Ch.CageId = (CageCb.SelectedItem as Cage).Id;
                     Ch.HealthId = (HealthCb.SelectedItem as Health).Id;
+                    Ch.Age = AgeTb.Text.Trim();
+                    Ch.EggsInMonth = Convert.ToInt32(AddeggsTb.Text.Trim());
+                    Ch.Weight = WeightTb.Text.Trim();
+
 
                     App.db.SaveChanges();
 
@@ -103,7 +107,7 @@ namespace Veterinar.VetPages
 
         private void WeightTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text, 0) || (e.Text == ",") )
+            if (!Char.IsDigit(e.Text, 0) && (e.Text != ",") )
             {
                 e.Handled = true;
             }
@@ -111,7 +115,7 @@ namespace Veterinar.VetPages
 
         private void AddeggsTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text, 0) || AddeggsTb.Text.Length >= 3)
+            if (!Char.IsDigit(e.Text, 0))
             {
                 e.Handled = true;
             }
@@ -119,7 +123,7 @@ namespace Veterinar.VetPages
 
         private void AgeTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text, 0) || (e.Text == ",") )
+            if (!Char.IsDigit(e.Text, 0) && (e.Text != ",") )
             {
                 e.Handled = true;
             }

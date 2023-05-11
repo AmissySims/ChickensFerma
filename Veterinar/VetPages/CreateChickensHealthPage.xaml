@@ -43,7 +43,7 @@
 
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Возраст  "/>
-                        <TextBox x:Name="AgeTb" ToolTip="до 8 лет" Text="{Binding Chickens.Age}" Width="50" PreviewTextInput="AgeTb_PreviewTextInput" MaxLength="1"/>
+                        <TextBox x:Name="AgeTb" ToolTip="до 8 лет" Text="{Binding Chickens.Age}" Width="50" PreviewTextInput="AgeTb_PreviewTextInput" MaxLength="3"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="5">

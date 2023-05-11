@@ -33,7 +33,7 @@
             </StackPanel>
         </StackPanel>
         <ListView Grid.Row="1" x:Name="EggsList" VerticalAlignment="Center"
-                  HorizontalAlignment="Center" d:ItemsSource="{d:SampleData ItemCount=4}" >
+                  HorizontalAlignment="Center" d:ItemsSource="{d:SampleData ItemCount=4}">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel></WrapPanel>

@@ -44,10 +44,7 @@ namespace Veterinar.WindowsVet
             {
                 if (StandartCb.SelectedItem != null)
                 {
-                    //if(Egg.Count > Order.Count)
-                    //{
-
-                    //}
+                    
                     var SellEg = (StandartCb.SelectedItem as TypeStandart);
                     var SelEggs = App.db.Eggs.Where(z => z.TypeStandartId == SellEg.Id).FirstOrDefault();
                     if (SelEggs.Count >= Order.Count)
