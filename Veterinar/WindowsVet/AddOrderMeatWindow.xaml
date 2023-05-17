@@ -20,7 +20,7 @@
                 <TextBlock Text="{Binding Order.Count}"  FontSize="17"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                <Button x:Name="RemoveBt" Content="Закрыть заказ" Margin="280 0" Click="RemoveBt_Click"/>
+                <Button x:Name="RemoveBt" Content="Закрыть заказ" Margin="240 0" Click="RemoveBt_Click"/>
             </StackPanel>
         </StackPanel>
         

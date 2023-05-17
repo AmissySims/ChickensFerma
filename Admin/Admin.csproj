@@ -168,9 +168,6 @@
     <Compile Include="ComponentsAdmin\Size.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ComponentsAdmin\sysdiagrams.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="ComponentsAdmin\Type.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

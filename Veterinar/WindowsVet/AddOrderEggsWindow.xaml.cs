@@ -1,18 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Veterinar.Componentsvet;
-using Veterinar.VetPages;
 
 namespace Veterinar.WindowsVet
 {
@@ -23,8 +13,8 @@ namespace Veterinar.WindowsVet
     {
         public IEnumerable<Eggs> Egg { get; set; }
         public Order Order { get; set; }
-       
-        int CountEggs { get; set; }
+
+
         public AddOrderEggsWindow(Order _order)
         {
             Order = _order;
@@ -44,7 +34,7 @@ namespace Veterinar.WindowsVet
             {
                 if (StandartCb.SelectedItem != null)
                 {
-                    
+
                     var SellEg = (StandartCb.SelectedItem as TypeStandart);
                     var SelEggs = App.db.Eggs.Where(z => z.TypeStandartId == SellEg.Id).FirstOrDefault();
                     if (SelEggs.Count >= Order.Count)
@@ -66,7 +56,7 @@ namespace Veterinar.WindowsVet
                         DialogResult = true;
                     }
                     else
-                        MessageBox.Show("Недостаточно яиц", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error); 
+                        MessageBox.Show("Недостаточно яиц", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
 
 
 

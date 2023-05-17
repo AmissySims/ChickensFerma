@@ -1,21 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Admin.ComponentsAdmin;
+using Microsoft.Win32;
+using System;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Admin.AdminPages;
-using Admin.ComponentsAdmin;
-using Microsoft.Win32;
 using Type = Admin.ComponentsAdmin.Type;
 
 namespace Admin.AdminPages
@@ -40,6 +31,7 @@ namespace Admin.AdminPages
             AddTitleTb.Text = "";
             AddCountTb.Text = "";
             AddPriceTb.Text = "";
+            CountTb.Text = "";
             ImageInvent.Source = null;
         }
 
@@ -80,7 +72,7 @@ namespace Admin.AdminPages
         {
             try
             {
-                if(AddTitleTb.Text != "" && AddTypeCb.SelectedIndex != -1 && AddCountTb.Text != "" && AddPriceTb.Text != "")
+                if (AddTitleTb.Text != "" && AddTypeCb.SelectedIndex != -1 && AddCountTb.Text != "" && AddPriceTb.Text != "")
                 {
                     Inventory inventory = new Inventory()
                     {

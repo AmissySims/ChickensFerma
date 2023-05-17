@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Veterinar"
         mc:Ignorable="d"
-        Title="Ветеринар" Height="450" Width="800" Icon="\Resources\Куры.jpg">
+        Title="Ветеринар" Height="450" Width="800" ResizeMode="NoResize" Icon="\Resources\Куры.jpg">
     <Grid>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>

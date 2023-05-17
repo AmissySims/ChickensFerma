@@ -50,7 +50,7 @@ namespace Veterinar.WindowsVet
                     MessageBox.Show($"Для заказа необходимо {Order.Count} куриц{ending}", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 case var count when count > Order.Count:
-                    MessageBox.Show("Выберите то количество которое указанно в заказе", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Выберите то количество которое указано в заказе", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 default:
                     break;

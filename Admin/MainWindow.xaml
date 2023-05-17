@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Admin"
         mc:Ignorable="d"
-        Title="Admin" Height="450" Width="800" Icon="\Resources\Куры.jpg">
+        Title="Admin" Height="450" Width="800" ResizeMode="NoResize" Icon="\Resources\Куры.jpg">
     <Grid>
         <Frame x:Name="MainFrameAdmin" NavigationUIVisibility="Hidden"/>
     </Grid>

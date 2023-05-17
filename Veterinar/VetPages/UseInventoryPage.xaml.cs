@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
 using Veterinar.Componentsvet;
 
 
@@ -75,13 +74,8 @@ namespace Veterinar.VetPages
             Sort();
         }
 
-        private void Create_Click(object sender, RoutedEventArgs e)
-        {
-            var selinvent = (sender as Button).DataContext as Inventory;
-            NavigationService.Navigate(new AddInventPage(selinvent));
-        }
 
-  
+
 
         private void Inventlist_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

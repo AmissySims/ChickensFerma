@@ -43,7 +43,9 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Вес в кг  "/>
-                        <TextBox x:Name="AddWeightTb" ToolTip="до 7 кг" Text="{Binding Weight}" Width="50" PreviewTextInput="AddWeightTb_PreviewTextInput" MaxLength="3"/>
+                        <TextBox x:Name="AddWeightTb" ToolTip="до 7 кг" Text="{Binding Weight}" 
+                                 Width="50" PreviewTextInput="AddWeightTb_PreviewTextInput"
+                                 MaxLength="3"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Возраст  "/>

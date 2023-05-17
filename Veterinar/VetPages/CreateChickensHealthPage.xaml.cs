@@ -94,7 +94,7 @@ namespace Veterinar.VetPages
                 {
                     MessageBox.Show("Слишком высокие показатели", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-                   
+
             }
             catch (Exception ex)
             {
@@ -107,7 +107,7 @@ namespace Veterinar.VetPages
 
         private void WeightTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text, 0) && (e.Text != ",") )
+            if (!Char.IsDigit(e.Text, 0) && (e.Text != ","))
             {
                 e.Handled = true;
             }
@@ -123,7 +123,7 @@ namespace Veterinar.VetPages
 
         private void AgeTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text, 0) && (e.Text != ",") )
+            if (!Char.IsDigit(e.Text, 0) && (e.Text != ","))
             {
                 e.Handled = true;
             }

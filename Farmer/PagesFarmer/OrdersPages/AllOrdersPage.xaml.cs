@@ -1,18 +1,9 @@
 ﻿using Farmer.Components;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Farmer.PagesFarmer.OrdersPages
 {
@@ -25,7 +16,7 @@ namespace Farmer.PagesFarmer.OrdersPages
         {
             InitializeComponent();
             Refresf();
-            
+
         }
         public void Refresf()
         {
@@ -36,13 +27,13 @@ namespace Farmer.PagesFarmer.OrdersPages
             CountaddTb.Text = "";
             PriceTb.Text = "";
         }
-    
+
 
         private void AddOrderBt_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                //MessageBox.Show(DateTime.Now.ToString());
+
                 if (ChoiceCustCb.SelectedIndex != -1 && ChoiceComponentCb.SelectedIndex != -1 && CountaddTb.Text != "" && PriceTb.Text != "")
                 {
                     Order NewOrder = new Order()
@@ -57,9 +48,10 @@ namespace Farmer.PagesFarmer.OrdersPages
                     };
                     App.db.Order.Add(NewOrder);
                     App.db.SaveChanges();
+                    MessageBox.Show(DateTime.Now.ToString(), "Дата заказа", MessageBoxButton.OK, MessageBoxImage.Information);
                     MessageBox.Show("Создано", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     Refresf();
-                    
+
                 }
                 else
                     MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);

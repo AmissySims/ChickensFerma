@@ -42,7 +42,7 @@ namespace Farmer.PagesFarmer
                     if ((SelCell.CountCage) < ListCage.Count)
                     {
                         SelCell.IsPauzz = true;
-                     
+
                     }
                     else
                     {
@@ -64,7 +64,7 @@ namespace Farmer.PagesFarmer
                 }
                 else
                 {
-                    MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);   
+                    MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 CageList.ItemsSource = App.db.Cage.ToList();
 

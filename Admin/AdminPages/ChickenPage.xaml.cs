@@ -1,22 +1,13 @@
-﻿using System;
+﻿using Admin.ComponentsAdmin;
+using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Admin.AdminPages;
-using Admin.ComponentsAdmin;
-using Microsoft.Win32;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Admin.AdminPages
 {
@@ -32,7 +23,7 @@ namespace Admin.AdminPages
         public List<Breed> Breeds { get; set; }
         public ChickenPage()
         {
-            
+
             InitializeComponent();
             Refresh();
 
@@ -57,7 +48,7 @@ namespace Admin.AdminPages
 
         private void AddWeightTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if(!Char.IsDigit(e.Text.Trim(), 0) && (e.Text != ",") )
+            if (!Char.IsDigit(e.Text.Trim(), 0) && (e.Text != ","))
             {
                 e.Handled = true;
             }
@@ -87,8 +78,8 @@ namespace Admin.AdminPages
             {
                 if (AddNameTb.Text != "" && BreedCb.SelectedIndex != -1 && AddWeightTb.Text != "" && AddAgeTb.Text != "" && AddeggsTb.Text != "" && CageCb.SelectedIndex != -1 && HealthCb.SelectedIndex != -1)
                 {
-                   
-                    if(Convert.ToDouble(AddWeightTb.Text) <= 7 && Convert.ToDouble(AddAgeTb.Text) <= 8 && Convert.ToInt32(AddeggsTb.Text) <= 400)
+
+                    if (Convert.ToDouble(AddWeightTb.Text) <= 7 && Convert.ToDouble(AddAgeTb.Text) <= 8 && Convert.ToInt32(AddeggsTb.Text) <= 400)
                     {
                         var SelCell = (CageCb.SelectedItem as Cage);
                         var ListChick = App.db.Chicken.ToList().Where(x => x.Cage == SelCell).ToList();
@@ -125,7 +116,7 @@ namespace Admin.AdminPages
                 else
                     MessageBox.Show("Заполните поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            
+
             catch (Exception ex)
             {
                 MessageBox.Show($"{ex}", "", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -142,7 +133,7 @@ namespace Admin.AdminPages
 
         private void AddeggsTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text.Trim(), 0) )
+            if (!Char.IsDigit(e.Text.Trim(), 0))
             {
                 e.Handled = true;
             }
